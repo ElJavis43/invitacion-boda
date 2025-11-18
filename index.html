@@ -5,32 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invitación Karla & Edgar</title>
 
+    <!-- ESTILOS -->
     <link rel="stylesheet" href="styles/style.css">
 </head>
-
 <body>
 
     <!-- TARJETA DE INICIO -->
-    <section class="hero" id="inicio">
-        <div class="hero-card">
-            <h2 id="nombreInvitado">Nombre del invitado</h2>
-            <p id="pasesAsignados">Pases asignados: 2</p>
-
-            <p class="nota-ninos">
-                Nos encantaría que los niños nos acompañen en esta celebración tan especial,  
+    <section class="portada" id="inicio">
+        <div class="portada-contenido">
+            <h1 class="nombre-invitado">Nombre del Invitado</h1>
+            <h2 class="pases">Pases asignados: X</h2>
+            <p class="nota">
+                Nos encantaría que los niños nos acompañen en esta celebración tan especial,
                 les pedimos amablemente su ayuda para supervisarlos durante todo el evento.
             </p>
-
-            <button class="btn" onclick="scrollToInvitation()">Asistir</button>
+            <a href="#invitacion" class="btn-asistir">Asistir</a>
         </div>
     </section>
 
-    <!-- INVITACIÓN -->
-    <section id="invitacion" class="contenido">
-
-        <h1 class="titulo-principal">Karla & Edgar</h1>
-
-        <!-- GALERÍA EN SCROLL -->
+    <!-- GALERÍA EN SCROLL -->
+    <section class="galeria">
         <div class="gallery">
             <img src="images/photo1.webp" loading="lazy" alt="">
             <img src="images/photo2.webp" loading="lazy" alt="">
@@ -40,66 +34,52 @@
             <img src="images/photo6.webp" loading="lazy" alt="">
             <img src="images/photo7.webp" loading="lazy" alt="">
         </div>
+    </section>
+
+    <!-- INVITACIÓN -->
+    <section class="invitacion" id="invitacion">
+
+        <h1 class="nombres">Karla & Edgar</h1>
 
         <p class="frase">Hemos decidido decir “sí” para toda la vida</p>
 
-        <h3>Con la bendición de Dios y en compañía de</h3>
+        <h2>14 de marzo del 2026</h2>
 
-        <p class="padres">
-            <b>Padres de la novia:</b> Ma. Dolores Medina Ochoa y Javier Ramírez Serna<br>
-            <b>Padres del novio:</b> María Elena Herrera … y Martín Gregorio Fernández …
-        </p>
+        <div id="countdown"></div>
 
-        <p class="padrinos">
-            <b>Padrinos:</b> Elizabeth Velazco Rivera y Francisco Javier Medina Ochoa
-        </p>
+        <h3>Con la bendición de Dios y en compañía de nuestros padres</h3>
+        <p>Ma. Dolores Medina Ochoa y Javier Ramírez Serna</p>
+        <p>María Elena Herrera y Martín Gregorio Fernández</p>
 
-        <h3>Ceremonia Religiosa</h3>
-        <p>
-            Templo Sagrado Corazón de Jesús – Los Fresnos  
-            <br>5:00 PM
-        </p>
+        <h3>Nuestros padrinos</h3>
+        <p>Elizabeth Velazco Rivera y Francisco Javier Medina Ochoa</p>
 
-        <a href="https://maps.google.com" target="_blank" class="btn">Ver ubicación</a>
+        <h3>Ceremonia</h3>
+        <p>Templo Sagrado Corazón de Jesús, Los Fresnos</p>
+        <a class="btn-link" href="https://maps.app.goo.gl/" target="_blank">Ver en Google Maps</a>
 
         <h3>Recepción</h3>
-        <p>
-            Casa de Piedra – 7:45 PM
-        </p>
-
-        <a href="#" target="_blank" class="btn">Abrir ubicación</a>
+        <p>Casa de Piedra</p>
+        <a class="btn-link" href="https://maps.app.goo.gl/" target="_blank">Ver en Google Maps</a>
 
         <h3>Itinerario</h3>
-        <ul class="itinerario">
-            <li>Ceremonia — 05:00 PM</li>
-            <li>Boda civil — 07:15 PM</li>
-            <li>Recepción — 07:45 PM</li>
-            <li>Cena — 09:00 PM</li>
-            <li>Inicio del baile — 10:00 PM</li>
-            <li>Banda — 12:00 AM</li>
-            <li>Despedida — 01:00 AM</li>
-        </ul>
-
-        <h3>Código de vestimenta</h3>
         <p>
-            Formal  
-            <br>Caballeros: traje, moño o corbata, zapato formal.  
-            <br>Damas: vestido largo (evitar blanco y tonos crema), zapatilla formal.
+            Ceremonia 05:00 P.M. · Boda civil 07:15 P.M. · Recepción 07:45 P.M. ·  
+            Cena 09:00 P.M. · Inicio del baile 10:00 P.M. · Banda 12:00 A.M. ·  
+            Despedida 01:00 A.M.
         </p>
 
+        <h3>Código de vestimenta</h3>
+        <p>Formal: Caballeros traje, moño o corbata.  
+        Damas: Vestido largo (evitar blanco y crema).</p>
+
         <h3>Mesa de regalos</h3>
-        <a href="#" class="btn" target="_blank">Amazon</a>
-        <a href="#" class="btn" target="_blank">Liverpool</a>
+        <a class="btn-link" href="https://www.liverpool.com.mx/" target="_blank">Liverpool</a>
+        <a class="btn-link" href="https://www.amazon.com.mx/" target="_blank">Amazon</a>
 
-        <h3>Confirmación</h3>
-        <a href="https://forms.google.com" class="btn confirmar" target="_blank">Confirmar asistencia</a>
+        <h3>Confirmación de asistencia</h3>
+        <a class="btn-asistir" href="#formulario">Confirmar asistencia</a>
     </section>
-
-    <script>
-        function scrollToInvitation() {
-            document.getElementById("invitacion").scrollIntoView({ behavior: "smooth" });
-        }
-    </script>
 
 </body>
 </html>
