@@ -5,25 +5,7 @@ body {
     color: #5a4a42;
 }
 
-/* ======================= */
-/* ANIMACIÓN SCROLL */
-/* ======================= */
-
-.reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 1s ease;
-}
-
-.reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* ======================= */
 /* PORTADA */
-/* ======================= */
-
 .portada {
     height: 100vh;
     background: #f7ede3;
@@ -44,62 +26,67 @@ body {
     border-radius: 6px;
 }
 
-/* ======================= */
-/* GALERÍA AUTOMÁTICA */
-/* ======================= */
-
-.galeria {
-    padding: 30px 15px;
-}
-
-.gallery {
-    column-count: 2;
-    column-gap: 15px;
-}
-
-.gallery img {
-    width: 100%;
-    margin-bottom: 15px;
-    border-radius: 12px;
-    display: block;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.10);
-    opacity: 0;
-    animation: fadeIn 1.2s forwards;
-}
-
-@keyframes fadeIn {
-    to { opacity: 1; }
-}
-
-/* TABLET */
-@media (min-width: 600px) {
-    .gallery {
-        column-count: 3;
-    }
-}
-
-/* DESKTOP */
-@media (min-width: 992px) {
-    .gallery {
-        column-count: 4;
-    }
-}
-
-/* ======================= */
-/* INVITACIÓN */
-/* ======================= */
-
-.invitacion {
+/* BLOQUES CON IMAGEN A UN LADO */
+.bloque {
+    display: flex;
+    align-items: center;
     padding: 40px 20px;
-    text-align: center;
+    gap: 20px;
+    max-width: 1000px;
+    margin: auto;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: aparecer 1s ease forwards;
+}
+
+.bloque:nth-child(even) {
+    animation-delay: 0.3s;
+}
+
+/* Invertir orden */
+.invertido {
+    flex-direction: row-reverse;
+}
+
+.bloque-img {
+    width: 45%;
+    border-radius: 14px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.bloque-texto {
+    width: 55%;
+    text-align: left;
 }
 
 .btn-link {
     display: inline-block;
-    margin: 10px;
+    margin: 10px 5px;
     padding: 10px 16px;
     background: #d9c2a3;
     color: white;
     text-decoration: none;
     border-radius: 5px;
+}
+
+/* Animación suave */
+@keyframes aparecer {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .bloque {
+        flex-direction: column;
+        text-align: center;
+    }
+    .invertido {
+        flex-direction: column;
+    }
+    .bloque-img, .bloque-texto {
+        width: 100%;
+    }
 }
