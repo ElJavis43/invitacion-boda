@@ -11,7 +11,7 @@
 <body>
 
     <!-- TARJETA DE INICIO -->
-    <section class="portada" id="inicio">
+    <section class="portada reveal" id="inicio">
         <div class="portada-contenido">
             <h1 class="nombre-invitado">Nombre del Invitado</h1>
             <h2 class="pases">Pases asignados: X</h2>
@@ -23,25 +23,21 @@
         </div>
     </section>
 
-    <!-- GALERÍA MEJORADA -->
-    <section class="galeria">
+    <!-- GALERÍA AUTOMÁTICA -->
+    <section class="galeria reveal">
         <div class="gallery">
-
-            <div class="foto"><img src="images/photo1.webp" loading="lazy" alt=""></div>
-            <div class="foto"><img src="images/photo2.webp" loading="lazy" alt=""></div>
-            <div class="foto horizontal"><img src="images/photo3.webp" loading="lazy" alt=""></div>
-
-            <div class="foto"><img src="images/photo4.webp" loading="lazy" alt=""></div>
-            <div class="foto vertical"><img src="images/photo5.webp" loading="lazy" alt=""></div>
-
-            <div class="foto"><img src="images/photo6.webp" loading="lazy" alt=""></div>
-            <div class="foto horizontal"><img src="images/photo7.webp" loading="lazy" alt=""></div>
-
+            <img src="images/photo1.webp" loading="lazy" alt="">
+            <img src="images/photo2.webp" loading="lazy" alt="">
+            <img src="images/photo3.webp" loading="lazy" alt="">
+            <img src="images/photo4.webp" loading="lazy" alt="">
+            <img src="images/photo5.webp" loading="lazy" alt="">
+            <img src="images/photo6.webp" loading="lazy" alt="">
+            <img src="images/photo7.webp" loading="lazy" alt="">
         </div>
     </section>
 
     <!-- INVITACIÓN -->
-    <section class="invitacion" id="invitacion">
+    <section class="invitacion reveal" id="invitacion">
 
         <h1 class="nombres">Karla & Edgar</h1>
 
@@ -84,6 +80,26 @@
         <h3>Confirmación de asistencia</h3>
         <a class="btn-asistir" href="#formulario">Confirmar asistencia</a>
     </section>
+
+    <!-- SCRIPT DE ANIMACIÓN SCROLL -->
+    <script>
+        const reveals = document.querySelectorAll(".reveal");
+
+        function revealOnScroll() {
+            let windowHeight = window.innerHeight;
+
+            reveals.forEach(element => {
+                let elementTop = element.getBoundingClientRect().top;
+
+                if (elementTop < windowHeight - 80) {
+                    element.classList.add("visible");
+                }
+            });
+        }
+
+        window.addEventListener("scroll", revealOnScroll);
+        window.addEventListener("load", revealOnScroll);
+    </script>
 
 </body>
 </html>
