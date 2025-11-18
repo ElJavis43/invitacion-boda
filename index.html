@@ -4,14 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invitación Karla & Edgar</title>
-
-    <!-- ESTILOS -->
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
 
-    <!-- TARJETA DE INICIO -->
-    <section class="portada reveal" id="inicio">
+    <!-- PORTADA -->
+    <section class="portada" id="inicio">
         <div class="portada-contenido">
             <h1 class="nombre-invitado">Nombre del Invitado</h1>
             <h2 class="pases">Pases asignados: X</h2>
@@ -23,83 +21,85 @@
         </div>
     </section>
 
-    <!-- GALERÍA AUTOMÁTICA -->
-    <section class="galeria reveal">
-        <div class="gallery">
-            <img src="images/photo1.webp" loading="lazy" alt="">
-            <img src="images/photo2.webp" loading="lazy" alt="">
-            <img src="images/photo3.webp" loading="lazy" alt="">
-            <img src="images/photo4.webp" loading="lazy" alt="">
-            <img src="images/photo5.webp" loading="lazy" alt="">
-            <img src="images/photo6.webp" loading="lazy" alt="">
-            <img src="images/photo7.webp" loading="lazy" alt="">
+    <!-- SECCIÓN 1 -->
+    <section class="bloque">
+        <img src="images/photo1.webp" alt="Foto 1" class="bloque-img">
+        <div class="bloque-texto">
+            <h1 class="nombres">Karla & Edgar</h1>
+            <p class="frase">Hemos decidido decir “sí” para toda la vida</p>
+            <h2>14 de marzo del 2026</h2>
+            <div id="countdown"></div>
         </div>
     </section>
 
-    <!-- INVITACIÓN -->
-    <section class="invitacion reveal" id="invitacion">
-
-        <h1 class="nombres">Karla & Edgar</h1>
-
-        <p class="frase">Hemos decidido decir “sí” para toda la vida</p>
-
-        <h2>14 de marzo del 2026</h2>
-
-        <div id="countdown"></div>
-
-        <h3>Con la bendición de Dios y en compañía de nuestros padres</h3>
-        <p>Ma. Dolores Medina Ochoa y Javier Ramírez Serna</p>
-        <p>María Elena Herrera y Martín Gregorio Fernández</p>
-
-        <h3>Nuestros padrinos</h3>
-        <p>Elizabeth Velazco Rivera y Francisco Javier Medina Ochoa</p>
-
-        <h3>Ceremonia</h3>
-        <p>Templo Sagrado Corazón de Jesús, Los Fresnos</p>
-        <a class="btn-link" href="https://maps.app.goo.gl/" target="_blank">Ver en Google Maps</a>
-
-        <h3>Recepción</h3>
-        <p>Casa de Piedra</p>
-        <a class="btn-link" href="https://maps.app.goo.gl/" target="_blank">Ver en Google Maps</a>
-
-        <h3>Itinerario</h3>
-        <p>
-            Ceremonia 05:00 P.M. · Boda civil 07:15 P.M. · Recepción 07:45 P.M. ·  
-            Cena 09:00 P.M. · Inicio del baile 10:00 P.M. · Banda 12:00 A.M. ·  
-            Despedida 01:00 A.M.
-        </p>
-
-        <h3>Código de vestimenta</h3>
-        <p>Formal: Caballeros traje, moño o corbata.  
-        Damas: Vestido largo (evitar blanco y crema).</p>
-
-        <h3>Mesa de regalos</h3>
-        <a class="btn-link" href="https://www.liverpool.com.mx/" target="_blank">Liverpool</a>
-        <a class="btn-link" href="https://www.amazon.com.mx/" target="_blank">Amazon</a>
-
-        <h3>Confirmación de asistencia</h3>
-        <a class="btn-asistir" href="#formulario">Confirmar asistencia</a>
+    <!-- SECCIÓN 2 -->
+    <section class="bloque invertido">
+        <img src="images/photo2.webp" alt="Foto 2" class="bloque-img">
+        <div class="bloque-texto">
+            <h3>Con la bendición de Dios y en compañía de nuestros padres</h3>
+            <p>Ma. Dolores Medina Ochoa y Javier Ramírez Serna</p>
+            <p>María Elena Herrera y Martín Gregorio Fernández</p>
+        </div>
     </section>
 
-    <!-- SCRIPT DE ANIMACIÓN SCROLL -->
-    <script>
-        const reveals = document.querySelectorAll(".reveal");
+    <!-- SECCIÓN 3 -->
+    <section class="bloque">
+        <img src="images/photo3.webp" alt="Foto 3" class="bloque-img">
+        <div class="bloque-texto">
+            <h3>Nuestros padrinos</h3>
+            <p>Elizabeth Velazco Rivera y Francisco Javier Medina Ochoa</p>
+        </div>
+    </section>
 
-        function revealOnScroll() {
-            let windowHeight = window.innerHeight;
+    <!-- SECCIÓN 4 -->
+    <section class="bloque invertido">
+        <img src="images/photo4.webp" alt="Foto 4" class="bloque-img">
+        <div class="bloque-texto">
+            <h3>Ceremonia</h3>
+            <p>Templo Sagrado Corazón de Jesús, Los Fresnos</p>
+            <a class="btn-link" href="https://maps.app.goo.gl/" target="_blank">Ver en Google Maps</a>
+        </div>
+    </section>
 
-            reveals.forEach(element => {
-                let elementTop = element.getBoundingClientRect().top;
+    <!-- SECCIÓN 5 -->
+    <section class="bloque">
+        <img src="images/photo5.webp" alt="Foto 5" class="bloque-img">
+        <div class="bloque-texto">
+            <h3>Recepción</h3>
+            <p>Casa de Piedra</p>
+            <a class="btn-link" href="https://maps.app.goo.gl/" target="_blank">Ver en Google Maps</a>
+        </div>
+    </section>
 
-                if (elementTop < windowHeight - 80) {
-                    element.classList.add("visible");
-                }
-            });
-        }
+    <!-- SECCIÓN 6 -->
+    <section class="bloque invertido">
+        <img src="images/photo6.webp" alt="Foto 6" class="bloque-img">
+        <div class="bloque-texto">
+            <h3>Itinerario</h3>
+            <p>
+                Ceremonia 05:00 P.M. · Boda civil 07:15 P.M. · Recepción 07:45 P.M. ·  
+                Cena 09:00 P.M. · Inicio del baile 10:00 P.M. · Banda 12:00 A.M. ·  
+                Despedida 01:00 A.M.
+            </p>
+        </div>
+    </section>
 
-        window.addEventListener("scroll", revealOnScroll);
-        window.addEventListener("load", revealOnScroll);
-    </script>
+    <!-- SECCIÓN 7 -->
+    <section class="bloque">
+        <img src="images/photo7.webp" alt="Foto 7" class="bloque-img">
+        <div class="bloque-texto">
+            <h3>Código de vestimenta</h3>
+            <p>Formal: Caballeros traje, moño o corbata.  
+            Damas: Vestido largo (evitar blanco y crema).</p>
+
+            <h3>Mesa de regalos</h3>
+            <a class="btn-link" href="https://www.liverpool.com.mx/" target="_blank">Liverpool</a>
+            <a class="btn-link" href="https://www.amazon.com.mx/" target="_blank">Amazon</a>
+
+            <h3>Confirmación de asistencia</h3>
+            <a class="btn-asistir" href="#formulario">Confirmar asistencia</a>
+        </div>
+    </section>
 
 </body>
 </html>
