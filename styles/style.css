@@ -5,7 +5,9 @@ body {
     color: #5a4a42;
 }
 
+/* ======================= */
 /* PORTADA */
+/* ======================= */
 .portada {
     height: 100vh;
     background: #f7ede3;
@@ -20,37 +22,83 @@ body {
     display: inline-block;
     padding: 12px 20px;
     margin-top: 20px;
-    background: #d9c2a3;
+    background: #d2b89b;
     color: #fff;
     text-decoration: none;
     border-radius: 6px;
+    transition: 0.3s;
 }
 
-/* GALERÍA */
+.btn-asistir:hover {
+    background: #bfa283;
+}
+
+/* ======================= */
+/* GALERÍA ELEGANTE */
+/* ======================= */
+.galeria {
+    padding: 30px 15px;
+}
+
 .gallery {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    padding: 20px;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+}
+
+.foto {
+    grid-column: span 2;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+.foto.horizontal {
+    grid-column: span 3;
+}
+
+.foto.vertical {
+    grid-row: span 2;
 }
 
 .gallery img {
     width: 100%;
-    border-radius: 10px;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.10);
+    transition: transform 0.3s ease;
 }
 
+.gallery img:hover {
+    transform: scale(1.03);
+}
+
+/* EFECTO FADE */
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* ======================= */
 /* INVITACIÓN */
+/* ======================= */
 .invitacion {
     padding: 40px 20px;
     text-align: center;
+    max-width: 900px;
+    margin: auto;
 }
 
 .btn-link {
     display: inline-block;
     margin: 10px;
     padding: 10px 16px;
-    background: #d9c2a3;
+    background: #d2b89b;
     color: white;
     text-decoration: none;
     border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn-link:hover {
+    background: #bfa283;
 }
