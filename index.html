@@ -1,0 +1,284 @@
+<!--
+Archivo: Invitacion_Wix_singlefile.html
+Descripción: Página HTML responsiva para invitación de boda, colores pastel cálidos,
+tipografía elegante, galería de imágenes, tarjeta inicial "sin scroll" (overlay),
+botón 'Asistir' con scroll suave a la invitación, secciones con datos (ceremonia,
+recepción, itinerario, padrinos, mesa de regalos), botones a Google Maps y enlaces
+externos. También incluye un formulario de confirmación que puedes conectar a
+Google Forms, Formspree, o reemplazar por el formulario nativo de Wix para guardar
+en Excel/Contactos.
+
+INSTRUCCIONES RÁPIDAS para usar en Wix:
+1. Wix no permite pegar un archivo HTML completo en la mayoría de plantillas. Tienes 3 opciones:
+   A) Hospedar este archivo en un host externo (ej. Netlify, Vercel, o GitHub Pages) y luego usar
+      en Wix un iFrame (Agregar -> Insertar -> HTML iframe) apuntando a la URL pública.
+   B) Convertir la estructura y estilos a los bloques visuales de Wix (Strips, Boxes, Text, Buttons) y
+      añadir los scripts (contador, galería automática) con Velo (Wix Code). Puedo darte las instrucciones
+      para Velo si quieres.
+   C) Usar la app "Embeds" o "HTML iframe" en Wix y pegar este HTML como contenido (menor control).
+
+2. Imágenes: he colocado rutas relativas como ./images/photo1.jpg. En Wix sube tus fotos a la Biblioteca
+   de Medios y reemplaza las URLs (o sube a un host y usa URLs absolutas). Las fotos proporcionadas que
+   usaste en la conversación pueden nombrarse photo1.jpg ... photo5.jpg.
+
+3. Formularios y Excel: lo más sencillo es usar el formulario nativo de Wix (Agregar -> Contacto & Formulario)
+   y en Configuración -> Envíos -> Conectar a Excel/Google Sheets usando Zapier o Wix Automations.
+   Alternativa sin Wix: crea un Google Form y pega su endpoint en el formulario (reemplaza action en el <form>)
+
+4. Tipografías: uso Playfair Display (encabezados) y Lato (cuerpo). En Wix puedes elegir fuentes similares.
+
+5. Cambios: puedes editar texto, colores o reemplazar imágenes en el HTML. Si quieres, hago la conversión a Velo/Wix.
+
+-->
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Invitación - Karla & Edgar</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#FBF6F3; /* off-white pastel */
+      --accent:#F6D8C6; /* soft peach */
+      --accent-2:#EADFD6; /* warm cream */
+      --text:#2D2A26; /* deep slate for text */
+      --muted:#7A746F;
+      --max-width:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:'Lato',sans-serif;background:var(--bg);color:var(--text);}
+    .container{max-width:var(--max-width);margin:0 auto;padding:0 20px;}
+
+    /* START CARD (full screen overlay without scroll) */
+    .start-overlay{position:fixed;inset:0;background:linear-gradient(180deg, rgba(250,244,242,0.98), rgba(250,244,242,0.98));display:flex;align-items:center;justify-content:center;z-index:9999}
+    .start-card{width:92%;max-width:720px;background:rgba(255,255,255,0.9);border-radius:16px;padding:28px 30px;box-shadow:0 6px 30px rgba(30,20,18,0.08);text-align:center}
+    .start-card h2{font-family:'Playfair Display',serif;font-size:34px;margin:0 0 8px}
+    .start-card p{margin:0 0 18px;color:var(--muted);line-height:1.45}
+    .start-card .guest-info{margin:10px 0 16px;background:linear-gradient(90deg,var(--accent),var(--accent-2));padding:12px;border-radius:10px}
+    .start-card button{background:var(--text);color:#fff;border:none;padding:12px 22px;border-radius:10px;font-weight:700;cursor:pointer}
+
+    /* Header hero */
+    header.hero{padding:40px 0 24px;text-align:center}
+    header .names{font-family:'Playfair Display',serif;font-size:44px;letter-spacing:1px;margin-bottom:6px}
+    header .sub{color:var(--muted);margin-top:0}
+
+    /* Main sections */
+    .two-col{display:flex;gap:28px;align-items:flex-start;margin:28px 0}
+    .left,.right{flex:1}
+    .card{background:#fff;padding:20px;border-radius:12px;box-shadow:0 6px 20px rgba(30,20,18,0.03)}
+
+    h3{font-family:'Playfair Display',serif;margin:0 0 10px}
+    p.small{color:var(--muted);margin:0 0 10px}
+
+    /* Gallery strip that auto-scrolls images */
+    .gallery{position:relative;margin:20px 0;height:320px;border-radius:12px;overflow:hidden}
+    .gallery img{width:100%;height:100%;object-fit:cover;display:block}
+    .gallery .slide{position:absolute;inset:0;opacity:0;transition:opacity 1s ease}
+    .gallery .slide.active{opacity:1}
+
+    /* countdown */
+    .countdown{display:flex;gap:12px;justify-content:center;margin-top:8px}
+    .countdown .unit{background:var(--accent);padding:10px 14px;border-radius:8px;text-align:center}
+    .countdown .unit b{display:block;font-size:18px;font-family:'Playfair Display',serif}
+    .countdown .unit span{font-size:12px;color:var(--muted)}
+
+    /* itinerary list */
+    .itinerary li{margin:8px 0}
+
+    /* form styles */
+    form{display:flex;flex-direction:column;gap:12px}
+    input,select,textarea{padding:10px;border-radius:8px;border:1px solid #E6E0DC;font-size:14px}
+    .btn-primary{background:var(--text);color:#fff;padding:10px 14px;border-radius:8px;border:none;cursor:pointer}
+
+    /* footer */
+    footer{padding:30px 0;text-align:center;color:var(--muted)}
+
+    /* Responsiveness */
+    @media (max-width:900px){
+      .two-col{flex-direction:column}
+      header .names{font-size:32px}
+      .gallery{height:220px}
+      .start-card{padding:18px}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- START CARD (overlay) -->
+  <div class="start-overlay" id="startOverlay">
+    <div class="start-card">
+      <h2>Karla & Edgar</h2>
+      <div class="guest-info">
+        <strong id="guestName">Invitado: [Nombre Completo]</strong><br>
+        <small>Número de pases asignados: <span id="guestPasses">2</span></small>
+      </div>
+      <p>Nos encantaría que los niños nos acompañen en esta celebración tan especial; les pedimos amablemente su ayuda para supervisarlos durante todo el evento.</p>
+      <button id="btnAsistir">Asistir</button>
+    </div>
+  </div>
+
+  <main class="container" id="mainContent">
+    <header class="hero">
+      <div class="names">Karla & Edgar</div>
+      <div class="sub">Hemos decidido decir “sí” para toda la vida</div>
+
+      <!-- song placeholder -->
+      <div style="margin-top:12px;color:var(--muted)">Canción: <em>Tu canción favorita</em></div>
+
+      <!-- countdown -->
+      <div class="countdown" aria-hidden="false" id="countdown">
+        <div class="unit"><b id="d">0</b><span>días</span></div>
+        <div class="unit"><b id="h">0</b><span>hrs</span></div>
+        <div class="unit"><b id="m">0</b><span>min</span></div>
+        <div class="unit"><b id="s">0</b><span>seg</span></div>
+      </div>
+    </header>
+
+    <!-- Gallery -->
+    <section class="gallery card" aria-label="Galería de fotos">
+      <div class="slide active"><img src="./images/photo1.jpg" alt="Karla y Edgar"></div>
+      <div class="slide"><img src="./images/photo2.jpg" alt="Karla y Edgar"></div>
+      <div class="slide"><img src="./images/photo3.jpg" alt="Karla y Edgar"></div>
+      <div class="slide"><img src="./images/photo4.jpg" alt="Karla y Edgar"></div>
+      <div class="slide"><img src="./images/photo5.jpg" alt="Karla y Edgar"></div>
+    </section>
+
+    <div class="two-col">
+      <div class="left">
+        <div class="card">
+          <h3>Con la bendición de Dios y en compañía de</h3>
+          <p class="small">Nuestros padres: Ma. Dolores Medina Ochoa y Javier Ramírez Serna. María Elena Herrera y Martín Gregorio Fernández.</p>
+
+          <h3>Nuestros padrinos</h3>
+          <p class="small">Elizabeth Velazco Rivera y Francisco Javier Medina Ochoa</p>
+
+          <h3>Ceremonia</h3>
+          <p class="small">Templo Sagrado Corazón de Jesús, Los Fresnos — 05:00 p.m.</p>
+          <p><a class="btn-link" href="https://www.google.com/maps" target="_blank" rel="noopener">Ver en Google Maps</a></p>
+
+          <h3>Recepción</h3>
+          <p class="small">Casa de Piedra — 07:45 p.m.</p>
+          <p><a class="btn-link" href="https://www.google.com/maps" target="_blank" rel="noopener">Ver en Google Maps</a></p>
+
+          <h3>Itinerario</h3>
+          <ul class="itinerary">
+            <li>Ceremonia 05:00 p.m.</li>
+            <li>Boda civil 07:15 p.m.</li>
+            <li>Recepción 07:45 p.m.</li>
+            <li>Cena 09:00 p.m.</li>
+            <li>Inicio del baile 10:00 p.m.</li>
+            <li>Banda 12:00 a.m.</li>
+            <li>Despedida 01:00 a.m.</li>
+          </ul>
+
+          <h3>Código de vestimenta</h3>
+          <p class="small"><strong>Caballeros:</strong> traje, moño o corbata, zapato formal.<br>
+          <strong>Damas:</strong> vestido de noche largo (evitar blanco y tonos crema), zapatilla formal.</p>
+
+          <h3>Mesa de regalos</h3>
+          <p class="small">Puedes ayudarnos con regalos en:</p>
+          <p><a class="btn-link" href="#" target="_blank">Mesa en Amazon</a> · <a class="btn-link" href="#" target="_blank">Lista en tienda</a></p>
+        </div>
+      </div>
+
+      <div class="right">
+        <div class="card">
+          <h3>Confirmación de asistencia</h3>
+          <p class="small">Por favor confirma tu asistencia y completa los datos solicitados. Si el número de invitados confirmados supera el número de pases asignados, aparecerá una advertencia.</p>
+
+          <!-- FORM - replace action for your backend or Google Form endpoint -->
+          <form id="rsvpForm" action="#" onsubmit="handleFormSubmit(event)">
+            <input type="text" id="fullname" name="fullname" placeholder="Nombre completo" required>
+            <input type="number" id="passesAssigned" name="passesAssigned" placeholder="Número de pases asignados" required>
+            <input type="number" id="guestsConfirmed" name="guestsConfirmed" placeholder="Invitados confirmados" required>
+            <input type="tel" id="phone" name="phone" placeholder="Número de teléfono" required>
+            <input type="email" id="email" name="email" placeholder="Correo electrónico" required>
+            <textarea id="notes" name="notes" placeholder="Mensaje / alergias / notas (opcional)" rows="3"></textarea>
+            <button class="btn-primary" type="submit">Confirmar</button>
+            <p id="formMsg" style="color:var(--muted);font-size:13px;margin:8px 0 0"></p>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <small>© Karla & Edgar — 14 de marzo de 2026</small>
+    </footer>
+  </main>
+
+  <script>
+    // Smooth scroll when clicking Asistir on overlay
+    document.getElementById('btnAsistir').addEventListener('click', function(){
+      document.getElementById('startOverlay').style.display = 'none';
+      document.body.style.overflow = 'auto';
+      // smooth scroll to main content top
+      document.getElementById('mainContent').scrollIntoView({behavior:'smooth'});
+    });
+
+    // Prevent body scroll while overlay is visible
+    document.body.style.overflow = 'hidden';
+
+    // Simple slideshow
+    (function(){
+      const slides = document.querySelectorAll('.gallery .slide');
+      let idx = 0;
+      setInterval(()=>{
+        slides[idx].classList.remove('active');
+        idx = (idx+1) % slides.length;
+        slides[idx].classList.add('active');
+      },4500);
+    })();
+
+    // Countdown timer
+    (function(){
+      // Set date to 14 March 2026 17:00:00 local time
+      const target = new Date('2026-03-14T17:00:00');
+      function update(){
+        const now = new Date();
+        let diff = Math.max(0, target - now);
+        const d = Math.floor(diff/86400000); diff%=86400000;
+        const h = Math.floor(diff/3600000); diff%=3600000;
+        const m = Math.floor(diff/60000); diff%=60000;
+        const s = Math.floor(diff/1000);
+        document.getElementById('d').innerText = d;
+        document.getElementById('h').innerText = h;
+        document.getElementById('m').innerText = m;
+        document.getElementById('s').innerText = s;
+      }
+      update();
+      setInterval(update,1000);
+    })();
+
+    // Simple form handler - client side checks; replace with real endpoint integration
+    function handleFormSubmit(e){
+      e.preventDefault();
+      const assigned = Number(document.getElementById('passesAssigned').value || 0);
+      const confirmed = Number(document.getElementById('guestsConfirmed').value || 0);
+      const msg = document.getElementById('formMsg');
+      if(confirmed > assigned){
+        msg.style.color = '#B00020';
+        msg.innerText = 'El número de invitados confirmados no debe exceder los pases asignados.';
+        return;
+      }
+      // TODO: enviar datos a servidor o Google Form. Aquí solo mostramos mensaje de éxito.
+      msg.style.color = 'green';
+      msg.innerText = 'Gracias. Tu confirmación ha sido recibida.';
+
+      // opcional: limpiar formulario
+      // document.getElementById('rsvpForm').reset();
+
+      // Si quieres que los datos se guarden en un Excel/Google Sheets: conecta este evento
+      // a un endpoint (Google Apps Script, Formspree, Zapier o Wix Forms).
+    }
+
+    // Accessibility: close overlay on Escape
+    document.addEventListener('keydown',(e)=>{ if(e.key==='Escape'){ document.getElementById('startOverlay').style.display='none'; document.body.style.overflow='auto'; } });
+  </script>
+</body>
+</html>
