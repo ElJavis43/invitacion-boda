@@ -1,92 +1,59 @@
-body {
-    margin: 0;
-    font-family: "Cormorant Garamond", serif;
-    background: #faf6f2;
-    color: #5a4a42;
-}
-
-/* PORTADA */
-.portada {
-    height: 100vh;
-    background: #f7ede3;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
-}
-
-.btn-asistir {
-    display: inline-block;
-    padding: 12px 20px;
-    margin-top: 20px;
-    background: #d9c2a3;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 6px;
-}
-
-/* BLOQUES CON IMAGEN A UN LADO */
+/* CONTENEDOR DE CADA BLOQUE DE INFORMACIÓN + FOTO */
 .bloque {
     display: flex;
     align-items: center;
-    padding: 40px 20px;
-    gap: 20px;
-    max-width: 1000px;
-    margin: auto;
-    opacity: 0;
-    transform: translateY(40px);
-    animation: aparecer 1s ease forwards;
+    justify-content: center;
+    gap: 40px;
+    padding: 60px 20px;
+    flex-wrap: wrap;
 }
 
-.bloque:nth-child(even) {
-    animation-delay: 0.3s;
-}
-
-/* Invertir orden */
-.invertido {
+/* INVERSIÓN IZQUIERDA/DERECHA */
+.bloque.invertido {
     flex-direction: row-reverse;
 }
 
-.bloque-img {
-    width: 45%;
-    border-radius: 14px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+/* TEXTO */
+.bloque .texto {
+    flex: 1;
+    min-width: 260px;
+    max-width: 550px;
+    text-align: center;
 }
 
-.bloque-texto {
-    width: 55%;
-    text-align: left;
+/* IMÁGENES AJUSTADAS AUTOMÁTICAMENTE */
+.imagen-bloque {
+    flex: 1;
+    max-width: 480px;
 }
 
-.btn-link {
-    display: inline-block;
-    margin: 10px 5px;
-    padding: 10px 16px;
-    background: #d9c2a3;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
+.imagen-bloque img {
+    width: 100%;
+    height: auto;               /* Mantiene la proporción */
+    border-radius: 14px;        /* Borde elegante */
+    object-fit: cover;          /* Ajuste suave */
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.12);  /* Sombra elegante */
+    transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
-/* Animación suave */
-@keyframes aparecer {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* EFECTO ELEGANTE AL APARECER */
+.imagen-bloque img:hover {
+    transform: scale(1.03);
+    opacity: 0.95;
 }
 
 /* RESPONSIVE */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .bloque {
-        flex-direction: column;
+        flex-direction: column !important;   /* Apilan bonito */
         text-align: center;
     }
-    .invertido {
-        flex-direction: column;
+
+    .imagen-bloque {
+        max-width: 100%;
     }
-    .bloque-img, .bloque-texto {
-        width: 100%;
+
+    .imagen-bloque img {
+        border-radius: 12px;
     }
 }
