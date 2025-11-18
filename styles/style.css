@@ -1,4 +1,80 @@
-/* CONTENEDOR DE CADA BLOQUE DE INFORMACIÓN + FOTO */
+/* ================================
+   ESTILOS GENERALES
+================================ */
+body {
+    margin: 0;
+    font-family: "Cormorant Garamond", serif;
+    background: #faf6f2;
+    color: #5a4a42;
+    text-align: center;
+    line-height: 1.5;
+}
+
+/* Tamaños de texto elegantes y escalables */
+h1 {
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-weight: 600;
+}
+h2 {
+    font-size: clamp(1.6rem, 3.8vw, 2.8rem);
+    font-weight: 500;
+}
+h3 {
+    font-size: clamp(1.2rem, 2.8vw, 2rem);
+    font-weight: 500;
+}
+p {
+    font-size: clamp(1rem, 2.2vw, 1.3rem);
+}
+
+/* ================================
+   BOTONES
+================================ */
+.btn-asistir, .btn-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: clamp(12px, 2vw, 16px) clamp(20px, 3vw, 28px);
+    background: #d9c2a3;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: clamp(1rem, 2.6vw, 1.2rem);
+    transition: 0.3s ease;
+    text-align: center;
+}
+
+.btn-asistir:hover, .btn-link:hover {
+    background: #c4ac8f;
+    transform: scale(1.05);
+}
+
+/* Centrado absoluto */
+.btn-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* ================================
+   PORTADA
+================================ */
+.portada {
+    height: 100vh;
+    background: #f7ede3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.portada-contenido {
+    max-width: 700px;
+    margin: auto;
+}
+
+/* ================================
+   BLOQUES INFORMACIÓN + FOTO
+================================ */
 .bloque {
     display: flex;
     align-items: center;
@@ -8,20 +84,18 @@
     flex-wrap: wrap;
 }
 
-/* INVERSIÓN IZQUIERDA/DERECHA */
+/* Alternar izquierda/derecha */
 .bloque.invertido {
     flex-direction: row-reverse;
 }
 
-/* TEXTO */
-.bloque .texto {
+.texto {
     flex: 1;
     min-width: 260px;
     max-width: 550px;
-    text-align: center;
 }
 
-/* IMÁGENES AJUSTADAS AUTOMÁTICAMENTE */
+/* IMÁGENES */
 .imagen-bloque {
     flex: 1;
     max-width: 480px;
@@ -29,23 +103,25 @@
 
 .imagen-bloque img {
     width: 100%;
-    height: auto;               /* Mantiene la proporción */
-    border-radius: 14px;        /* Borde elegante */
-    object-fit: cover;          /* Ajuste suave */
-    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.12);  /* Sombra elegante */
+    height: auto;
+    border-radius: 14px;
+    object-fit: cover;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.12);
     transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
-/* EFECTO ELEGANTE AL APARECER */
 .imagen-bloque img:hover {
     transform: scale(1.03);
     opacity: 0.95;
 }
 
-/* RESPONSIVE */
+/* ================================
+   RESPONSIVE
+================================ */
 @media (max-width: 900px) {
-    .bloque {
-        flex-direction: column !important;   /* Apilan bonito */
+
+    .bloque, .bloque.invertido {
+        flex-direction: column !important;
         text-align: center;
     }
 
@@ -53,7 +129,8 @@
         max-width: 100%;
     }
 
-    .imagen-bloque img {
-        border-radius: 12px;
+    .btn-asistir, .btn-link {
+        width: 90%;
+        max-width: 350px;
     }
 }
