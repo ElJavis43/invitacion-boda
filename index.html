@@ -4,90 +4,102 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invitación Karla & Edgar</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 
 <body>
 
-    <!-- Tarjeta inicial -->
-    <section id="inicio" class="inicio">
-        <div class="card">
-            <h2 id="guestName">Nombre del invitado</h2>
-            <p id="passes">Número de pases: X</p>
+    <!-- TARJETA DE INICIO -->
+    <section class="hero" id="inicio">
+        <div class="hero-card">
+            <h2 id="nombreInvitado">Nombre del invitado</h2>
+            <p id="pasesAsignados">Pases asignados: 2</p>
 
-            <p class="nota">
-                “Nos encantaría que los niños nos acompañen en esta celebración tan especial;
-                les pedimos amablemente su ayuda para supervisarlos durante todo el evento”.
+            <p class="nota-ninos">
+                Nos encantaría que los niños nos acompañen en esta celebración tan especial,  
+                les pedimos amablemente su ayuda para supervisarlos durante todo el evento.
             </p>
 
-            <a href="#invitacion" class="btn-asistir">Asistir</a>
+            <button class="btn" onclick="scrollToInvitation()">Asistir</button>
         </div>
     </section>
 
-    <!-- Galería con fotos optimizadas -->
-    <section id="galeria" class="galeria">
-        <div class="galeria-container">
-            <img src="assets/img/foto1.webp" alt="Foto 1" loading="lazy">
-            <img src="assets/img/foto2.webp" alt="Foto 2" loading="lazy">
-            <img src="assets/img/foto3.webp" alt="Foto 3" loading="lazy">
-            <img src="assets/img/foto4.webp" alt="Foto 4" loading="lazy">
+    <!-- INVITACIÓN -->
+    <section id="invitacion" class="contenido">
+
+        <h1 class="titulo-principal">Karla & Edgar</h1>
+
+        <!-- GALERÍA EN SCROLL -->
+        <div class="galeria">
+            <img src="images/foto1.webp" loading="lazy" alt="">
+            <img src="images/foto2.webp" loading="lazy" alt="">
+            <img src="images/foto3.webp" loading="lazy" alt="">
+            <img src="images/foto4.webp" loading="lazy" alt="">
+            <img src="images/foto5.webp" loading="lazy" alt="">
+            <img src="images/foto6.webp" loading="lazy" alt="">
+            <img src="images/foto7.webp" loading="lazy" alt="">
         </div>
-    </section>
-
-    <!-- Invitación completa -->
-    <section id="invitacion" class="invitacion">
-
-        <h1>Karla & Edgar</h1>
-        <p class="cancion">Canción especial: “Aquí va el nombre”</p>
-        <p class="fecha">14 de marzo del 2026</p>
-
-        <div id="contador"></div>
 
         <p class="frase">Hemos decidido decir “sí” para toda la vida</p>
 
-        <h3>Con la bendición de Dios y en compañía de nuestros padres:</h3>
-        <p>Ma. Dolores Medina Ochoa y Javier Ramírez Serna</p>
-        <p>María Elena Herrera … y Martín Gregorio Fernández …</p>
+        <h3>Con la bendición de Dios y en compañía de</h3>
 
-        <h3>Nuestros padrinos</h3>
-        <p>Elizabeth Velazco Rivera y Francisco Javier Medina Ochoa</p>
+        <p class="padres">
+            <b>Padres de la novia:</b> Ma. Dolores Medina Ochoa y Javier Ramírez Serna<br>
+            <b>Padres del novio:</b> María Elena Herrera … y Martín Gregorio Fernández …
+        </p>
 
-        <h3>Ceremonia</h3>
-        <p>Templo Sagrado Corazón de Jesús, Los Fresnos – 5:00 P.M.</p>
-        <a class="btn-link" href="https://maps.app.goo.gl/" target="_blank">Ver ubicación</a>
+        <p class="padrinos">
+            <b>Padrinos:</b> Elizabeth Velazco Rivera y Francisco Javier Medina Ochoa
+        </p>
+
+        <h3>Ceremonia Religiosa</h3>
+        <p>
+            Templo Sagrado Corazón de Jesús – Los Fresnos  
+            <br>5:00 PM
+        </p>
+
+        <a href="https://maps.google.com" target="_blank" class="btn">Ver ubicación</a>
 
         <h3>Recepción</h3>
-        <p>Casa de Piedra – 7:45 P.M.</p>
-        <a class="btn-link" href="https://maps.app.goo.gl/" target="_blank">Ver ubicación</a>
+        <p>
+            Casa de Piedra – 7:45 PM
+        </p>
+
+        <a href="#" target="_blank" class="btn">Abrir ubicación</a>
 
         <h3>Itinerario</h3>
-        <p>
-            Ceremonia 05:00 P.M. <br>
-            Boda civil 07:15 P.M. <br>
-            Recepción 07:45 P.M. <br>
-            Cena 09:00 P.M. <br>
-            Inicio del baile 10:00 P.M. <br>
-            Banda 12:00 A.M. <br>
-            Despedida 01:00 A.M.
-        </p>
+        <ul class="itinerario">
+            <li>Ceremonia — 05:00 PM</li>
+            <li>Boda civil — 07:15 PM</li>
+            <li>Recepción — 07:45 PM</li>
+            <li>Cena — 09:00 PM</li>
+            <li>Inicio del baile — 10:00 PM</li>
+            <li>Banda — 12:00 AM</li>
+            <li>Despedida — 01:00 AM</li>
+        </ul>
 
         <h3>Código de vestimenta</h3>
         <p>
-            <strong>Formal.</strong><br>
-            Caballeros: traje, moño o corbata, zapato formal.<br>
-            Damas: vestido de noche largo (evitar blanco y tonos crema), zapatilla.
+            Formal  
+            <br>Caballeros: traje, moño o corbata, zapato formal.  
+            <br>Damas: vestido largo (evitar blanco y tonos crema), zapatilla formal.
         </p>
 
         <h3>Mesa de regalos</h3>
-        <a class="btn-link" href="https://mesa.com" target="_blank">Amazon</a>
-        <a class="btn-link" href="https://mesa.com" target="_blank">Liverpool</a>
+        <a href="#" class="btn" target="_blank">Amazon</a>
+        <a href="#" class="btn" target="_blank">Liverpool</a>
 
-        <h3>Confirmación de asistencia</h3>
-        <a class="btn-asistir" href="https://forms.gle/" target="_blank">Confirmar asistencia</a>
-
-        <p class="frase-final">¡Será un honor compartir este día contigo!</p>
-
+        <h3>Confirmación</h3>
+        <a href="https://forms.google.com" class="btn confirmar" target="_blank">Confirmar asistencia</a>
     </section>
+
+    <script>
+        function scrollToInvitation() {
+            document.getElementById("invitacion").scrollIntoView({ behavior: "smooth" });
+        }
+    </script>
 
 </body>
 </html>
