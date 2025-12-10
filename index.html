@@ -1,29 +1,153 @@
+<!-- HTML + CSS actualizado en un solo archivo para visualización -->
+<!-- Incluye fondo con imágenes difuminadas, texto responsivo y diseño profesional -->
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invitación Karla & Edgar</title>
-    <link rel="stylesheet" href="styles/style.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Montserrat:wght@300;500;700&display=swap">
+    <!-- AOS Animations -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <style>
+        /* ================================
+           RESET + BASE
+        ================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Cormorant Garamond", serif;
+            color: #fff;
+            text-align: center;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: #000;
+        }
+
+        h1 { font-size: clamp(2.4rem, 6vw, 4.2rem); font-weight: 600; }
+        h2 { font-size: clamp(1.6rem, 4vw, 3rem); font-weight: 500; }
+        h3 { font-size: clamp(1.2rem, 3vw, 2.2rem); font-weight: 500; }
+        p  { font-size: clamp(1rem, 2.2vw, 1.4rem); }
+
+        /* ================================
+           BOTONES
+        ================================ */
+        .btn-asistir, .btn-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: clamp(12px, 2vw, 16px) clamp(20px, 3vw, 28px);
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(4px);
+            color: #fff;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: clamp(1rem, 2.6vw, 1.3rem);
+            transition: 0.3s ease;
+        }
+
+        .btn-asistir:hover, .btn-link:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(1.05);
+        }
+
+        /* ================================
+           PORTADA
+        ================================ */
+        .portada {
+            height: 100vh;
+            background-image: url('images/photo1.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .portada::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(4px);
+        }
+
+        .portada-contenido {
+            position: relative;
+            max-width: 700px;
+            padding: 20px;
+        }
+
+        /* ================================
+           BLOQUES CON FONDO DIFUMINADO
+        ================================ */
+        .bloque {
+            padding: 120px 20px;
+            position: relative;
+            color: white;
+        }
+
+        .bloque::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.55) blur(4px);
+            z-index: -1;
+        }
+
+        /* Fondos individuales */
+        .b1::before { background-image: url('images/photo1.webp'); }
+        .b2::before { background-image: url('images/photo2.webp'); }
+        .b3::before { background-image: url('images/photo3.webp'); }
+        .b4::before { background-image: url('images/photo4.webp'); }
+        .b5::before { background-image: url('images/photo5.webp'); }
+        .b6::before { background-image: url('images/photo6.webp'); }
+        .b7::before { background-image: url('images/photo7.webp'); }
+
+        .bloque-texto {
+            max-width: 760px;
+            margin: auto;
+            padding: 20px 16px;
+            background: rgba(0, 0, 0, 0.35);
+            border-radius: 16px;
+            backdrop-filter: blur(6px);
+        }
+
+        /* ================================
+           RESPONSIVE
+        ================================ */
+        @media (max-width: 900px) {
+            .bloque-texto {
+                max-width: 90%;
+            }
+        }
+
+    </style>
 </head>
 <body>
 
     <!-- PORTADA -->
-    <section class="portada" id="inicio">
+    <section class="portada" data-aos="fade-in" id="inicio">
         <div class="portada-contenido">
             <h1 class="nombre-invitado">Nombre del Invitado</h1>
             <h2 class="pases">Pases asignados: X</h2>
-            <p class="nota">
-                Nos encantaría que los niños nos acompañen en esta celebración tan especial,
-                les pedimos amablemente su ayuda para supervisarlos durante todo el evento.
-            </p>
+            <p class="nota">Nos encantaría que los niños nos acompañen en esta celebración tan especial...</p>
             <a href="#invitacion" class="btn-asistir">Asistir</a>
         </div>
     </section>
 
-    <!-- SECCIÓN 1 -->
-    <section class="bloque">
-        <img src="images/photo1.webp" alt="Foto 1" class="bloque-img">
+    <!-- SECCIONES CON FONDO COMO IMAGEN DIFUMINADA -->
+    <section class="bloque b1" data-aos="fade-up">
         <div class="bloque-texto">
             <h1 class="nombres">Karla & Edgar</h1>
             <p class="frase">Hemos decidido decir “sí” para toda la vida</p>
@@ -32,9 +156,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN 2 -->
-    <section class="bloque invertido">
-        <img src="images/photo2.webp" alt="Foto 2" class="bloque-img">
+    <section class="bloque b2" data-aos="fade-up">
         <div class="bloque-texto">
             <h3>Con la bendición de Dios y en compañía de nuestros padres</h3>
             <p>Ma. Dolores Medina Ochoa y Javier Ramírez Serna</p>
@@ -42,64 +164,50 @@
         </div>
     </section>
 
-    <!-- SECCIÓN 3 -->
-    <section class="bloque">
-        <img src="images/photo3.webp" alt="Foto 3" class="bloque-img">
+    <section class="bloque b3" data-aos="fade-up">
         <div class="bloque-texto">
             <h3>Nuestros padrinos</h3>
             <p>Elizabeth Velazco Rivera y Francisco Javier Medina Ochoa</p>
         </div>
     </section>
 
-    <!-- SECCIÓN 4 -->
-    <section class="bloque invertido">
-        <img src="images/photo4.webp" alt="Foto 4" class="bloque-img">
+    <section class="bloque b4" data-aos="fade-up">
         <div class="bloque-texto">
             <h3>Ceremonia</h3>
             <p>Templo Sagrado Corazón de Jesús, Los Fresnos</p>
-            <a class="btn-link" href="https://maps.app.goo.gl/" target="_blank">Ver en Google Maps</a>
+            <a class="btn-link" href="#" target="_blank">Ver en Google Maps</a>
         </div>
     </section>
 
-    <!-- SECCIÓN 5 -->
-    <section class="bloque">
-        <img src="images/photo5.webp" alt="Foto 5" class="bloque-img">
+    <section class="bloque b5" data-aos="fade-up">
         <div class="bloque-texto">
             <h3>Recepción</h3>
             <p>Casa de Piedra</p>
-            <a class="btn-link" href="https://maps.app.goo.gl/" target="_blank">Ver en Google Maps</a>
+            <a class="btn-link" href="#" target="_blank">Ver en Google Maps</a>
         </div>
     </section>
 
-    <!-- SECCIÓN 6 -->
-    <section class="bloque invertido">
-        <img src="images/photo6.webp" alt="Foto 6" class="bloque-img">
+    <section class="bloque b6" data-aos="fade-up">
         <div class="bloque-texto">
             <h3>Itinerario</h3>
-            <p>
-                Ceremonia 05:00 P.M. · Boda civil 07:15 P.M. · Recepción 07:45 P.M. ·  
-                Cena 09:00 P.M. · Inicio del baile 10:00 P.M. · Banda 12:00 A.M. ·  
-                Despedida 01:00 A.M.
-            </p>
+            <p>Ceremonia 05:00 P.M. · Boda civil 07:15 P.M. · ...</p>
         </div>
     </section>
 
-    <!-- SECCIÓN 7 -->
-    <section class="bloque">
-        <img src="images/photo7.webp" alt="Foto 7" class="bloque-img">
+    <section class="bloque b7" data-aos="fade-up">
         <div class="bloque-texto">
             <h3>Código de vestimenta</h3>
-            <p>Formal: Caballeros traje, moño o corbata.  
-            Damas: Vestido largo (evitar blanco y crema).</p>
-
+            <p>Formal: Caballeros traje...</p>
             <h3>Mesa de regalos</h3>
-            <a class="btn-link" href="https://www.liverpool.com.mx/" target="_blank">Liverpool</a>
-            <a class="btn-link" href="https://www.amazon.com.mx/" target="_blank">Amazon</a>
-
+            <a class="btn-link" href="#">Liverpool</a>
+            <a class="btn-link" href="#">Amazon</a>
             <h3>Confirmación de asistencia</h3>
             <a class="btn-asistir" href="#formulario">Confirmar asistencia</a>
         </div>
     </section>
 
+    <!-- AOS Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init();</script>
 </body>
 </html>
