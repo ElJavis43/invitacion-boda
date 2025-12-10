@@ -96,7 +96,21 @@
         .b5::before { background-image: url('images/photo5.webp'); }
         .b6::before { background-image: url('images/photo6.webp'); }
         .b7::before { background-image: url('images/photo7.webp'); }
-    </style>
+    
+/* Ajuste para que cada imagen llene la pantalla */
+.portada, .bloque {
+    min-height: 100vh;
+    background-size: cover !important;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Texto adaptable al contenido */
+.portada .contenido, .bloque .contenido {
+    height: auto;
+    padding: 2rem 1.5rem;
+}
+</style>
 </head>
 <body>
 
