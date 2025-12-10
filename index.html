@@ -1,33 +1,26 @@
-<!-- HTML + CSS actualizado en un solo archivo para visualización -->
-<!-- Incluye fondo con imágenes difuminadas, texto responsivo y diseño profesional -->
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invitación Karla & Edgar</title>
+
     <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Montserrat:wght@300;500;700&display=swap">
+
     <!-- AOS Animations -->
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
     <style>
-        /* ================================
-           RESET + BASE
-        ================================ */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: "Cormorant Garamond", serif;
             color: #fff;
-            text-align: center;
             line-height: 1.6;
-            overflow-x: hidden;
+            text-align: center;
             background: #000;
+            overflow-x: hidden;
         }
 
         h1 { font-size: clamp(2.4rem, 6vw, 4.2rem); font-weight: 600; }
@@ -35,30 +28,22 @@
         h3 { font-size: clamp(1.2rem, 3vw, 2.2rem); font-weight: 500; }
         p  { font-size: clamp(1rem, 2.2vw, 1.4rem); }
 
-        /* ================================
-           BOTONES
-        ================================ */
         .btn-asistir, .btn-link {
             display: inline-block;
             margin-top: 20px;
             padding: clamp(12px, 2vw, 16px) clamp(20px, 3vw, 28px);
             background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(4px);
             color: #fff;
-            border-radius: 10px;
             text-decoration: none;
-            font-size: clamp(1rem, 2.6vw, 1.3rem);
-            transition: 0.3s ease;
+            border-radius: 12px;
+            backdrop-filter: blur(6px);
+            font-family: Montserrat, sans-serif;
+            font-weight: 500;
+            transition: 0.3s;
         }
+        .btn-asistir:hover, .btn-link:hover { background: rgba(255, 255, 255, 0.45); }
 
-        .btn-asistir:hover, .btn-link:hover {
-            background: rgba(255, 255, 255, 0.4);
-            transform: scale(1.05);
-        }
-
-        /* ================================
-           PORTADA
-        ================================ */
+        /* PORTADA */
         .portada {
             height: 100vh;
             background-image: url('images/photo1.webp');
@@ -69,30 +54,29 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 40px 20px;
+            padding: 40px;
         }
-
         .portada::before {
             content: "";
             position: absolute;
             inset: 0;
-            background: rgba(0, 0, 0, 0.45);
+            background: rgba(0,0,0,0.45);
             backdrop-filter: blur(4px);
         }
+        .portada-contenido { position: relative; max-width: 700px; }
 
-        .portada-contenido {
-            position: relative;
-            max-width: 700px;
-            padding: 20px;
-        }
-
-        /* ================================
-           BLOQUES CON FONDO DIFUMINADO
-        ================================ */
+        /* BLOQUES */
         .bloque {
-            padding: 120px 20px;
             position: relative;
-            color: white;
+            padding: 120px 20px;
+        }
+        .bloque-texto {
+            max-width: 750px;
+            margin: auto;
+            background: rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(6px);
+            padding: 28px;
+            border-radius: 16px;
         }
 
         .bloque::before {
@@ -105,7 +89,6 @@
             z-index: -1;
         }
 
-        /* Fondos individuales */
         .b1::before { background-image: url('images/photo1.webp'); }
         .b2::before { background-image: url('images/photo2.webp'); }
         .b3::before { background-image: url('images/photo3.webp'); }
@@ -113,52 +96,32 @@
         .b5::before { background-image: url('images/photo5.webp'); }
         .b6::before { background-image: url('images/photo6.webp'); }
         .b7::before { background-image: url('images/photo7.webp'); }
-
-        .bloque-texto {
-            max-width: 760px;
-            margin: auto;
-            padding: 20px 16px;
-            background: rgba(0, 0, 0, 0.35);
-            border-radius: 16px;
-            backdrop-filter: blur(6px);
-        }
-
-        /* ================================
-           RESPONSIVE
-        ================================ */
-        @media (max-width: 900px) {
-            .bloque-texto {
-                max-width: 90%;
-            }
-        }
-
     </style>
 </head>
 <body>
 
     <!-- PORTADA -->
-    <section class="portada" data-aos="fade-in" id="inicio">
+    <section class="portada" data-aos="fade-in">
         <div class="portada-contenido">
-            <h1 class="nombre-invitado">Nombre del Invitado</h1>
-            <h2 class="pases">Pases asignados: X</h2>
-            <p class="nota">Nos encantaría que los niños nos acompañen en esta celebración tan especial...</p>
-            <a href="#invitacion" class="btn-asistir">Asistir</a>
+            <h1>Nombre del Invitado</h1>
+            <h2>Pases asignados: X</h2>
+            <p>Nos encantaría que los niños nos acompañen...</p>
+            <a class="btn-asistir" href="#invitacion">Asistir</a>
         </div>
     </section>
 
-    <!-- SECCIONES CON FONDO COMO IMAGEN DIFUMINADA -->
+    <!-- SECCIONES -->
     <section class="bloque b1" data-aos="fade-up">
         <div class="bloque-texto">
-            <h1 class="nombres">Karla & Edgar</h1>
-            <p class="frase">Hemos decidido decir “sí” para toda la vida</p>
+            <h1>Karla & Edgar</h1>
+            <p>Hemos decidido decir “sí” para toda la vida</p>
             <h2>14 de marzo del 2026</h2>
-            <div id="countdown"></div>
         </div>
     </section>
 
     <section class="bloque b2" data-aos="fade-up">
         <div class="bloque-texto">
-            <h3>Con la bendición de Dios y en compañía de nuestros padres</h3>
+            <h3>Con la bendición de nuestros padres</h3>
             <p>Ma. Dolores Medina Ochoa y Javier Ramírez Serna</p>
             <p>María Elena Herrera y Martín Gregorio Fernández</p>
         </div>
@@ -175,7 +138,7 @@
         <div class="bloque-texto">
             <h3>Ceremonia</h3>
             <p>Templo Sagrado Corazón de Jesús, Los Fresnos</p>
-            <a class="btn-link" href="#" target="_blank">Ver en Google Maps</a>
+            <a class="btn-link" href="#">Ver en Google Maps</a>
         </div>
     </section>
 
@@ -183,14 +146,14 @@
         <div class="bloque-texto">
             <h3>Recepción</h3>
             <p>Casa de Piedra</p>
-            <a class="btn-link" href="#" target="_blank">Ver en Google Maps</a>
+            <a class="btn-link" href="#">Ver en Google Maps</a>
         </div>
     </section>
 
     <section class="bloque b6" data-aos="fade-up">
         <div class="bloque-texto">
             <h3>Itinerario</h3>
-            <p>Ceremonia 05:00 P.M. · Boda civil 07:15 P.M. · ...</p>
+            <p>Ceremonia 05:00 P.M. · Boda civil 07:15 P.M. · Recepción...</p>
         </div>
     </section>
 
@@ -201,7 +164,7 @@
             <h3>Mesa de regalos</h3>
             <a class="btn-link" href="#">Liverpool</a>
             <a class="btn-link" href="#">Amazon</a>
-            <h3>Confirmación de asistencia</h3>
+            <h3>Confirmación</h3>
             <a class="btn-asistir" href="#formulario">Confirmar asistencia</a>
         </div>
     </section>
