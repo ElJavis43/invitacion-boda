@@ -1,136 +1,130 @@
-/* ================================
-   ESTILOS GENERALES
-================================ */
+/* GENERAL */
 body {
-    margin: 0;
-    font-family: "Cormorant Garamond", serif;
-    background: #faf6f2;
-    color: #5a4a42;
-    text-align: center;
-    line-height: 1.5;
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  background: #faf6f2;
+  color: #5a4a42;
 }
 
-/* Tamaños de texto elegantes y escalables */
-h1 {
-    font-size: clamp(2.2rem, 5vw, 4rem);
-    font-weight: 600;
-}
-h2 {
-    font-size: clamp(1.6rem, 3.8vw, 2.8rem);
-    font-weight: 500;
-}
-h3 {
-    font-size: clamp(1.2rem, 2.8vw, 2rem);
-    font-weight: 500;
-}
-p {
-    font-size: clamp(1rem, 2.2vw, 1.3rem);
+h1, h2, h3 {
+  font-weight: 600;
 }
 
-/* ================================
-   BOTONES
-================================ */
-.btn-asistir, .btn-link {
-    display: inline-block;
-    margin-top: 20px;
-    padding: clamp(12px, 2vw, 16px) clamp(20px, 3vw, 28px);
-    background: #d9c2a3;
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    font-size: clamp(1rem, 2.6vw, 1.2rem);
-    transition: 0.3s ease;
-    text-align: center;
+a {
+  text-decoration: none;
 }
 
-.btn-asistir:hover, .btn-link:hover {
-    background: #c4ac8f;
-    transform: scale(1.05);
-}
-
-/* Centrado absoluto */
-.btn-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-/* ================================
-   PORTADA
-================================ */
+/* PORTADA */
 .portada {
-    height: 100vh;
-    background: #f7ede3;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px 20px;
+  height: 100vh;
+  background: #f7ede3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
 }
 
 .portada-contenido {
-    max-width: 700px;
-    margin: auto;
+  max-width: 600px;
 }
 
-/* ================================
-   BLOQUES INFORMACIÓN + FOTO
-================================ */
-.bloque {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-    padding: 60px 20px;
-    flex-wrap: wrap;
+.nombre-invitado {
+  font-size: 2.4rem;
 }
 
-/* Alternar izquierda/derecha */
-.bloque.invertido {
-    flex-direction: row-reverse;
+.pases {
+  font-size: 1.4rem;
 }
 
-.texto {
-    flex: 1;
-    min-width: 260px;
-    max-width: 550px;
+.nota {
+  font-size: 1rem;
+  margin: 20px 0;
 }
 
-/* IMÁGENES */
+/* BOTONES */
+.btn-asistir, .btn-link {
+  display: inline-block;
+  padding: 12px 22px;
+  background: #d9c2a3;
+  color: white;
+  border-radius: 6px;
+  margin: 10px;
+  font-size: 1rem;
+}
+
+/* INVITACIÓN */
+.invitacion {
+  padding: 60px 20px;
+  text-align: center;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.nombres {
+  font-size: 3rem;
+}
+
+.frase {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.fecha {
+  font-size: 1.3rem;
+  margin-bottom: 40px;
+}
+
+/* BLOQUE DOBLE */
+.bloque-doble {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  margin: 60px auto;
+}
+
 .imagen-bloque {
-    flex: 1;
-    max-width: 480px;
+  flex: 1;
+  max-width: 500px;
 }
 
 .imagen-bloque img {
-    width: 100%;
-    height: auto;
-    border-radius: 14px;
-    object-fit: cover;
-    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.12);
-    transition: transform 0.4s ease, opacity 0.4s ease;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.08);
 }
 
-.imagen-bloque img:hover {
-    transform: scale(1.03);
-    opacity: 0.95;
+.info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
-/* ================================
-   RESPONSIVE
-================================ */
+.cuadro-info {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+}
+
+/* SECCIONES */
+.seccion {
+  margin: 50px 0;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* RESPONSIVE */
 @media (max-width: 900px) {
+  .bloque-doble {
+    flex-direction: column;
+  }
 
-    .bloque, .bloque.invertido {
-        flex-direction: column !important;
-        text-align: center;
-    }
-
-    .imagen-bloque {
-        max-width: 100%;
-    }
-
-    .btn-asistir, .btn-link {
-        width: 90%;
-        max-width: 350px;
-    }
+  .nombres {
+    font-size: 2.4rem;
+  }
 }
