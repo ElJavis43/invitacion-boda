@@ -1,12 +1,13 @@
-/* GENERAL */
+/* RESET */
 body {
   margin: 0;
   font-family: "Cormorant Garamond", serif;
+  color: #4f3f36;
   background: #faf6f2;
-  color: #5a4a42;
 }
 
 h1, h2, h3 {
+  margin-top: 0;
   font-weight: 600;
 }
 
@@ -14,19 +15,105 @@ a {
   text-decoration: none;
 }
 
-/* PORTADA */
+/* BOTONES */
+.btn-principal, .btn-secundario {
+  display: inline-block;
+  padding: 12px 26px;
+  background: #d9c2a3;
+  color: #fff;
+  border-radius: 8px;
+  margin: 10px;
+  font-size: 1rem;
+}
+
+/* FONDOS */
+.fondo, .portada {
+  position: relative;
+  min-height: 90vh;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
 .portada {
-  height: 100vh;
-  background: #f7ede3;
+  background-image: url("../images/photo1.webp");
+}
+
+.fondo-evento {
+  background-image: url("../images/photo4.webp");
+}
+
+.fondo-itinerario {
+  background-image: url("../images/photo5.webp");
+}
+
+.fondo-vestimenta {
+  background-image: url("../images/photo6.webp");
+}
+
+.fondo-regalos {
+  background-image: url("../images/photo7.webp");
+}
+
+/* OVERLAY + BLUR */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(250, 246, 242, 0.75);
+  backdrop-filter: blur(6px);
+}
+
+/* CONTENIDO SOBRE FONDO */
+.contenido {
+  position: relative;
+  z-index: 2;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
+  padding: 40px 20px;
   text-align: center;
-  padding: 20px;
 }
 
-.portada-contenido {
+.tarjetas {
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* CARDS */
+.card {
+  background: rgba(255,255,255,0.9);
+  padding: 32px;
+  border-radius: 18px;
+  max-width: 420px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.card.solo {
   max-width: 600px;
+}
+
+/* INTRO */
+.intro {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.nombres {
+  font-size: 3rem;
+}
+
+.frase {
+  font-size: 1.2rem;
+}
+
+.fecha {
+  font-size: 1.4rem;
+}
+
+/* PORTADA TEXTO */
+.portada-contenido {
+  flex-direction: column;
 }
 
 .nombre-invitado {
@@ -38,93 +125,21 @@ a {
 }
 
 .nota {
-  font-size: 1rem;
-  margin: 20px 0;
-}
-
-/* BOTONES */
-.btn-asistir, .btn-link {
-  display: inline-block;
-  padding: 12px 22px;
-  background: #d9c2a3;
-  color: white;
-  border-radius: 6px;
-  margin: 10px;
-  font-size: 1rem;
-}
-
-/* INVITACIÓN */
-.invitacion {
-  padding: 60px 20px;
-  text-align: center;
-  max-width: 1200px;
-  margin: auto;
-}
-
-.nombres {
-  font-size: 3rem;
-}
-
-.frase {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-}
-
-.fecha {
-  font-size: 1.3rem;
-  margin-bottom: 40px;
-}
-
-/* BLOQUE DOBLE */
-.bloque-doble {
-  display: flex;
-  gap: 40px;
-  align-items: center;
-  margin: 60px auto;
-}
-
-.imagen-bloque {
-  flex: 1;
-  max-width: 500px;
-}
-
-.imagen-bloque img {
-  width: 100%;
-  height: auto;
-  border-radius: 16px;
-  object-fit: cover;
-  box-shadow: 0 8px 28px rgba(0,0,0,0.08);
-}
-
-.info {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.cuadro-info {
-  background: #ffffff;
-  padding: 24px;
-  border-radius: 14px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
-}
-
-/* SECCIONES */
-.seccion {
-  margin: 50px 0;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 520px;
+  margin: 20px auto;
 }
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
-  .bloque-doble {
-    flex-direction: column;
+  .fondo, .portada {
+    background-attachment: scroll;
   }
 
   .nombres {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
+  }
+
+  .card {
+    padding: 24px;
   }
 }
