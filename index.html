@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Invitación Karla & Edgar</title>
 
-  <!-- Google Font -->
+  <!-- Fuente -->
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
 
   <!-- CSS -->
@@ -14,89 +14,93 @@
 <body>
 
 <!-- PORTADA -->
-<section class="portada" id="inicio">
-  <div class="portada-contenido">
+<section class="portada">
+  <div class="overlay"></div>
+  <div class="contenido portada-contenido">
     <h1 class="nombre-invitado">Nombre del Invitado</h1>
     <h2 class="pases">Pases asignados: 2</h2>
     <p class="nota">
       Nos encantaría que los niños nos acompañen en esta celebración tan especial,
       les pedimos amablemente su ayuda para supervisarlos durante todo el evento.
     </p>
-    <a href="#invitacion" class="btn-asistir">Asistir</a>
+    <a href="#evento" class="btn-principal">Asistir</a>
   </div>
 </section>
 
 <!-- INVITACIÓN -->
-<section class="invitacion" id="invitacion">
-
+<section class="intro" id="evento">
   <h1 class="nombres">Karla & Edgar</h1>
   <p class="frase">Hemos decidido decir “sí” para toda la vida</p>
   <h2 class="fecha">14 de marzo del 2026</h2>
+</section>
 
-  <!-- BLOQUE CEREMONIA + RECEPCIÓN -->
-  <section class="bloque-doble">
+<!-- CEREMONIA + RECEPCIÓN -->
+<section class="fondo fondo-evento">
+  <div class="overlay"></div>
 
-    <!-- IMAGEN ÚNICA -->
-    <div class="imagen-bloque">
-      <img src="images/photo4.webp" alt="Ceremonia y Recepción">
+  <div class="contenido tarjetas">
+
+    <div class="card">
+      <h3>Ceremonia</h3>
+      <p>Templo Sagrado Corazón de Jesús<br>Los Fresnos</p>
+      <p><strong>05:00 P.M.</strong></p>
+      <a class="btn-secundario" href="https://maps.app.goo.gl/" target="_blank">
+        Ver en Google Maps
+      </a>
     </div>
 
-    <!-- INFO -->
-    <div class="info">
-
-      <div class="cuadro-info">
-        <h3>Ceremonia</h3>
-        <p>Templo Sagrado Corazón de Jesús, Los Fresnos</p>
-        <p><strong>05:00 P.M.</strong></p>
-        <a class="btn-link" href="https://maps.app.goo.gl/" target="_blank">
-          Ver en Google Maps
-        </a>
-      </div>
-
-      <div class="cuadro-info">
-        <h3>Recepción</h3>
-        <p>Casa de Piedra</p>
-        <p><strong>07:45 P.M.</strong></p>
-        <a class="btn-link" href="https://maps.app.goo.gl/" target="_blank">
-          Ver en Google Maps
-        </a>
-      </div>
-
+    <div class="card">
+      <h3>Recepción</h3>
+      <p>Casa de Piedra</p>
+      <p><strong>07:45 P.M.</strong></p>
+      <a class="btn-secundario" href="https://maps.app.goo.gl/" target="_blank">
+        Ver en Google Maps
+      </a>
     </div>
-  </section>
 
-  <!-- ITINERARIO -->
-  <section class="seccion">
+  </div>
+</section>
+
+<!-- ITINERARIO -->
+<section class="fondo fondo-itinerario">
+  <div class="overlay"></div>
+
+  <div class="contenido card solo">
     <h3>Itinerario</h3>
     <p>
-      Ceremonia 05:00 P.M. · Boda civil 07:15 P.M. · Recepción 07:45 P.M. ·  
-      Cena 09:00 P.M. · Inicio del baile 10:00 P.M. · Banda 12:00 A.M. ·  
+      Ceremonia 05:00 P.M.<br>
+      Boda civil 07:15 P.M.<br>
+      Recepción 07:45 P.M.<br>
+      Cena 09:00 P.M.<br>
+      Inicio del baile 10:00 P.M.<br>
+      Banda 12:00 A.M.<br>
       Despedida 01:00 A.M.
     </p>
-  </section>
+  </div>
+</section>
 
-  <!-- VESTIMENTA -->
-  <section class="seccion">
+<!-- VESTIMENTA -->
+<section class="fondo fondo-vestimenta">
+  <div class="overlay"></div>
+
+  <div class="contenido card solo">
     <h3>Código de vestimenta</h3>
     <p>
-      <strong>Caballeros:</strong> traje, moño o corbata.<br>
-      <strong>Damas:</strong> vestido largo (evitar blanco y tonos crema).
+      <strong>Caballeros:</strong> traje, moño o corbata<br>
+      <strong>Damas:</strong> vestido largo (evitar blanco y tonos crema)
     </p>
-  </section>
+  </div>
+</section>
 
-  <!-- MESA DE REGALOS -->
-  <section class="seccion">
+<!-- MESA DE REGALOS -->
+<section class="fondo fondo-regalos">
+  <div class="overlay"></div>
+
+  <div class="contenido card solo">
     <h3>Mesa de regalos</h3>
-    <a class="btn-link" href="https://www.liverpool.com.mx/" target="_blank">Liverpool</a>
-    <a class="btn-link" href="https://www.amazon.com.mx/" target="_blank">Amazon</a>
-  </section>
-
-  <!-- CONFIRMACIÓN -->
-  <section class="seccion">
-    <h3>Confirmación de asistencia</h3>
-    <a class="btn-asistir" href="#formulario">Confirmar asistencia</a>
-  </section>
-
+    <a class="btn-secundario" href="https://www.liverpool.com.mx/" target="_blank">Liverpool</a>
+    <a class="btn-secundario" href="https://www.amazon.com.mx/" target="_blank">Amazon</a>
+  </div>
 </section>
 
 </body>
