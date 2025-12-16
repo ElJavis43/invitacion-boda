@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Invitación Karla & Edgar</title>
 
-  <!-- FUENTE -->
+  <!-- Fuente -->
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
 
   <!-- CSS -->
@@ -17,9 +17,9 @@
 <section class="fondo portada">
   <div class="overlay"></div>
 
-  <div class="contenido portada-contenido">
-    <h1 class="nombre-invitado">Nombre del Invitado</h1>
-    <h2 class="pases">Pases asignados: 2</h2>
+  <div class="contenido portada-contenido animar">
+    <h1 class="nombre-invitado" id="guestName">Nombre del Invitado</h1>
+    <h2 class="pases">Pases asignados: <span id="guestPasses">2</span></h2>
 
     <p class="nota">
       Nos encantaría que los niños nos acompañen en esta celebración tan especial,
@@ -31,18 +31,25 @@
 </section>
 
 <!-- INTRO -->
-<section class="intro" id="evento">
+<section class="intro animar" id="evento">
   <h1 class="nombres">Karla & Edgar</h1>
   <p class="frase">Hemos decidido decir “sí” para toda la vida</p>
   <h2 class="fecha">14 de marzo del 2026</h2>
+
+  <!-- CONTADOR -->
+  <div class="countdown">
+    <div><span id="d">0</span>Días</div>
+    <div><span id="h">0</span>Horas</div>
+    <div><span id="m">0</span>Min</div>
+    <div><span id="s">0</span>Seg</div>
+  </div>
 </section>
 
 <!-- CEREMONIA Y RECEPCIÓN -->
 <section class="fondo fondo-evento">
   <div class="overlay"></div>
 
-  <div class="contenido tarjetas">
-
+  <div class="contenido tarjetas animar">
     <div class="card">
       <h3>Ceremonia</h3>
       <p>Templo Sagrado Corazón de Jesús<br>Los Fresnos</p>
@@ -56,7 +63,6 @@
       <p><strong>07:45 P.M.</strong></p>
       <a class="btn" href="https://maps.app.goo.gl/" target="_blank">Ver en Google Maps</a>
     </div>
-
   </div>
 </section>
 
@@ -64,7 +70,7 @@
 <section class="fondo fondo-itinerario">
   <div class="overlay"></div>
 
-  <div class="contenido">
+  <div class="contenido animar">
     <div class="card solo">
       <h3>Itinerario</h3>
       <p>
@@ -80,33 +86,43 @@
   </div>
 </section>
 
-<!-- VESTIMENTA -->
-<section class="fondo fondo-vestimenta">
-  <div class="overlay"></div>
+<!-- SCRIPT -->
+<script>
+/* ===== NOMBRE DEL INVITADO DESDE URL ===== */
+const params = new URLSearchParams(window.location.search);
+document.getElementById("guestName").textContent =
+  params.get("nombre") || "Invitado Especial";
+document.getElementById("guestPasses").textContent =
+  params.get("pases") || "2";
 
-  <div class="contenido">
-    <div class="card solo">
-      <h3>Código de vestimenta</h3>
-      <p>
-        <strong>Caballeros:</strong> traje, moño o corbata<br>
-        <strong>Damas:</strong> vestido largo (evitar blanco y tonos crema)
-      </p>
-    </div>
-  </div>
-</section>
+/* ===== CONTADOR ===== */
+const targetDate = new Date("2026-03-14T17:00:00").getTime();
 
-<!-- REGALOS -->
-<section class="fondo fondo-regalos">
-  <div class="overlay"></div>
+setInterval(() => {
+  const now = new Date().getTime();
+  const diff = targetDate - now;
 
-  <div class="contenido">
-    <div class="card solo">
-      <h3>Mesa de regalos</h3>
-      <a class="btn" href="https://www.liverpool.com.mx/" target="_blank">Liverpool</a>
-      <a class="btn" href="https://www.amazon.com.mx/" target="_blank">Amazon</a>
-    </div>
-  </div>
-</section>
+  if (diff > 0) {
+    document.getElementById("d").textContent = Math.floor(diff / (1000 * 60 * 60 * 24));
+    document.getElementById("h").textContent = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    document.getElementById("m").textContent = Math.floor((diff / (1000 * 60)) % 60);
+    document.getElementById("s").textContent = Math.floor((diff / 1000) % 60);
+  }
+}, 1000);
+
+/* ===== ANIMACIONES SCROLL ===== */
+const animados = document.querySelectorAll(".animar");
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+    }
+  });
+}, { threshold: 0.2 });
+
+animados.forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
