@@ -18,7 +18,7 @@
   <div class="overlay"></div>
 
   <div class="contenido portada-contenido animar">
-    <h1 class="nombre-invitado" id="guestName">Nombre del Invitado</h1>
+    <h1 class="nombre-invitado" id="guestName">Invitado Especial</h1>
     <h2 class="pases">Pases asignados: <span id="guestPasses">2</span></h2>
 
     <p class="nota">
@@ -86,22 +86,35 @@
   </div>
 </section>
 
+<!-- CONFIRMACIÓN -->
+<section class="confirmacion animar" id="confirmacion">
+  <h2>Confirmación de asistencia</h2>
+  <p class="frase-confirmacion">
+    Será un honor contar con tu presencia en este día tan especial.
+    Te agradeceremos confirmar tu asistencia.
+  </p>
+
+  <a class="btn btn-confirmar" 
+     href="https://forms.gle/" 
+     target="_blank">
+     Confirmar asistencia
+  </a>
+</section>
+
 <!-- SCRIPT -->
 <script>
-/* ===== NOMBRE DEL INVITADO DESDE URL ===== */
+/* NOMBRE DESDE URL */
 const params = new URLSearchParams(window.location.search);
 document.getElementById("guestName").textContent =
   params.get("nombre") || "Invitado Especial";
 document.getElementById("guestPasses").textContent =
   params.get("pases") || "2";
 
-/* ===== CONTADOR ===== */
+/* CONTADOR */
 const targetDate = new Date("2026-03-14T17:00:00").getTime();
-
 setInterval(() => {
   const now = new Date().getTime();
   const diff = targetDate - now;
-
   if (diff > 0) {
     document.getElementById("d").textContent = Math.floor(diff / (1000 * 60 * 60 * 24));
     document.getElementById("h").textContent = Math.floor((diff / (1000 * 60 * 60)) % 24);
@@ -110,17 +123,13 @@ setInterval(() => {
   }
 }, 1000);
 
-/* ===== ANIMACIONES SCROLL ===== */
+/* ANIMACIONES */
 const animados = document.querySelectorAll(".animar");
-
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-    }
+    if (entry.isIntersecting) entry.target.classList.add("visible");
   });
 }, { threshold: 0.2 });
-
 animados.forEach(el => observer.observe(el));
 </script>
 
