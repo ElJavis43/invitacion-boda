@@ -2,97 +2,59 @@ body {
   margin: 0;
   font-family: "Cormorant Garamond", serif;
   background: #faf6f2;
-  color: #5a4a42;
+  color: #fff;
 }
 
-/* FONDOS CON IMAGEN COMPLETA */
+/* FONDOS */
 .fondo {
-  min-height: 100vh;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-
-  background-size: contain;   /* CLAVE */
-  background-repeat: no-repeat;
+  background-size: contain;
   background-position: center;
-  background-color: #f7ede3;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.portada {
-  background-image: url("../images/photo1.webp");
-}
-
-.fondo-evento {
-  background-image: url("../images/photo2.webp");
-}
-
-.fondo-itinerario {
-  background-image: url("../images/photo3.webp");
-}
-
-/* CAPA SUAVE */
+/* OVERLAY */
 .overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(255,255,255,0.65);
+  background: rgba(250, 246, 242, 0.85);
+  color: #5a4a42;
+  padding: 40px 30px;
+  border-radius: 20px;
+  max-width: 700px;
+  text-align: center;
 }
 
-/* CONTENIDO */
-.contenido {
-  position: relative;
-  z-index: 2;
-  max-width: 900px;
-  padding: 40px 20px;
+/* TEXTOS */
+h1, h2, h3 {
+  margin-bottom: 16px;
+}
+
+.frase {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+}
+
+.fecha {
+  font-size: 1.4rem;
+  margin-bottom: 30px;
 }
 
 /* BOTONES */
-.btn {
+.btn, .btn-sec {
   display: inline-block;
-  margin-top: 20px;
+  margin: 12px;
   padding: 14px 26px;
   background: #d9c2a3;
   color: #fff;
   text-decoration: none;
-  border-radius: 8px;
+  border-radius: 30px;
   font-size: 1rem;
-  transition: background 0.3s ease;
 }
 
-.btn:hover {
-  background: #c4ab8a;
-}
-
-/* TARJETAS */
-.tarjetas {
-  display: flex;
-  gap: 30px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.card {
-  background: rgba(255,255,255,0.9);
-  padding: 30px;
-  border-radius: 14px;
-  max-width: 320px;
-}
-
-.card.solo {
-  max-width: 420px;
-}
-
-/* CONFIRMACIÓN */
-.confirmacion {
-  padding: 80px 20px;
-  text-align: center;
-  background: #faf6f2;
-}
-
-.frase-confirmacion {
-  max-width: 600px;
-  margin: 0 auto 20px;
+.btn-sec {
+  background: #bfa58a;
 }
 
 /* CONTADOR */
@@ -100,31 +62,40 @@ body {
   display: flex;
   justify-content: center;
   gap: 20px;
-  margin-top: 30px;
+  flex-wrap: wrap;
 }
 
 .countdown div {
-  background: rgba(255,255,255,0.85);
-  padding: 14px 18px;
-  border-radius: 12px;
-  min-width: 80px;
+  background: #fff;
+  color: #5a4a42;
+  padding: 16px 20px;
+  border-radius: 16px;
+  min-width: 90px;
 }
 
-/* ANIMACIONES */
-.animar {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 1s ease;
+.countdown span {
+  font-size: 2rem;
+  font-weight: 600;
 }
 
-.animar.visible {
-  opacity: 1;
-  transform: translateY(0);
+.countdown small {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+}
+
+/* CONFIRMACIÓN */
+.confirmacion {
+  min-height: 90vh;
 }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  .tarjetas {
-    flex-direction: column;
+  .overlay {
+    padding: 28px 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
   }
 }
