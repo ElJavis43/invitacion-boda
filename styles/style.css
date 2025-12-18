@@ -1,38 +1,27 @@
-:root {
-    --texto: #5a4a42;
-    --fondo: #faf6f2;
-    --acento: #d9c2a3;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
+    margin: 0;
     font-family: "Cormorant Garamond", serif;
-    background: var(--fondo);
-    color: var(--texto);
+    background: #faf6f2;
+    color: #5a4a42;
     text-align: center;
 }
 
 /* PORTADA */
 .portada {
     height: 100vh;
+    background: #f7ede3;
     display: flex;
-    align-items: center;
     justify-content: center;
-    background: #f3e8de;
+    align-items: center;
     padding: 20px;
 }
 
 .portada-contenido {
-    max-width: 500px;
+    max-width: 480px;
 }
 
 .nombre-invitado {
-    font-size: clamp(26px, 6vw, 38px);
+    font-size: 36px;
 }
 
 .pases {
@@ -41,101 +30,96 @@ body {
 
 .nota {
     font-size: 15px;
-    margin: 15px 0;
+    margin: 20px 0;
 }
 
 /* BOTONES */
-.btn-principal {
+.btn-asistir {
     display: inline-block;
-    margin-top: 20px;
-    padding: 14px 32px;
-    background: var(--acento);
+    padding: 12px 26px;
+    background: #d9c2a3;
     color: white;
     text-decoration: none;
-    border-radius: 30px;
-    font-size: 16px;
+    border-radius: 6px;
+    margin-top: 15px;
 }
 
-.btn-secundario {
+.btn-link {
     display: inline-block;
     margin-top: 12px;
-    padding: 10px 26px;
-    border-radius: 30px;
-    border: 1px solid white;
+    padding: 10px 20px;
+    background: #d9c2a3;
     color: white;
     text-decoration: none;
+    border-radius: 5px;
 }
 
-/* SECCIONES CON FONDO */
-.hero, .bloque, .doble-bloque {
-    min-height: 100vh;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
+/* GALERÍA */
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 }
 
-.fondo-uno { background-image: url("../images/photo1.webp"); }
-.fondo-dos { background-image: url("../images/photo2.webp"); }
-.fondo-tres { background-image: url("../images/photo3.webp"); }
-.fondo-cuatro { background-image: url("../images/photo4.webp"); }
-
-.overlay {
-    background: rgba(250,246,242,0.82);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 30px;
+.galeria img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
 }
 
-/* TEXTO */
+/* INVITACIÓN */
+.invitacion {
+    padding: 40px 20px;
+}
+
 .nombres {
-    font-family: "Playfair Display", serif;
-    font-size: clamp(32px, 8vw, 52px);
+    font-size: 48px;
 }
 
 .frase {
     margin: 10px 0 20px;
-    font-size: 18px;
 }
 
 .fecha {
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
-/* CONTADOR */
-.contador {
+/* BLOQUES */
+.bloque {
     display: flex;
-    gap: 15px;
-}
-
-.contador div {
-    background: white;
-    padding: 10px 14px;
-    border-radius: 10px;
-}
-
-.contador span {
-    font-size: 20px;
-    font-weight: bold;
-    display: block;
-}
-
-/* DOBLE */
-.columnas {
-    display: flex;
-    gap: 30px;
     flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 50px;
 }
 
-.cuadro {
-    max-width: 260px;
+.bloque img {
+    width: 50%;
+    height: 320px;
+    object-fit: cover;
+}
+
+.texto {
+    width: 50%;
+    padding: 20px;
+}
+
+/* ITINERARIO */
+.itinerario {
+    margin: 50px 0;
+}
+
+/* CONFIRMACIÓN */
+.confirmacion {
+    margin: 60px 0;
 }
 
 /* MOBILE */
 @media (max-width: 768px) {
-    .columnas {
-        flex-direction: column;
+    .bloque img,
+    .texto {
+        width: 100%;
+    }
+
+    .galeria {
+        grid-template-columns: 1fr;
     }
 }
