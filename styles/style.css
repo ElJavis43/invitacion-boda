@@ -1,130 +1,141 @@
 :root {
-  --beige: #f7efe8;
-  --cafe: #5a4a42;
-  --acento: #d9c2a3;
-  --acento-oscuro: #bfa58a;
+    --texto: #5a4a42;
+    --fondo: #faf6f2;
+    --acento: #d9c2a3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  font-family: "Libre Baskerville", serif;
-  color: var(--cafe);
+    font-family: "Cormorant Garamond", serif;
+    background: var(--fondo);
+    color: var(--texto);
+    text-align: center;
 }
 
-/* SECCIONES */
-.seccion {
-  min-height: 100vh;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 40px 20px;
+/* PORTADA */
+.portada {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f3e8de;
+    padding: 20px;
 }
 
-/* CONTENIDO */
-.contenido {
-  background: rgba(247, 239, 232, 0.9);
-  padding: clamp(28px, 5vw, 52px);
-  border-radius: 26px;
-  max-width: 720px;
-  width: 100%;
-  text-align: center;
+.portada-contenido {
+    max-width: 500px;
 }
 
-/* TIPOGRAFÍA */
-h1, h2 {
-  font-family: "Playfair Display", serif;
+.nombre-invitado {
+    font-size: clamp(26px, 6vw, 38px);
 }
 
-h1 {
-  font-size: clamp(2.4rem, 5vw, 3.4rem);
-  margin-bottom: 16px;
+.pases {
+    margin: 10px 0;
 }
 
-h2 {
-  font-size: clamp(1.6rem, 4vw, 2.1rem);
-  margin: 28px 0 12px;
-}
-
-p {
-  font-size: clamp(1.05rem, 2.5vw, 1.2rem);
-  line-height: 1.75;
-  margin-bottom: 16px;
+.nota {
+    font-size: 15px;
+    margin: 15px 0;
 }
 
 /* BOTONES */
-.btn-principal,
-.btn-secundario {
-  display: inline-block;
-  margin-top: 22px;
-  padding: 14px 40px;
-  border-radius: 45px;
-  text-decoration: none;
-  font-family: "Libre Baskerville", serif;
-  font-size: clamp(0.95rem, 2.5vw, 1.05rem);
-  letter-spacing: 1.2px;
-  transition: all 0.35s ease;
-}
-
 .btn-principal {
-  background: var(--acento);
-  color: #fff;
-}
-
-.btn-principal:hover {
-  background: var(--acento-oscuro);
-  transform: translateY(-2px);
+    display: inline-block;
+    margin-top: 20px;
+    padding: 14px 32px;
+    background: var(--acento);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 16px;
 }
 
 .btn-secundario {
-  background: transparent;
-  border: 2px solid var(--acento-oscuro);
-  color: var(--acento-oscuro);
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 26px;
+    border-radius: 30px;
+    border: 1px solid white;
+    color: white;
+    text-decoration: none;
 }
 
-.btn-secundario:hover {
-  background: var(--acento-oscuro);
-  color: #fff;
+/* SECCIONES CON FONDO */
+.hero, .bloque, .doble-bloque {
+    min-height: 100vh;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.fondo-uno { background-image: url("../images/photo1.webp"); }
+.fondo-dos { background-image: url("../images/photo2.webp"); }
+.fondo-tres { background-image: url("../images/photo3.webp"); }
+.fondo-cuatro { background-image: url("../images/photo4.webp"); }
+
+.overlay {
+    background: rgba(250,246,242,0.82);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+/* TEXTO */
+.nombres {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(32px, 8vw, 52px);
+}
+
+.frase {
+    margin: 10px 0 20px;
+    font-size: 18px;
+}
+
+.fecha {
+    margin-bottom: 20px;
 }
 
 /* CONTADOR */
-.countdown {
-  display: flex;
-  justify-content: center;
-  gap: 18px;
-  margin-top: 34px;
-  flex-wrap: wrap;
+.contador {
+    display: flex;
+    gap: 15px;
 }
 
-.countdown div {
-  background: #fff;
-  padding: 18px 20px;
-  border-radius: 20px;
-  min-width: 90px;
+.contador div {
+    background: white;
+    padding: 10px 14px;
+    border-radius: 10px;
 }
 
-.countdown span {
-  display: block;
-  font-size: clamp(1.8rem, 4vw, 2.2rem);
-  font-weight: 600;
-  font-family: "Playfair Display", serif;
+.contador span {
+    font-size: 20px;
+    font-weight: bold;
+    display: block;
 }
 
-.countdown small {
-  font-size: 0.65rem;
-  letter-spacing: 1.8px;
+/* DOBLE */
+.columnas {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
 }
 
-/* CONFIRMACIÓN */
-.confirmacion {
-  min-height: 90vh;
+.cuadro {
+    max-width: 260px;
 }
 
-/* RESPONSIVE */
+/* MOBILE */
 @media (max-width: 768px) {
-  .seccion {
-    background-size: cover;
-  }
+    .columnas {
+        flex-direction: column;
+    }
 }
