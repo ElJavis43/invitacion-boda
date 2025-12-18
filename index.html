@@ -1,85 +1,126 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invitación Karla & Edgar</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitación Karla & Edgar</title>
 
-    <!-- ESTILOS -->
-    <link rel="stylesheet" href="styles/style.css">
+  <!-- FUENTES ELEGANTES -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
 
-    <!-- TARJETA DE INICIO -->
-    <section class="portada" id="inicio">
-        <div class="portada-contenido">
-            <h1 class="nombre-invitado">Nombre del Invitado</h1>
-            <h2 class="pases">Pases asignados: X</h2>
-            <p class="nota">
-                Nos encantaría que los niños nos acompañen en esta celebración tan especial,
-                les pedimos amablemente su ayuda para supervisarlos durante todo el evento.
-            </p>
-            <a href="#invitacion" class="btn-asistir">Asistir</a>
-        </div>
-    </section>
+<!-- PORTADA -->
+<section class="seccion fondo" style="background-image:url('images/photo1.webp')">
+  <div class="contenido">
+    <h1 class="nombre-invitado">Nombre del Invitado</h1>
+    <p class="pases">Pases asignados: 2</p>
 
-    <!-- GALERÍA -->
-    <section class="galeria">
-        <div class="gallery">
-            <img src="images/photo1.webp" loading="lazy" alt="">
-            <img src="images/photo2.webp" loading="lazy" alt="">
-            <img src="images/photo3.webp" loading="lazy" alt="">
-            <img src="images/photo4.webp" loading="lazy" alt="">
-            <img src="images/photo5.webp" loading="lazy" alt="">
-            <img src="images/photo6.webp" loading="lazy" alt="">
-            <img src="images/photo7.webp" loading="lazy" alt="">
-        </div>
-    </section>
+    <p class="nota">
+      Nos encantaría que los niños nos acompañen en esta celebración tan especial,
+      les pedimos amablemente su ayuda para supervisarlos durante todo el evento.
+    </p>
 
-    <!-- INVITACIÓN -->
-    <section class="invitacion" id="invitacion">
+    <a href="#invitacion" class="btn-principal">Asistir</a>
+  </div>
+</section>
 
-        <h1 class="nombres">Karla & Edgar</h1>
+<!-- INVITACIÓN -->
+<section class="seccion fondo" id="invitacion" style="background-image:url('images/photo2.webp')">
+  <div class="contenido">
+    <h1 class="nombres">Karla & Edgar</h1>
+    <p class="frase">Hemos decidido decir “sí” para toda la vida</p>
+    <p class="fecha">14 de marzo de 2026</p>
 
-        <p class="frase">Hemos decidido decir “sí” para toda la vida</p>
+    <div class="countdown">
+      <div><span id="d">0</span><small>DÍAS</small></div>
+      <div><span id="h">0</span><small>HORAS</small></div>
+      <div><span id="m">0</span><small>MIN</small></div>
+      <div><span id="s">0</span><small>SEG</small></div>
+    </div>
+  </div>
+</section>
 
-        <h2>14 de marzo del 2026</h2>
+<!-- PADRES Y PADRINOS -->
+<section class="seccion fondo" style="background-image:url('images/photo3.webp')">
+  <div class="contenido">
+    <h2>Con la bendición de Dios y en compañía de nuestros padres</h2>
+    <p>Ma. Dolores Medina Ochoa y Javier Ramírez Serna</p>
+    <p>María Elena Herrera y Martín Gregorio Fernández</p>
 
-        <h3>Con la bendición de Dios y en compañía de nuestros padres</h3>
-        <p>Ma. Dolores Medina Ochoa y Javier Ramírez Serna</p>
-        <p>María Elena Herrera y Martín Gregorio Fernández</p>
+    <h2>Nuestros padrinos</h2>
+    <p>Elizabeth Velazco Rivera</p>
+    <p>Francisco Javier Medina Ochoa</p>
+  </div>
+</section>
 
-        <h3>Nuestros padrinos</h3>
-        <p>Elizabeth Velazco Rivera y Francisco Javier Medina Ochoa</p>
+<!-- CEREMONIA Y RECEPCIÓN -->
+<section class="seccion fondo" style="background-image:url('images/photo4.webp')">
+  <div class="contenido">
+    <h2>Ceremonia</h2>
+    <p>Templo Sagrado Corazón de Jesús · 17:00 hrs.</p>
+    <a class="btn-secundario" href="https://maps.app.goo.gl/" target="_blank">Ver ubicación</a>
 
-        <h3>Ceremonia</h3>
-        <p>Templo Sagrado Corazón de Jesús, Los Fresnos</p>
-        <a class="btn-link" href="https://maps.app.goo.gl/" target="_blank">Ver en Google Maps</a>
+    <h2>Recepción</h2>
+    <p>Casa de Piedra · 19:00 hrs.</p>
+    <a class="btn-secundario" href="https://maps.app.goo.gl/" target="_blank">Ver ubicación</a>
+  </div>
+</section>
 
-        <h3>Recepción</h3>
-        <p>Casa de Piedra</p>
-        <a class="btn-link" href="https://maps.app.goo.gl/" target="_blank">Ver en Google Maps</a>
+<!-- ITINERARIO -->
+<section class="seccion fondo" style="background-image:url('images/photo5.webp')">
+  <div class="contenido">
+    <h2>Itinerario</h2>
+    <p>
+      <strong>17:00 hrs.</strong> · Misa<br>
+      <strong>19:00 hrs.</strong> · Recepción<br>
+      <strong>19:15 hrs.</strong> · Boda civil
+    </p>
+  </div>
+</section>
 
-        <h3>Itinerario</h3>
-        <p>
-            Ceremonia 05:00 P.M. · Boda civil 07:15 P.M. · Recepción 07:45 P.M. ·  
-            Cena 09:00 P.M. · Inicio del baile 10:00 P.M. · Banda 12:00 A.M. ·  
-            Despedida 01:00 A.M.
-        </p>
+<!-- VESTIMENTA -->
+<section class="seccion fondo" style="background-image:url('images/photo6.webp')">
+  <div class="contenido">
+    <h2>Código de vestimenta</h2>
+    <p>
+      <strong>Caballeros:</strong> Traje, moño o corbata.<br>
+      <strong>Damas:</strong> Vestido largo (evitar blanco y crema).
+    </p>
+  </div>
+</section>
 
-        <h3>Código de vestimenta</h3>
-        <p>
-            Formal: Caballeros traje, moño o corbata.<br>
-            Damas: Vestido largo (evitar blanco y crema).
-        </p>
+<!-- CONFIRMACIÓN -->
+<section class="seccion fondo confirmacion" style="background-image:url('images/photo7.webp')">
+  <div class="contenido">
+    <h2>Confirmación de asistencia</h2>
+    <p class="frase-confirmacion">
+      Será un honor contar con tu presencia.
+      Te agradeceremos confirmar tu asistencia.
+    </p>
+    <a class="btn-principal" href="https://forms.gle/" target="_blank">
+      Confirmar asistencia
+    </a>
+  </div>
+</section>
 
-        <h3>Mesa de regalos</h3>
-        <a class="btn-link" href="https://www.liverpool.com.mx/" target="_blank">Liverpool</a>
-        <a class="btn-link" href="https://www.amazon.com.mx/" target="_blank">Amazon</a>
+<!-- CONTADOR -->
+<script>
+const target = new Date("2026-03-14T17:00:00").getTime();
+setInterval(() => {
+  const now = new Date().getTime();
+  let diff = target - now;
+  if (diff < 0) diff = 0;
 
-        <h3>Confirmación de asistencia</h3>
-        <a class="btn-asistir" href="#formulario">Confirmar asistencia</a>
-    </section>
+  document.getElementById("d").innerText = Math.floor(diff / (1000*60*60*24));
+  document.getElementById("h").innerText = Math.floor(diff / (1000*60*60) % 24);
+  document.getElementById("m").innerText = Math.floor(diff / (1000*60) % 60);
+  document.getElementById("s").innerText = Math.floor(diff / 1000 % 60);
+}, 1000);
+</script>
 
 </body>
 </html>
