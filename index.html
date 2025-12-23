@@ -6,13 +6,12 @@
 <title>Invitación Karla & Edgar</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
-
 <link rel="stylesheet" href="styles/style.css">
 </head>
 
 <body>
 
-<!-- PANTALLA INICIAL -->
+<!-- OVERLAY INICIAL -->
 <section class="overlay" id="overlay">
     <div class="overlay-card">
         <h2>Karla & Edgar</h2>
@@ -31,7 +30,6 @@
     <div class="hero-content">
         <h1 class="nombres">Karla & Edgar</h1>
         <p class="frase">Hemos decidido decir “sí” para toda la vida</p>
-
         <h2 class="fecha">14 de marzo del 2026</h2>
 
         <!-- CONTADOR -->
@@ -44,7 +42,7 @@
     </div>
 </section>
 
-<!-- PADRES Y PADRINOS -->
+<!-- PADRES -->
 <section class="section bg-photo photo2">
     <div class="card">
         <h3>Con la bendición de Dios y en compañía de nuestros padres</h3>
@@ -76,14 +74,30 @@
 </section>
 
 <!-- ITINERARIO -->
-<section class="section bg-photo photo4">
+<section class="section bg-photo photo4 fade-in">
     <div class="card">
         <h3>Itinerario</h3>
-        <p>
-            Ceremonia religiosa · 05:00 P.M.<br>
-            Recepción · 07:00 P.M.<br>
-            Boda civil · 07:15 P.M.<br>
-        </p>
+
+        <div class="itinerario">
+            <div class="item">
+                <span class="evento">Ceremonia religiosa</span>
+                <span class="hora">05:00 P.M.</span>
+            </div>
+
+            <div class="linea"></div>
+
+            <div class="item">
+                <span class="evento">Recepción</span>
+                <span class="hora">07:00 P.M.</span>
+            </div>
+
+            <div class="linea"></div>
+
+            <div class="item">
+                <span class="evento">Boda civil</span>
+                <span class="hora">07:15 P.M.</span>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -92,10 +106,8 @@
     <div class="card">
         <h3>Código de vestimenta</h3>
         <p><strong>Formal</strong></p>
-        <p>
-            Caballeros: traje, moño o corbata<br>
-            Damas: vestido largo (evitar blanco y crema)
-        </p>
+        <p>Caballeros: traje, moño o corbata<br>
+        Damas: vestido largo (evitar blanco y crema)</p>
     </div>
 </section>
 
@@ -122,6 +134,7 @@ function enter(){
     document.getElementById('overlay').style.display='none';
 }
 
+/* CONTADOR */
 const target = new Date('2026-03-14T17:00:00');
 setInterval(()=>{
     const now = new Date();
@@ -139,6 +152,19 @@ setInterval(()=>{
     document.getElementById('m').innerText=m;
     document.getElementById('s').innerText=s;
 },1000);
+
+/* ANIMACIÓN SCROLL */
+const observer = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add('visible');
+        }
+    });
+},{threshold:0.3});
+
+document.querySelectorAll('.fade-in').forEach(el=>{
+    observer.observe(el);
+});
 </script>
 
 </body>
