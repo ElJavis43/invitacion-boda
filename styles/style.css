@@ -6,28 +6,29 @@
 
 body {
     font-family: 'Cormorant Garamond', serif;
+    background: #faf6f2;
     color: #4a4a4a;
 }
 
 /* HERO */
 .hero {
     height: 100vh;
-    background: url('../images/photo1.webp') center/cover no-repeat;
+    background: url('../images/photo1.webp') center / cover no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .hero-content {
-    background: rgba(255,255,255,0.85);
+    background: rgba(255,255,255,0.88);
     padding: 50px;
+    border-radius: 14px;
     text-align: center;
-    border-radius: 12px;
 }
 
 .hero h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 3.2rem;
+    font-size: 3rem;
 }
 
 .hero-date {
@@ -45,46 +46,24 @@ body {
     background-position: center;
 }
 
-.image-bg {
-    position: relative;
-}
-
 .overlay-box {
     background: rgba(255,255,255,0.88);
     padding: 40px;
-    max-width: 900px;
-    border-radius: 14px;
+    border-radius: 16px;
     text-align: center;
-}
-
-.overlay-box h2,
-.overlay-box h3 {
-    font-family: 'Playfair Display', serif;
-    margin-bottom: 20px;
-}
-
-/* DOS COLUMNAS */
-.two-columns {
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap: 30px;
+    max-width: 900px;
 }
 
 /* BOTONES */
-.primary-btn,
-.secondary-btn {
+.primary-btn {
     display: inline-block;
     margin-top: 20px;
-    padding: 14px 32px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-}
-
-.primary-btn {
+    padding: 14px 36px;
     background: #c2a16d;
     color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
 }
 
 .primary-btn:hover {
@@ -92,8 +71,13 @@ body {
 }
 
 .secondary-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 28px;
+    border-radius: 30px;
     border: 1px solid #c2a16d;
     color: #c2a16d;
+    text-decoration: none;
 }
 
 .secondary-btn:hover {
@@ -101,22 +85,13 @@ body {
     color: white;
 }
 
-/* ITINERARIO */
-.itinerary {
-    list-style: none;
-    font-size: 1.2rem;
+/* COLUMNAS */
+.two-columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
 }
 
-.itinerary li {
-    margin: 10px 0;
-}
-
-.itinerary span {
-    font-weight: bold;
-    margin-right: 10px;
-}
-
-/* GRUPO BOTONES */
 .btn-group {
     display: flex;
     justify-content: center;
@@ -126,7 +101,7 @@ body {
 /* RESPONSIVE */
 @media (max-width: 768px) {
     .hero h1 {
-        font-size: 2.4rem;
+        font-size: 2.3rem;
     }
 
     .hero-date {
@@ -135,10 +110,5 @@ body {
 
     .two-columns {
         grid-template-columns: 1fr;
-    }
-
-    .overlay-box {
-        margin: 20px;
-        padding: 30px;
     }
 }
