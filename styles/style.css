@@ -1,114 +1,115 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+body{
+    margin:0;
+    font-family:'Cormorant Garamond', serif;
+    background:#faf6f2;
+    color:#4b3f39;
 }
 
-body {
-    font-family: 'Cormorant Garamond', serif;
-    background: #faf6f2;
-    color: #4a4a4a;
+/* OVERLAY */
+.overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(250,246,242,.97);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+}
+
+.overlay-card{
+    background:#fff;
+    padding:40px;
+    border-radius:18px;
+    text-align:center;
+    max-width:420px;
+}
+
+.btn{
+    display:inline-block;
+    margin:10px;
+    padding:14px 34px;
+    background:#c2a16d;
+    color:#fff;
+    text-decoration:none;
+    border-radius:30px;
 }
 
 /* HERO */
-.hero {
-    height: 100vh;
-    background: url('../images/photo1.webp') center / cover no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.hero{
+    height:100vh;
+    background:url('../images/photo1.webp') center/cover no-repeat;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
-.hero-content {
-    background: rgba(255,255,255,0.88);
-    padding: 50px;
-    border-radius: 14px;
-    text-align: center;
+.hero-content{
+    background:rgba(255,255,255,.9);
+    padding:50px;
+    border-radius:18px;
+    text-align:center;
 }
 
-.hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
+.nombres{
+    font-family:'Playfair Display', serif;
+    font-size:3rem;
 }
 
-.hero-date {
-    font-size: 2rem;
-    margin: 20px 0;
+.fecha{
+    font-size:2.2rem;
+    margin:10px 0;
+}
+
+/* CONTADOR */
+.countdown{
+    display:flex;
+    gap:15px;
+    justify-content:center;
+}
+
+.countdown div{
+    background:#e6d6b8;
+    padding:12px 16px;
+    border-radius:10px;
 }
 
 /* SECCIONES */
-.section {
-    min-height: 90vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-size: cover;
-    background-position: center;
+.section{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:40px 20px;
 }
 
-.overlay-box {
-    background: rgba(255,255,255,0.88);
-    padding: 40px;
-    border-radius: 16px;
-    text-align: center;
-    max-width: 900px;
+.bg-photo{
+    background-size:cover;
+    background-position:center;
 }
 
-/* BOTONES */
-.primary-btn {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 14px 36px;
-    background: #c2a16d;
-    color: white;
-    text-decoration: none;
-    border-radius: 30px;
-    font-size: 1.1rem;
+.photo2{background-image:url('../images/photo2.webp')}
+.photo3{background-image:url('../images/photo3.webp')}
+.photo4{background-image:url('../images/photo4.webp')}
+.photo5{background-image:url('../images/photo5.webp')}
+.photo6{background-image:url('../images/photo6.webp')}
+.photo7{background-image:url('../images/photo7.webp')}
+
+.card{
+    background:rgba(255,255,255,.9);
+    padding:40px;
+    border-radius:18px;
+    max-width:900px;
+    width:100%;
+    text-align:center;
 }
 
-.primary-btn:hover {
-    background: #a88955;
+.columns{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
 }
 
-.secondary-btn {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 12px 28px;
-    border-radius: 30px;
-    border: 1px solid #c2a16d;
-    color: #c2a16d;
-    text-decoration: none;
-}
-
-.secondary-btn:hover {
-    background: #c2a16d;
-    color: white;
-}
-
-/* COLUMNAS */
-.two-columns {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-}
-
-.btn-group {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2.3rem;
-    }
-
-    .hero-date {
-        font-size: 1.6rem;
-    }
-
-    .two-columns {
-        grid-template-columns: 1fr;
-    }
+@media(max-width:768px){
+    .columns{grid-template-columns:1fr}
+    .nombres{font-size:2.3rem}
 }
