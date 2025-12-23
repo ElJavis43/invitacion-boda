@@ -3,104 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invitación Karla & Edgar</title>
+    <title>Karla & Edgar</title>
 
-    <!-- ESTILOS -->
-    <link rel="stylesheet" href="styles/style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
 
-<!-- TARJETA DE INICIO -->
-<section class="portada" id="inicio">
-    <div class="portada-contenido">
-        <h1 class="nombre-invitado">Nombre del Invitado</h1>
-        <h2 class="pases">Pases asignados: X</h2>
-        <p class="nota">
-            Nos encantaría que los niños nos acompañen en esta celebración tan especial,
-            les pedimos amablemente su ayuda para supervisarlos durante todo el evento.
-        </p>
-        <a href="#invitacion" class="btn-asistir">Asistir</a>
-    </div>
-</section>
-
-<!-- GALERÍA -->
-<section class="galeria">
-    <div class="gallery">
-        <img src="images/photo1.webp" loading="lazy" alt="">
-        <img src="images/photo2.webp" loading="lazy" alt="">
-        <img src="images/photo3.webp" loading="lazy" alt="">
-        <img src="images/photo4.webp" loading="lazy" alt="">
-        <img src="images/photo5.webp" loading="lazy" alt="">
-        <img src="images/photo6.webp" loading="lazy" alt="">
-        <img src="images/photo7.webp" loading="lazy" alt="">
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Karla & Edgar</h1>
+        <p class="hero-date">14 de marzo de 2026</p>
+        <button class="primary-btn" onclick="document.getElementById('invitacion').scrollIntoView({behavior:'smooth'})">
+            Asistir
+        </button>
     </div>
 </section>
 
 <!-- INVITACIÓN -->
-<section class="invitacion" id="invitacion">
+<section id="invitacion" class="section image-bg" style="background-image:url('images/photo1.webp')">
+    <div class="overlay-box">
+        <h2>Hemos decidido decir “sí” para toda la vida</h2>
+        <p>Con la bendición de Dios y en compañía de</p>
 
-    <h1 class="nombres">Karla & Edgar</h1>
+        <p><strong>Nuestros Padres</strong></p>
+        <p>Ma. Dolores Medina Ochoa<br>Javier Ramírez Serna</p>
+        <p>Maria Elena Herrera Riviera<br>Martin Gregorio Fernandez Criollo</p>
+    </div>
+</section>
 
-    <p class="frase">Hemos decidido decir “sí” para toda la vida</p>
+<!-- PADRINOS -->
+<section class="section image-bg" style="background-image:url('images/photo2.webp')">
+    <div class="overlay-box">
+        <p><strong>Nuestros Padrinos</strong></p>
+        <p>Elizabeth Velazco Rivera<br>Francisco Javier Medina Ochoa</p>
+    </div>
+</section>
 
-    <h2 class="fecha-grande">14 de marzo del 2026</h2>
+<!-- CEREMONIA & RECEPCIÓN -->
+<section class="section image-bg" style="background-image:url('images/photo3.webp')">
+    <div class="overlay-box two-columns">
+        <div>
+            <h3>Ceremonia</h3>
+            <p>Templo Sagrado Corazón de Jesús, Los Fresnos</p>
+            <p>17:00 hrs</p>
+            <a class="secondary-btn" href="https://maps.app.goo.gl/MUpYukDipc6vGJq97" target="_blank">Ver ubicación</a>
+        </div>
 
-    <h3>Con la bendición de Dios y en compañía de nuestros padres</h3>
-    <p>Ma. Dolores Medina Ochoa y Javier Ramírez Serna</p>
-    <p>María Elena Herrera Riviera y Martín Gregorio Fernández Criollo</p>
+        <div>
+            <h3>Recepción</h3>
+            <p>Casa de Piedra</p>
+            <p>19:00 hrs</p>
+            <a class="secondary-btn" href="https://maps.app.goo.gl/w8RjkygRmRbTANPe9" target="_blank">Ver ubicación</a>
+        </div>
+    </div>
+</section>
 
-    <h3>Nuestros padrinos</h3>
-    <p>Elizabeth Velazco Rivera y Francisco Javier Medina Ochoa</p>
+<!-- ITINERARIO -->
+<section class="section image-bg" style="background-image:url('images/photo4.webp')">
+    <div class="overlay-box">
+        <h3>Itinerario</h3>
+        <ul class="itinerary">
+            <li><span>17:00</span> Ceremonia Religiosa</li>
+            <li><span>19:00</span> Recepción</li>
+            <li><span>19:15</span> Boda Civil</li>
+        </ul>
+    </div>
+</section>
 
-    <h3>Ceremonia</h3>
-    <p>Templo Sagrado Corazón de Jesús, <strong>Los Fresnos</strong></p>
-    <a class="btn-link"
-       href="https://maps.app.goo.gl/MUpYukDipc6vGJq97"
-       target="_blank"
-       rel="noopener noreferrer">
-       Ver en Google Maps
-    </a>
+<!-- VESTIMENTA -->
+<section class="section image-bg" style="background-image:url('images/photo5.webp')">
+    <div class="overlay-box">
+        <h3>Código de Vestimenta</h3>
+        <p><strong>Formal</strong></p>
+        <p>Caballeros: Traje, moño o corbata, zapato formal</p>
+        <p>Damas: Vestido largo de noche (evitar blanco y tonos crema)</p>
+    </div>
+</section>
 
-    <h3>Recepción</h3>
-    <p>Casa de Piedra</p>
-    <a class="btn-link"
-       href="https://maps.app.goo.gl/w8RjkygRmRbTANPe9"
-       target="_blank"
-       rel="noopener noreferrer">
-       Ver en Google Maps
-    </a>
+<!-- MESA DE REGALOS -->
+<section class="section image-bg" style="background-image:url('images/photo6.webp')">
+    <div class="overlay-box">
+        <h3>Mesa de Regalos</h3>
+        <div class="btn-group">
+            <a class="secondary-btn" href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51904302" target="_blank">Liverpool</a>
+            <a class="secondary-btn" href="https://www.sears.com.mx/Mesa-de-Regalos/209704/te-invito-a-mi-boda-edgar-veronica" target="_blank">Sears</a>
+        </div>
+    </div>
+</section>
 
-    <h3>Itinerario</h3>
-    <p>
-        05:00 P.M. · Ceremonia<br>
-        07:00 P.M. · Recepción<br>
-        07:15 P.M. · Boda civil
-    </p>
-
-    <h3>Código de vestimenta</h3>
-    <p>
-        <strong>Formal</strong><br>
-        Caballeros: traje, moño o corbata.<br>
-        Damas: vestido largo (evitar blanco y crema).
-    </p>
-
-    <h3>Mesa de regalos</h3>
-    <a class="btn-link"
-       href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51904302"
-       target="_blank"
-       rel="noopener noreferrer">
-       Liverpool
-    </a>
-    <a class="btn-link"
-       href="https://www.sears.com.mx/Mesa-de-Regalos/209704/te-invito-a-mi-boda-edgar-veronica"
-       target="_blank"
-       rel="noopener noreferrer">
-       Sears
-    </a>
-
-    <h3>Confirmación de asistencia</h3>
-    <a class="btn-asistir" href="#formulario">Confirmar asistencia</a>
-
+<!-- CONFIRMACIÓN -->
+<section class="section image-bg" style="background-image:url('images/photo7.webp')">
+    <div class="overlay-box center">
+        <h3>Confirmación de Asistencia</h3>
+        <p>Será un honor contar con su presencia</p>
+        <a class="primary-btn" href="#">Confirmar asistencia</a>
+    </div>
 </section>
 
 </body>
