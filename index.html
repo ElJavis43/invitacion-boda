@@ -3,204 +3,117 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Karla & Edgar</title>
+<title>Invitación Karla & Edgar</title>
 
-<!-- FUENTES -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-
-body{
-    font-family:'Cormorant Garamond', serif;
-    background:#faf6f2;
-    color:#4b3f39;
-}
-
-/* OVERLAY INICIAL */
-.overlay{
-    position:fixed;
-    inset:0;
-    background:rgba(250,246,242,.97);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    z-index:9999;
-}
-
-.overlay-card{
-    background:white;
-    padding:40px;
-    border-radius:18px;
-    text-align:center;
-    max-width:420px;
-    width:90%;
-}
-
-.overlay-card h2{
-    font-family:'Playfair Display', serif;
-    font-size:2.3rem;
-}
-
-.overlay-card p{
-    margin-top:10px;
-}
-
-.btn{
-    display:inline-block;
-    margin-top:20px;
-    padding:14px 36px;
-    background:#c2a16d;
-    color:white;
-    text-decoration:none;
-    border-radius:30px;
-    font-size:1.1rem;
-}
-
-.btn:hover{background:#a88955}
-
-/* HERO */
-.hero{
-    height:100vh;
-    background:url('images/photo1.webp') center/cover no-repeat;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.hero-box{
-    background:rgba(255,255,255,.9);
-    padding:50px;
-    border-radius:18px;
-    text-align:center;
-}
-
-.hero h1{
-    font-family:'Playfair Display', serif;
-    font-size:3rem;
-}
-
-.date{
-    font-size:2.2rem;
-    margin:15px 0;
-}
-
-/* CONTADOR */
-.countdown{
-    display:flex;
-    justify-content:center;
-    gap:15px;
-    margin-top:20px;
-}
-
-.time-box{
-    background:#e6d6b8;
-    padding:12px 16px;
-    border-radius:10px;
-    min-width:70px;
-}
-
-.time-box span{
-    display:block;
-    font-size:1.4rem;
-    font-weight:600;
-}
-
-.time-box small{
-    font-size:.8rem;
-}
-
-/* SECCIONES */
-.section{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:40px 20px;
-    background-size:cover;
-    background-position:center;
-}
-
-.card{
-    background:rgba(255,255,255,.9);
-    padding:40px;
-    border-radius:18px;
-    max-width:900px;
-    width:100%;
-    text-align:center;
-}
-
-/* COLUMNAS */
-.columns{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:30px;
-}
-
-/* FORM */
-form{
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-    margin-top:20px;
-}
-
-input, textarea{
-    padding:12px;
-    border-radius:8px;
-    border:1px solid #ccc;
-    font-family:inherit;
-}
-
-/* MOBILE */
-@media(max-width:768px){
-    .columns{grid-template-columns:1fr}
-    .hero h1{font-size:2.3rem}
-    .date{font-size:1.6rem}
-}
-</style>
+<link rel="stylesheet" href="styles/style.css">
 </head>
 
 <body>
 
-<!-- OVERLAY -->
-<div class="overlay" id="overlay">
+<!-- PANTALLA INICIAL -->
+<section class="overlay" id="overlay">
     <div class="overlay-card">
         <h2>Karla & Edgar</h2>
-        <p><strong>Invitado:</strong> Nombre del invitado</p>
+        <p><strong>Invitado:</strong> Nombre del Invitado</p>
         <p><strong>Pases asignados:</strong> 2</p>
+        <p class="nota">
+            Nos encantaría que los niños nos acompañen en esta celebración tan especial,
+            les pedimos amablemente su ayuda para supervisarlos durante todo el evento.
+        </p>
         <a class="btn" onclick="enter()">Asistir</a>
     </div>
-</div>
+</section>
 
 <!-- HERO -->
 <section class="hero">
-    <div class="hero-box">
-        <h1>Karla & Edgar</h1>
-        <div class="date">14 de marzo de 2026</div>
+    <div class="hero-content">
+        <h1 class="nombres">Karla & Edgar</h1>
+        <p class="frase">Hemos decidido decir “sí” para toda la vida</p>
 
+        <h2 class="fecha">14 de marzo del 2026</h2>
+
+        <!-- CONTADOR -->
         <div class="countdown">
-            <div class="time-box"><span id="d">0</span><small>Días</small></div>
-            <div class="time-box"><span id="h">0</span><small>Horas</small></div>
-            <div class="time-box"><span id="m">0</span><small>Min</small></div>
-            <div class="time-box"><span id="s">0</span><small>Seg</small></div>
+            <div><span id="d">0</span><small>Días</small></div>
+            <div><span id="h">0</span><small>Horas</small></div>
+            <div><span id="m">0</span><small>Min</small></div>
+            <div><span id="s">0</span><small>Seg</small></div>
         </div>
     </div>
 </section>
 
-<!-- CONFIRMACIÓN -->
-<section class="section" style="background-image:url('images/photo5.webp')">
+<!-- PADRES Y PADRINOS -->
+<section class="section bg-photo photo2">
     <div class="card">
-        <h2>Confirmación de Asistencia</h2>
-        <p>Por favor confirma tu asistencia</p>
+        <h3>Con la bendición de Dios y en compañía de nuestros padres</h3>
+        <p>Ma. Dolores Medina Ochoa y Javier Ramírez Serna</p>
+        <p>María Elena Herrera Riviera y Martín Gregorio Fernández Criollo</p>
 
-        <form>
-            <input type="text" placeholder="Nombre completo" required>
-            <input type="number" placeholder="Invitados confirmados" required>
-            <input type="tel" placeholder="Teléfono" required>
-            <textarea placeholder="Mensaje (opcional)"></textarea>
-            <button class="btn" type="submit">Confirmar</button>
-        </form>
+        <h3>Nuestros padrinos</h3>
+        <p>Elizabeth Velazco Rivera y Francisco Javier Medina Ochoa</p>
+    </div>
+</section>
+
+<!-- CEREMONIA Y RECEPCIÓN -->
+<section class="section bg-photo photo3">
+    <div class="card columns">
+        <div>
+            <h3>Ceremonia</h3>
+            <p>Templo Sagrado Corazón de Jesús, Los Fresnos</p>
+            <p>05:00 P.M.</p>
+            <a class="btn" href="https://maps.app.goo.gl/MUpYukDipc6vGJq97" target="_blank">Ver ubicación</a>
+        </div>
+
+        <div>
+            <h3>Recepción</h3>
+            <p>Casa de Piedra</p>
+            <p>07:00 P.M.</p>
+            <a class="btn" href="https://maps.app.goo.gl/w8RjkygRmRbTANPe9" target="_blank">Ver ubicación</a>
+        </div>
+    </div>
+</section>
+
+<!-- ITINERARIO -->
+<section class="section bg-photo photo4">
+    <div class="card">
+        <h3>Itinerario</h3>
+        <p>
+            05:00 P.M. · Ceremonia religiosa<br>
+            07:00 P.M. · Recepción<br>
+            07:15 P.M. · Boda civil
+        </p>
+    </div>
+</section>
+
+<!-- VESTIMENTA -->
+<section class="section bg-photo photo5">
+    <div class="card">
+        <h3>Código de vestimenta</h3>
+        <p><strong>Formal</strong></p>
+        <p>
+            Caballeros: traje, moño o corbata<br>
+            Damas: vestido largo (evitar blanco y crema)
+        </p>
+    </div>
+</section>
+
+<!-- MESA DE REGALOS -->
+<section class="section bg-photo photo6">
+    <div class="card">
+        <h3>Mesa de regalos</h3>
+        <a class="btn" href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51904302" target="_blank">Liverpool</a>
+        <a class="btn" href="https://www.sears.com.mx/Mesa-de-Regalos/209704/te-invito-a-mi-boda-edgar-veronica" target="_blank">Sears</a>
+    </div>
+</section>
+
+<!-- CONFIRMACIÓN -->
+<section class="section bg-photo photo7">
+    <div class="card">
+        <h3>Confirmación de asistencia</h3>
+        <p>Agradeceremos confirmar su asistencia</p>
+        <a class="btn" href="#">Confirmar asistencia</a>
     </div>
 </section>
 
