@@ -1,42 +1,40 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Invitación Karla & Edgar</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación Karla & Edgar</title>
 
-<!-- TIPOGRAFÍAS -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+    <!-- FUENTES ELEGANTES -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="styles/style.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/style.css">
 </head>
-
 <body>
 
-<!-- OVERLAY -->
-<section class="overlay" id="overlay">
-    <div class="overlay-card fade-in visible">
-        <h2>Karla & Edgar</h2>
-        <p><strong>Invitado:</strong> Nombre del Invitado</p>
-        <p><strong>Pases asignados:</strong> 2</p>
-
+<!-- PORTADA -->
+<section class="portada">
+    <div class="portada-contenido animate">
+        <h1 class="nombre-invitado">Nombre del Invitado</h1>
+        <p class="pases">Pases asignados: 2</p>
         <p class="nota">
             Nos encantaría que los niños nos acompañen en esta celebración tan especial,
             les pedimos amablemente su ayuda para supervisarlos durante todo el evento.
         </p>
-
-        <a class="btn" onclick="enter()">Asistir</a>
+        <a href="#invitacion" class="btn-principal">Asistir</a>
     </div>
 </section>
 
 <!-- HERO -->
-<section class="hero fade-in" data-delay="0.1">
-    <div class="hero-content">
+<section class="hero" id="invitacion">
+    <div class="overlay"></div>
+    <div class="hero-content animate">
         <h1 class="nombres">Karla & Edgar</h1>
         <p class="frase">Hemos decidido decir “sí” para toda la vida</p>
-        <h2 class="fecha">14 de marzo del 2026</h2>
+        <p class="fecha-grande">14 · Marzo · 2026</p>
 
-        <div class="countdown">
+        <div class="contador">
             <div><span id="d">0</span><small>Días</small></div>
             <div><span id="h">0</span><small>Horas</small></div>
             <div><span id="m">0</span><small>Min</small></div>
@@ -46,133 +44,104 @@
 </section>
 
 <!-- PADRES -->
-<section class="section bg-photo photo2 fade-in" data-delay="0.2">
-    <div class="card">
-        <h3>Con la bendición de Dios y en compañía de nuestros padres</h3>
-        <p>Ma. Dolores Medina Ochoa y Javier Ramírez Serna</p>
-        <p>María Elena Herrera Riviera y Martín Gregorio Fernández Criollo</p>
-
-        <h3>Nuestros padrinos</h3>
-        <p>Elizabeth Velazco Rivera y Francisco Javier Medina Ochoa</p>
+<section class="section bg-photo photo1">
+    <div class="card animate">
+        <h2>Con la bendición de Dios y en compañía de nuestros padres</h2>
+        <hr>
+        <p>Ma. Dolores Medina Ochoa<br>Javier Ramírez Serna</p>
+        <p>María Elena Herrera Riviera<br>Martín Gregorio Fernández Criollo</p>
     </div>
 </section>
 
-<!-- CEREMONIA Y RECEPCIÓN -->
-<section class="section bg-photo photo3 fade-in" data-delay="0.3">
-    <div class="card columns">
-        <div>
-            <h3>Ceremonia</h3>
-            <p>Templo Sagrado Corazón de Jesús, Los Fresnos</p>
-            <p>05:00 P.M.</p>
-            <a class="btn" href="https://maps.app.goo.gl/MUpYukDipc6vGJq97" target="_blank">Ver ubicación</a>
-        </div>
+<!-- PADRINOS -->
+<section class="section bg-photo photo2">
+    <div class="card animate">
+        <h2>Nuestros padrinos</h2>
+        <hr>
+        <p>Elizabeth Velazco Rivera<br>Francisco Javier Medina Ochoa</p>
+    </div>
+</section>
 
-        <div>
-            <h3>Recepción</h3>
-            <p>Casa de Piedra</p>
-            <p>07:00 P.M.</p>
-            <a class="btn" href="https://maps.app.goo.gl/w8RjkygRmRbTANPe9" target="_blank">Ver ubicación</a>
-        </div>
+<!-- CEREMONIA & RECEPCIÓN -->
+<section class="section bg-photo photo3">
+    <div class="card animate">
+        <h2>Ceremonia</h2>
+        <p>Templo Sagrado Corazón de Jesús, Los Fresnos</p>
+        <a class="btn-secundario" href="https://maps.app.goo.gl/MUpYukDipc6vGJq97" target="_blank">Ver ubicación</a>
+
+        <hr>
+
+        <h2>Recepción</h2>
+        <p>Casa de Piedra</p>
+        <a class="btn-secundario" href="https://maps.app.goo.gl/w8RjkygRmRbTANPe9" target="_blank">Ver ubicación</a>
     </div>
 </section>
 
 <!-- ITINERARIO -->
-<section class="section bg-photo photo4 fade-in" data-delay="0.4">
-    <div class="card">
-        <h3>Itinerario</h3>
-
-        <div class="itinerario">
-            <div class="item">
-                <span class="evento">Ceremonia religiosa</span>
-                <span class="hora">05:00 P.M.</span>
-            </div>
-
-            <div class="linea"></div>
-
-            <div class="item">
-                <span class="evento">Recepción</span>
-                <span class="hora">07:00 P.M.</span>
-            </div>
-
-            <div class="linea"></div>
-
-            <div class="item">
-                <span class="evento">Boda civil</span>
-                <span class="hora">07:15 P.M.</span>
-            </div>
-        </div>
+<section class="section bg-photo photo4">
+    <div class="card animate">
+        <h2>Itinerario</h2>
+        <hr>
+        <p>Ceremonia religiosa · 05:00 P.M.</p>
+        <p>Recepción · 07:00 P.M.</p>
+        <p>Boda civil · 07:15 P.M.</p>
     </div>
 </section>
 
 <!-- VESTIMENTA -->
-<section class="section bg-photo photo5 fade-in" data-delay="0.5">
-    <div class="card">
-        <h3>Código de vestimenta</h3>
+<section class="section bg-photo photo5">
+    <div class="card animate">
+        <h2>Código de vestimenta</h2>
+        <hr>
         <p><strong>Formal</strong></p>
-        <p>
-            Caballeros: traje, moño o corbata<br>
-            Damas: vestido largo (evitar blanco y crema)
-        </p>
+        <p>Caballeros: Traje, moño o corbata</p>
+        <p>Damas: Vestido largo (evitar blanco y crema)</p>
     </div>
 </section>
 
 <!-- MESA DE REGALOS -->
-<section class="section bg-photo photo6 fade-in" data-delay="0.6">
-    <div class="card">
-        <h3>Mesa de regalos</h3>
-        <a class="btn" href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51904302" target="_blank">Liverpool</a>
-        <a class="btn" href="https://www.sears.com.mx/Mesa-de-Regalos/209704/te-invito-a-mi-boda-edgar-veronica" target="_blank">Sears</a>
+<section class="section bg-photo photo6">
+    <div class="card animate">
+        <h2>Mesa de regalos</h2>
+        <hr>
+        <a class="btn-secundario" href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51904302" target="_blank">Liverpool</a>
+        <a class="btn-secundario" href="https://www.sears.com.mx/Mesa-de-Regalos/209704/te-invito-a-mi-boda-edgar-veronica" target="_blank">Sears</a>
     </div>
 </section>
 
 <!-- CONFIRMACIÓN -->
-<section class="section bg-photo photo7 fade-in" data-delay="0.7">
-    <div class="card">
-        <h3>Confirmación de asistencia</h3>
-        <p>Agradeceremos confirmar su asistencia</p>
-        <a class="btn" href="#">Confirmar asistencia</a>
+<section class="section bg-photo photo7">
+    <div class="card animate center">
+        <h2>Confirmación de asistencia</h2>
+        <hr>
+        <p>Esperamos contar con tu presencia</p>
+        <a class="btn-principal" href="#">Confirmar asistencia</a>
     </div>
 </section>
 
-<!-- SCRIPTS -->
+<!-- SCRIPT -->
 <script>
-function enter(){
-    document.getElementById('overlay').style.display='none';
-}
-
 /* CONTADOR */
-const target = new Date('2026-03-14T17:00:00');
-setInterval(()=>{
-    const now = new Date();
-    let diff = target - now;
+const target = new Date("2026-03-14T17:00:00").getTime();
+setInterval(() => {
+    const now = new Date().getTime();
+    const diff = target - now;
+    document.getElementById("d").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+    document.getElementById("h").innerText = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    document.getElementById("m").innerText = Math.floor((diff / (1000 * 60)) % 60);
+    document.getElementById("s").innerText = Math.floor((diff / 1000) % 60);
+}, 1000);
 
-    const d = Math.floor(diff/86400000);
-    diff%=86400000;
-    const h = Math.floor(diff/3600000);
-    diff%=3600000;
-    const m = Math.floor(diff/60000);
-    const s = Math.floor(diff/1000);
-
-    document.getElementById('d').innerText=d;
-    document.getElementById('h').innerText=h;
-    document.getElementById('m').innerText=m;
-    document.getElementById('s').innerText=s;
-},1000);
-
-/* ANIMACIÓN ESCALONADA */
-const observer = new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-        if(entry.isIntersecting){
-            const delay = entry.target.dataset.delay || 0;
-            entry.target.style.transitionDelay = delay + "s";
-            entry.target.classList.add('visible');
+/* ANIMACIONES */
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
         }
     });
-},{threshold:0.25});
+}, { threshold: 0.2 });
 
-document.querySelectorAll('.fade-in').forEach(el=>{
-    observer.observe(el);
-});
+document.querySelectorAll(".animate").forEach(el => observer.observe(el));
 </script>
 
 </body>
