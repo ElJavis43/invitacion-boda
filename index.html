@@ -11,7 +11,7 @@
 
 <body>
 
-<!-- OVERLAY INICIAL -->
+<!-- OVERLAY -->
 <section class="overlay" id="overlay">
     <div class="overlay-card">
         <h2>Karla & Edgar</h2>
@@ -26,13 +26,12 @@
 </section>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero fade-in">
     <div class="hero-content">
         <h1 class="nombres">Karla & Edgar</h1>
         <p class="frase">Hemos decidido decir “sí” para toda la vida</p>
         <h2 class="fecha">14 de marzo del 2026</h2>
 
-        <!-- CONTADOR -->
         <div class="countdown">
             <div><span id="d">0</span><small>Días</small></div>
             <div><span id="h">0</span><small>Horas</small></div>
@@ -43,7 +42,7 @@
 </section>
 
 <!-- PADRES -->
-<section class="section bg-photo photo2">
+<section class="section bg-photo photo2 fade-in">
     <div class="card">
         <h3>Con la bendición de Dios y en compañía de nuestros padres</h3>
         <p>Ma. Dolores Medina Ochoa y Javier Ramírez Serna</p>
@@ -55,7 +54,7 @@
 </section>
 
 <!-- CEREMONIA Y RECEPCIÓN -->
-<section class="section bg-photo photo3">
+<section class="section bg-photo photo3 fade-in">
     <div class="card columns">
         <div>
             <h3>Ceremonia</h3>
@@ -102,7 +101,7 @@
 </section>
 
 <!-- VESTIMENTA -->
-<section class="section bg-photo photo5">
+<section class="section bg-photo photo5 fade-in">
     <div class="card">
         <h3>Código de vestimenta</h3>
         <p><strong>Formal</strong></p>
@@ -112,7 +111,7 @@
 </section>
 
 <!-- MESA DE REGALOS -->
-<section class="section bg-photo photo6">
+<section class="section bg-photo photo6 fade-in">
     <div class="card">
         <h3>Mesa de regalos</h3>
         <a class="btn" href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51904302" target="_blank">Liverpool</a>
@@ -121,7 +120,7 @@
 </section>
 
 <!-- CONFIRMACIÓN -->
-<section class="section bg-photo photo7">
+<section class="section bg-photo photo7 fade-in">
     <div class="card">
         <h3>Confirmación de asistencia</h3>
         <p>Agradeceremos confirmar su asistencia</p>
@@ -153,14 +152,14 @@ setInterval(()=>{
     document.getElementById('s').innerText=s;
 },1000);
 
-/* ANIMACIÓN SCROLL */
+/* OBSERVER GLOBAL */
 const observer = new IntersectionObserver(entries=>{
     entries.forEach(entry=>{
         if(entry.isIntersecting){
             entry.target.classList.add('visible');
         }
     });
-},{threshold:0.3});
+},{threshold:0.25});
 
 document.querySelectorAll('.fade-in').forEach(el=>{
     observer.observe(el);
