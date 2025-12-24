@@ -1,116 +1,26 @@
-/* RESET Y FIX LINEA BLANCA */
-html, body {
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
     width: 100%;
     overflow-x: hidden;
-}
-
-* {
-    box-sizing: border-box;
-    max-width: 100%;
-}
-
-/* COLORES */
-:root {
-    --bg: #faf6f2;
-    --accent: #d9c2a3;
-    --text: #4a3b32;
-    --white: #ffffff;
-}
-
-/* TIPOGRAFÍA */
-body {
     font-family: "Cormorant Garamond", serif;
-    background: var(--bg);
-    color: var(--text);
-    text-align: center;
 }
 
-/* PORTADA */
-.portada {
-    height: 100vh;
-    background: #f3e8dc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.portada-contenido {
-    max-width: 600px;
-    padding: 20px;
-}
-
-.nombre-invitado {
-    font-family: "Playfair Display", serif;
-    font-size: 2.5rem;
-}
-
-.pases {
-    font-size: 1.1rem;
-}
-
-.nota {
-    font-size: 1rem;
-}
-
-/* HERO */
-.hero {
-    position: relative;
-    height: 100vh;
-    background: url("../images/photo1.webp") center/cover no-repeat;
-}
-
-.overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.35);
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    color: white;
-    padding-top: 120px;
-}
-
-.nombres {
-    font-family: "Playfair Display", serif;
-    font-size: 3rem;
-}
-
-.fecha-grande {
-    font-size: 2rem;
-    margin: 15px 0;
-}
-
-/* CONTADOR */
-.contador {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-.contador div {
-    background: rgba(255,255,255,0.2);
-    padding: 12px;
-    border-radius: 10px;
-}
-
-.contador span {
-    font-size: 1.5rem;
-    display: block;
-}
-
-/* SECCIONES */
 .section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
-    padding: 80px 20px;
 }
 
-.bg-photo {
+.bg {
     background-size: cover;
-    background-position: center;
+    background-position: center 30%;
 }
 
 .photo1 { background-image: url("../images/photo1.webp"); }
@@ -119,61 +29,69 @@ body {
 .photo4 { background-image: url("../images/photo4.webp"); }
 .photo5 { background-image: url("../images/photo5.webp"); }
 .photo6 { background-image: url("../images/photo6.webp"); }
-.photo7 { background-image: url("../images/photo7.webp"); }
 
-/* CARD */
-.card {
-    background: rgba(255,255,255,0.88);
-    max-width: 600px;
-    margin: auto;
+.section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+}
+
+.content {
+    position: relative;
+    background: rgba(255,255,255,0.85);
     padding: 30px;
-    border-radius: 16px;
+    border-radius: 14px;
+    text-align: center;
+    max-width: 520px;
 }
 
-hr {
-    width: 60px;
-    height: 1px;
-    background: var(--accent);
-    border: none;
-    margin: 20px auto;
+h1, h2, h3 {
+    font-family: "Playfair Display", serif;
+    margin-bottom: 12px;
 }
 
-/* BOTONES */
-.btn-principal,
-.btn-secundario {
+.names { font-size: 2.6rem; }
+.date { font-size: 1.8rem; }
+.guest { font-size: 1.5rem; }
+
+.btn {
     display: inline-block;
-    margin: 10px;
+    margin-top: 15px;
     padding: 12px 22px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.btn-principal {
-    background: var(--accent);
+    background: #c9a56b;
     color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1rem;
 }
 
-.btn-secundario {
-    border: 1px solid var(--accent);
-    color: var(--text);
+.btn:hover {
+    background: #b08e5c;
 }
 
-/* ANIMACIONES */
-.animate {
+.note, p {
+    font-size: 1.05rem;
+    margin-top: 10px;
+}
+
+.fade {
     opacity: 0;
     transform: translateY(40px);
-    transition: all 0.9s ease;
+    transition: all 1s ease;
 }
 
-.animate.show {
+.fade.show {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* MOBILE */
 @media (max-width: 768px) {
-    .nombres { font-size: 2.2rem; }
-    .fecha-grande { font-size: 1.6rem; }
-    .card { padding: 20px; }
+    .content {
+        width: 90%;
+        padding: 22px;
+    }
+
+    .names { font-size: 2.1rem; }
+    .date { font-size: 1.5rem; }
 }
