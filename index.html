@@ -5,92 +5,109 @@
     <title>Invitación Karla & Edgar</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- TIPOGRAFÍAS -->
+    <!-- TIPOGRAFÍAS ELEGANTES -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
 
-    <!-- CSS (RUTA CORRECTA) -->
+    <!-- CSS -->
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
 
-<section class="portada" style="background-image:url('./images/photo1.webp')">
-    <div class="overlay">
-        <h1 id="nombreInvitado">Nombre del Invitado</h1>
-        <h2 id="pasesAdultos">Pases asignados: X</h2>
+<!-- PORTADA -->
+<section class="section bg photo1">
+    <div class="content fade">
+        <h1 class="guest" id="guestName">Nombre del Invitado</h1>
+        <h2 class="passes" id="guestPasses">Pases asignados: X</h2>
 
-        <p id="pasesNinos" style="display:none;">
-            Pases para niños: <span id="numeroNinos"></span>
+        <p id="kids" class="kids" style="display:none;">
+            Pases para niños: <span id="kidsNum"></span>
         </p>
 
-        <p class="nota">
+        <p class="note">
             Nos encantaría que los niños nos acompañen en esta celebración tan especial,
             les pedimos amablemente su ayuda para supervisarlos durante todo el evento.
         </p>
 
-        <a href="#invitacion" class="btn-asistir">Asistir</a>
+        <a href="#invitation" class="btn">Asistir</a>
     </div>
 </section>
 
-<section class="invitacion" id="invitacion">
+<!-- INVITACIÓN -->
+<section id="invitation">
 
-    <h1 class="nombres">Karla & Edgar</h1>
-    <h2 class="fecha">14 de marzo del 2026</h2>
+    <section class="section bg photo2">
+        <div class="content fade">
+            <h1 class="names">Karla & Edgar</h1>
+            <h2 class="date">14 de marzo del 2026</h2>
+            <div id="countdown" class="countdown"></div>
+        </div>
+    </section>
 
-    <div id="countdown"></div>
+    <section class="section bg photo3">
+        <div class="content fade">
+            <h3>Ceremonia</h3>
+            <p>Templo Sagrado Corazón de Jesús, Los Fresnos</p>
+            <p><strong>05:00 P.M.</strong></p>
+            <a class="btn" href="https://maps.app.goo.gl/MUpYukDipc6vGJq97" target="_blank">Ver ubicación</a>
+        </div>
+    </section>
 
-    <div class="bloque" style="background-image:url('./images/photo2.webp')">
-        <h3>Ceremonia</h3>
-        <p>Templo Sagrado Corazón de Jesús, Los Fresnos</p>
-        <p>05:00 P.M.</p>
-        <a class="btn-link" href="https://maps.app.goo.gl/MUpYukDipc6vGJq97" target="_blank">Ver ubicación</a>
-    </div>
+    <section class="section bg photo4">
+        <div class="content fade">
+            <h3>Recepción</h3>
+            <p>Casa de Piedra</p>
+            <p><strong>07:00 P.M.</strong></p>
+            <a class="btn" href="https://maps.app.goo.gl/w8RjkygRmRbTANPe9" target="_blank">Ver ubicación</a>
+        </div>
+    </section>
 
-    <div class="bloque" style="background-image:url('./images/photo3.webp')">
-        <h3>Recepción</h3>
-        <p>Casa de Piedra</p>
-        <p>07:00 P.M.</p>
-        <a class="btn-link" href="https://maps.app.goo.gl/w8RjkygRmRbTANPe9" target="_blank">Ver ubicación</a>
-    </div>
+    <section class="section bg photo5">
+        <div class="content fade">
+            <h3>Itinerario</h3>
+            <p>Ceremonia — 05:00 P.M.</p>
+            <p>Recepción — 07:00 P.M.</p>
+            <p>Boda civil — 07:15 P.M.</p>
+        </div>
+    </section>
 
-    <div class="bloque" style="background-image:url('./images/photo4.webp')">
-        <h3>Itinerario</h3>
-        <p>Ceremonia · 05:00 P.M.</p>
-        <p>Recepción · 07:00 P.M.</p>
-        <p>Boda civil · 07:15 P.M.</p>
-    </div>
-
-    <div class="bloque" style="background-image:url('./images/photo5.webp')">
-        <h3>Mesa de regalos</h3>
-        <a class="btn-link" href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51904302" target="_blank">Liverpool</a>
-        <a class="btn-link" href="https://www.sears.com.mx/Mesa-de-Regalos/209704/te-invito-a-mi-boda-edgar-veronica" target="_blank">Sears</a>
-    </div>
+    <section class="section bg photo6">
+        <div class="content fade">
+            <h3>Mesa de regalos</h3>
+            <a class="btn" href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51904302" target="_blank">Liverpool</a>
+            <a class="btn" href="https://www.sears.com.mx/Mesa-de-Regalos/209704/te-invito-a-mi-boda-edgar-veronica" target="_blank">Sears</a>
+        </div>
+    </section>
 
 </section>
 
 <script>
-const params = new URLSearchParams(window.location.search);
-
-if(params.get("n")){
-    document.getElementById("nombreInvitado").textContent =
-        params.get("n").replace(/-/g," ");
-}
-if(params.get("p")){
-    document.getElementById("pasesAdultos").textContent =
-        "Pases asignados: " + params.get("p");
-}
-if(params.get("k") && Number(params.get("k"))>0){
-    document.getElementById("numeroNinos").textContent = params.get("k");
-    document.getElementById("pasesNinos").style.display="block";
+/* Invitado desde URL */
+const p = new URLSearchParams(window.location.search);
+if(p.get("n")) document.getElementById("guestName").textContent = p.get("n").replace(/-/g," ");
+if(p.get("p")) document.getElementById("guestPasses").textContent = "Pases asignados: " + p.get("p");
+if(p.get("k") && Number(p.get("k"))>0){
+    document.getElementById("kidsNum").textContent = p.get("k");
+    document.getElementById("kids").style.display = "block";
 }
 
-const weddingDate = new Date("2026-03-14T17:00:00").getTime();
+/* Contador */
+const date = new Date("2026-03-14T17:00:00").getTime();
 setInterval(()=>{
-    const diff = weddingDate - new Date().getTime();
+    const diff = date - new Date().getTime();
     if(diff>0){
         document.getElementById("countdown").textContent =
-        `Faltan ${Math.floor(diff/(1000*60*60*24))} días`;
+        `Faltan ${Math.floor(diff/86400000)} días`;
     }
 },1000);
+
+/* Animaciones */
+const observer = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+        if(e.isIntersecting) e.target.classList.add("show");
+    });
+},{threshold:0.3});
+
+document.querySelectorAll(".fade").forEach(el=>observer.observe(el));
 </script>
 
 </body>
