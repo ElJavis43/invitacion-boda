@@ -20,7 +20,7 @@
 
         <p class="pases">Pases asignados: X</p>
 
-        <!-- ✅ NUEVO: PASES DE NIÑOS (OCULTO SI NO EXISTE) -->
+        <!-- PASES NIÑOS -->
         <p class="pases" id="pases-ninos" style="display:none;">
             Pases para niños: <strong><span id="num-ninos"></span></strong>
         </p>
@@ -116,8 +116,8 @@
     <div class="card animate center">
         <h2>Confirmación de asistencia</h2>
         <hr>
-        <p>Esperamos contar con tu presencia</p>
-        <a class="btn-principal" href="#">Confirmar asistencia</a>
+        <p id="confirm-msg">Esperamos contar con tu presencia</p>
+        <a class="btn-principal" href="#" id="confirmarBtn">Confirmar asistencia</a>
     </div>
 </section>
 
@@ -143,29 +143,42 @@ const observer = new IntersectionObserver(entries => {
 
 document.querySelectorAll(".animate").forEach(el => observer.observe(el));
 
-/* NOMBRE Y PASES DESDE URL */
-function getParam(param) {
-    const params = new URLSearchParams(window.location.search);
-    return params.get(param);
+/* PARAMETROS URL */
+function getParam(p) {
+    return new URLSearchParams(window.location.search).get(p);
 }
 
-const nombreInvitado = getParam("n");
-const pasesInvitado = getParam("p");
-const pasesNinos = getParam("k");
+const nombre = getParam("n");
+const adultos = getParam("p");
+const ninos = getParam("k");
 
-if (nombreInvitado) {
-    document.querySelector(".nombre-invitado").textContent = nombreInvitado;
-}
+if (nombre) document.querySelector(".nombre-invitado").textContent = nombre;
+if (adultos) document.querySelector(".pases").textContent = "Pases asignados: " + adultos;
 
-if (pasesInvitado) {
-    document.querySelector(".pases").textContent = "Pases asignados: " + pasesInvitado;
-}
-
-/* ✅ NUEVO: MOSTRAR PASES DE NIÑOS SOLO SI EXISTEN */
-if (pasesNinos && parseInt(pasesNinos) > 0) {
-    document.getElementById("num-ninos").textContent = pasesNinos;
+if (ninos && parseInt(ninos) > 0) {
+    document.getElementById("num-ninos").textContent = ninos;
     document.getElementById("pases-ninos").style.display = "block";
 }
+
+/* CONFIRMAR ASISTENCIA → GOOGLE SHEETS */
+document.getElementById("confirmarBtn").addEventListener("click", function(e) {
+    e.preventDefault();
+
+    const url = "https://script.google.com/macros/s/AKfycbwSCrPM554YfXVFNolhKFUIitxkKtqWSUnU8Qj6LGZuXgXvsEdOB03WFlu2wVe8TAlEwg/exec"
+        + "?nombre=" + encodeURIComponent(nombre)
+        + "&adultos=" + encodeURIComponent(adultos)
+        + "&ninos=" + encodeURIComponent(ninos || "");
+
+    fetch(url)
+        .then(() => {
+            document.getElementById("confirm-msg").innerText =
+                "✅ Gracias, tu asistencia ha sido confirmada";
+            document.getElementById("confirmarBtn").style.display = "none";
+        })
+        .catch(() => {
+            alert("Error al confirmar. Intenta de nuevo.");
+        });
+});
 </script>
 
 </body>
