@@ -17,11 +17,19 @@
 <section class="portada">
     <div class="portada-contenido animate">
         <h1 class="nombre-invitado">Nombre del Invitado</h1>
+
         <p class="pases">Pases asignados: X</p>
+
+        <!-- ✅ NUEVO: PASES DE NIÑOS (OCULTO SI NO EXISTE) -->
+        <p class="pases" id="pases-ninos" style="display:none;">
+            Pases para niños: <strong><span id="num-ninos"></span></strong>
+        </p>
+
         <p class="nota">
             Nos encantaría que los niños nos acompañen en esta celebración tan especial,
             les pedimos amablemente su ayuda para supervisarlos durante todo el evento.
         </p>
+
         <a href="#invitacion" class="btn-principal">Asistir</a>
     </div>
 </section>
@@ -143,6 +151,7 @@ function getParam(param) {
 
 const nombreInvitado = getParam("n");
 const pasesInvitado = getParam("p");
+const pasesNinos = getParam("k");
 
 if (nombreInvitado) {
     document.querySelector(".nombre-invitado").textContent = nombreInvitado;
@@ -150,6 +159,12 @@ if (nombreInvitado) {
 
 if (pasesInvitado) {
     document.querySelector(".pases").textContent = "Pases asignados: " + pasesInvitado;
+}
+
+/* ✅ NUEVO: MOSTRAR PASES DE NIÑOS SOLO SI EXISTEN */
+if (pasesNinos && parseInt(pasesNinos) > 0) {
+    document.getElementById("num-ninos").textContent = pasesNinos;
+    document.getElementById("pases-ninos").style.display = "block";
 }
 </script>
 
