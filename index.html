@@ -2,112 +2,155 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Invitación Karla & Edgar</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación Karla & Edgar</title>
 
-    <!-- TIPOGRAFÍAS ELEGANTES -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+    <!-- FUENTES -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
 
 <!-- PORTADA -->
-<section class="section bg photo1">
-    <div class="content fade">
-        <h1 class="guest" id="guestName">Nombre del Invitado</h1>
-        <h2 class="passes" id="guestPasses">Pases asignados: X</h2>
-
-        <p id="kids" class="kids" style="display:none;">
-            Pases para niños: <span id="kidsNum"></span>
-        </p>
-
-        <p class="note">
+<section class="portada">
+    <div class="portada-contenido animate">
+        <h1 class="nombre-invitado">Nombre del Invitado</h1>
+        <p class="pases">Pases asignados: X</p>
+        <p class="nota">
             Nos encantaría que los niños nos acompañen en esta celebración tan especial,
             les pedimos amablemente su ayuda para supervisarlos durante todo el evento.
         </p>
-
-        <a href="#invitation" class="btn">Asistir</a>
+        <a href="#invitacion" class="btn-principal">Asistir</a>
     </div>
 </section>
 
-<!-- INVITACIÓN -->
-<section id="invitation">
+<!-- HERO -->
+<section class="hero" id="invitacion">
+    <div class="overlay"></div>
+    <div class="hero-content animate">
+        <h1 class="nombres">Karla & Edgar</h1>
+        <p class="frase">Hemos decidido decir “sí” para toda la vida</p>
+        <p class="fecha-grande">14 · Marzo · 2026</p>
 
-    <section class="section bg photo2">
-        <div class="content fade">
-            <h1 class="names">Karla & Edgar</h1>
-            <h2 class="date">14 de marzo del 2026</h2>
-            <div id="countdown" class="countdown"></div>
+        <div class="contador">
+            <div><span id="d">0</span><small>Días</small></div>
+            <div><span id="h">0</span><small>Horas</small></div>
+            <div><span id="m">0</span><small>Min</small></div>
+            <div><span id="s">0</span><small>Seg</small></div>
         </div>
-    </section>
-
-    <section class="section bg photo3">
-        <div class="content fade">
-            <h3>Ceremonia</h3>
-            <p>Templo Sagrado Corazón de Jesús, Los Fresnos</p>
-            <p><strong>05:00 P.M.</strong></p>
-            <a class="btn" href="https://maps.app.goo.gl/MUpYukDipc6vGJq97" target="_blank">Ver ubicación</a>
-        </div>
-    </section>
-
-    <section class="section bg photo4">
-        <div class="content fade">
-            <h3>Recepción</h3>
-            <p>Casa de Piedra</p>
-            <p><strong>07:00 P.M.</strong></p>
-            <a class="btn" href="https://maps.app.goo.gl/w8RjkygRmRbTANPe9" target="_blank">Ver ubicación</a>
-        </div>
-    </section>
-
-    <section class="section bg photo5">
-        <div class="content fade">
-            <h3>Itinerario</h3>
-            <p>Ceremonia — 05:00 P.M.</p>
-            <p>Recepción — 07:00 P.M.</p>
-            <p>Boda civil — 07:15 P.M.</p>
-        </div>
-    </section>
-
-    <section class="section bg photo6">
-        <div class="content fade">
-            <h3>Mesa de regalos</h3>
-            <a class="btn" href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51904302" target="_blank">Liverpool</a>
-            <a class="btn" href="https://www.sears.com.mx/Mesa-de-Regalos/209704/te-invito-a-mi-boda-edgar-veronica" target="_blank">Sears</a>
-        </div>
-    </section>
-
+    </div>
 </section>
 
+<!-- SECCIONES -->
+<section class="section bg-photo photo1">
+    <div class="card animate">
+        <h2>Con la bendición de Dios y en compañía de nuestros padres</h2>
+        <hr>
+        <p>Ma. Dolores Medina Ochoa<br>Javier Ramírez Serna</p>
+        <p>María Elena Herrera Riviera<br>Martín Gregorio Fernández Criollo</p>
+    </div>
+</section>
+
+<section class="section bg-photo photo2">
+    <div class="card animate">
+        <h2>Nuestros padrinos</h2>
+        <hr>
+        <p>Elizabeth Velazco Rivera<br>Francisco Javier Medina Ochoa</p>
+    </div>
+</section>
+
+<section class="section bg-photo photo3">
+    <div class="card animate">
+        <h2>Ceremonia</h2>
+        <p>Templo Sagrado Corazón de Jesús, Los Fresnos</p>
+        <a class="btn-secundario" href="https://maps.app.goo.gl/MUpYukDipc6vGJq97" target="_blank">Ver ubicación</a>
+
+        <hr>
+
+        <h2>Recepción</h2>
+        <p>Casa de Piedra</p>
+        <a class="btn-secundario" href="https://maps.app.goo.gl/w8RjkygRmRbTANPe9" target="_blank">Ver ubicación</a>
+    </div>
+</section>
+
+<section class="section bg-photo photo4">
+    <div class="card animate">
+        <h2>Itinerario</h2>
+        <hr>
+        <p>Ceremonia religiosa · 05:00 P.M.</p>
+        <p>Recepción · 07:00 P.M.</p>
+        <p>Boda civil · 07:15 P.M.</p>
+    </div>
+</section>
+
+<section class="section bg-photo photo5">
+    <div class="card animate">
+        <h2>Código de vestimenta</h2>
+        <hr>
+        <p><strong>Formal</strong></p>
+        <p>Caballeros: Traje, moño o corbata</p>
+        <p>Damas: Vestido largo (evitar blanco y crema)</p>
+    </div>
+</section>
+
+<section class="section bg-photo photo6">
+    <div class="card animate">
+        <h2>Mesa de regalos</h2>
+        <hr>
+        <a class="btn-secundario" href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51904302" target="_blank">Liverpool</a>
+        <a class="btn-secundario" href="https://www.sears.com.mx/Mesa-de-Regalos/209704/te-invito-a-mi-boda-edgar-veronica" target="_blank">Sears</a>
+    </div>
+</section>
+
+<section class="section bg-photo photo7">
+    <div class="card animate center">
+        <h2>Confirmación de asistencia</h2>
+        <hr>
+        <p>Esperamos contar con tu presencia</p>
+        <a class="btn-principal" href="#">Confirmar asistencia</a>
+    </div>
+</section>
+
+<!-- SCRIPTS -->
 <script>
-/* Invitado desde URL */
-const p = new URLSearchParams(window.location.search);
-if(p.get("n")) document.getElementById("guestName").textContent = p.get("n").replace(/-/g," ");
-if(p.get("p")) document.getElementById("guestPasses").textContent = "Pases asignados: " + p.get("p");
-if(p.get("k") && Number(p.get("k"))>0){
-    document.getElementById("kidsNum").textContent = p.get("k");
-    document.getElementById("kids").style.display = "block";
+/* CONTADOR */
+const target = new Date("2026-03-14T17:00:00").getTime();
+setInterval(() => {
+    const now = new Date().getTime();
+    const diff = target - now;
+    document.getElementById("d").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+    document.getElementById("h").innerText = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    document.getElementById("m").innerText = Math.floor((diff / (1000 * 60)) % 60);
+    document.getElementById("s").innerText = Math.floor((diff / 1000) % 60);
+}, 1000);
+
+/* ANIMACIONES */
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("show");
+    });
+}, { threshold: 0.2 });
+
+document.querySelectorAll(".animate").forEach(el => observer.observe(el));
+
+/* NOMBRE Y PASES DESDE URL */
+function getParam(param) {
+    const params = new URLSearchParams(window.location.search);
+    return params.get(param);
 }
 
-/* Contador */
-const date = new Date("2026-03-14T17:00:00").getTime();
-setInterval(()=>{
-    const diff = date - new Date().getTime();
-    if(diff>0){
-        document.getElementById("countdown").textContent =
-        `Faltan ${Math.floor(diff/86400000)} días`;
-    }
-},1000);
+const nombreInvitado = getParam("n");
+const pasesInvitado = getParam("p");
 
-/* Animaciones */
-const observer = new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
-        if(e.isIntersecting) e.target.classList.add("show");
-    });
-},{threshold:0.3});
+if (nombreInvitado) {
+    document.querySelector(".nombre-invitado").textContent = nombreInvitado;
+}
 
-document.querySelectorAll(".fade").forEach(el=>observer.observe(el));
+if (pasesInvitado) {
+    document.querySelector(".pases").textContent = "Pases asignados: " + pasesInvitado;
+}
 </script>
 
 </body>
