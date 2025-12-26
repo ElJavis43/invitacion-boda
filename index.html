@@ -13,30 +13,36 @@
 </head>
 <body>
 
+<!-- AUDIO -->
+<audio id="musica-fondo" loop>
+    <source src="music/cancion.mp3" type="audio/mpeg">
+</audio>
+
 <!-- PORTADA -->
 <section class="portada">
     <div class="portada-contenido animate">
+
         <h1 class="nombre-invitado">Nombre del Invitado</h1>
 
         <p class="pases">Pases asignados: X</p>
 
-        <!-- PASES DE NIÑOS -->
+        <!-- PASES NIÑOS -->
         <p class="pases" id="pases-ninos" style="display:none;">
             Pases para niños: <strong><span id="num-ninos"></span></strong>
         </p>
 
-        <!-- TEXTO SOLO SI NO HAY NIÑOS -->
-        <p class="nota" id="saludo-ninos" style="display:none;">
-            Adultos buena noche, niños buenas noches
-        </p>
-
-        <!-- TEXTO SOLO SI HAY NIÑOS -->
-        <p class="nota" id="nota-ninos" style="display:none;">
+        <!-- TEXTO CUANDO HAY NIÑOS -->
+        <p class="nota" id="nota-ninos">
             Nos encantaría que los niños nos acompañen en esta celebración tan especial,
             les pedimos amablemente su ayuda para supervisarlos durante todo el evento.
         </p>
 
-        <a href="#invitacion" class="btn-principal">Asistir</a>
+        <!-- TEXTO CUANDO NO HAY NIÑOS -->
+        <p class="nota" id="saludo-ninos" style="display:none;">
+            Adultos buena noche, niños buenas noches
+        </p>
+
+        <a href="#invitacion" class="btn-principal" id="btn-asistir">Asistir</a>
     </div>
 </section>
 
@@ -123,7 +129,7 @@
         <h2>Confirmación de asistencia</h2>
         <hr>
         <p>Esperamos contar con tu presencia</p>
-        <a class="btn-principal" href="#">Confirmar asistencia</a>
+        <a class="btn-principal" href="#" id="confirmar">Confirmar asistencia</a>
     </div>
 </section>
 
@@ -134,10 +140,10 @@ const target = new Date("2026-03-14T17:00:00").getTime();
 setInterval(() => {
     const now = new Date().getTime();
     const diff = target - now;
-    document.getElementById("d").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
-    document.getElementById("h").innerText = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    document.getElementById("m").innerText = Math.floor((diff / (1000 * 60)) % 60);
-    document.getElementById("s").innerText = Math.floor((diff / 1000) % 60);
+    d.innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+    h.innerText = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    m.innerText = Math.floor((diff / (1000 * 60)) % 60);
+    s.innerText = Math.floor((diff / 1000) % 60);
 }, 1000);
 
 /* ANIMACIONES */
@@ -150,37 +156,34 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll(".animate").forEach(el => observer.observe(el));
 
 /* PARAMETROS URL */
-function getParam(param) {
-    const params = new URLSearchParams(window.location.search);
-    return params.get(param);
-}
+const params = new URLSearchParams(window.location.search);
+const nombre = params.get("n");
+const pases = params.get("p");
+const ninos = params.get("k");
 
-const nombreInvitado = getParam("n");
-const pasesInvitado = getParam("p");
-const pasesNinos = getParam("k");
+if (nombre) document.querySelector(".nombre-invitado").textContent = nombre;
+if (pases) document.querySelector(".pases").textContent = "Pases asignados: " + pases;
 
-if (nombreInvitado) {
-    document.querySelector(".nombre-invitado").textContent = nombreInvitado;
-}
-
-if (pasesInvitado) {
-    document.querySelector(".pases").textContent = "Pases asignados: " + pasesInvitado;
-}
-
-/* LOGICA NIÑOS (CORREGIDA) */
-if (pasesNinos && parseInt(pasesNinos) > 0) {
-
-    document.getElementById("num-ninos").textContent = pasesNinos;
+/* LOGICA NIÑOS */
+if (ninos && parseInt(ninos) > 0) {
+    document.getElementById("num-ninos").textContent = ninos;
     document.getElementById("pases-ninos").style.display = "block";
     document.getElementById("nota-ninos").style.display = "block";
     document.getElementById("saludo-ninos").style.display = "none";
-
 } else {
-
     document.getElementById("pases-ninos").style.display = "none";
     document.getElementById("nota-ninos").style.display = "none";
     document.getElementById("saludo-ninos").style.display = "block";
 }
+
+/* MUSICA */
+const btnAsistir = document.getElementById("btn-asistir");
+const musica = document.getElementById("musica-fondo");
+
+btnAsistir.addEventListener("click", () => {
+    musica.volume = 0.5;
+    musica.play().catch(() => {});
+});
 </script>
 
 </body>
