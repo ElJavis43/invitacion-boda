@@ -1,135 +1,181 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Invitación Karla & Edgar</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación Karla & Edgar</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles/style.css">
+    <!-- FUENTES -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/style.css">
 </head>
-
 <body>
 
-<!-- 🎵 AUDIO -->
+<!-- 🎵 AUDIO (NO SE AUTO-REPRODUCE) -->
 <audio id="musica" preload="auto">
-    <source src="music/cancion.mp3" type="audio/mpeg">
+    <source src="audio/cancion.mp3" type="audio/mpeg">
 </audio>
 
 <!-- PORTADA -->
 <section class="portada">
-<div class="portada-contenido animate">
+    <div class="portada-contenido animate">
+        <h1 class="nombre-invitado">Nombre del Invitado</h1>
 
-<h1 class="nombre-invitado">Nombre del Invitado</h1>
-<p class="pases">Pases asignados: X</p>
+        <p class="pases">Pases asignados: X</p>
 
-<!-- PASES NIÑOS -->
-<p class="pases" id="pases-ninos" style="display:none;">
-    Pases para niños: <strong><span id="num-ninos"></span></strong>
-</p>
+        <!-- TEXTO SIN NIÑOS -->
+        <p class="nota" id="texto-sin-ninos" style="display:none;">
+            Adultos buena noche, niños buenas noches<br>
+            <strong>(no se aceptan niños)</strong>
+        </p>
 
-<!-- TEXTO CON NIÑOS -->
-<p class="nota" id="texto-con-ninos">
-    Nos encantaría que los niños nos acompañen en esta celebración tan especial,
-    les pedimos amablemente su ayuda para supervisarlos durante todo el evento.
-</p>
+        <!-- TEXTO CON NIÑOS -->
+        <p class="nota" id="texto-con-ninos" style="display:none;">
+            Nos encantaría que los niños nos acompañen en esta celebración tan especial,
+            les pedimos amablemente su ayuda para supervisarlos durante todo el evento.
+        </p>
 
-<!-- TEXTO SIN NIÑOS -->
-<p class="saludo-invitados" id="texto-sin-ninos" style="display:none;">
-    Adultos buena noche, niños buenas noches
-</p>
-
-<p class="nota-sin-ninos" id="nota-sin-ninos" style="display:none;">
-    (no se aceptan niños)
-</p>
-
-<a href="#invitacion" class="btn-principal" id="btn-asistir">Asistir</a>
-
-</div>
+        <!-- BOTÓN -->
+        <a href="#invitacion" class="btn-principal" id="btn-asistir">Asistir</a>
+    </div>
 </section>
 
 <!-- HERO -->
 <section class="hero" id="invitacion">
-<div class="overlay"></div>
-<div class="hero-content animate">
+    <div class="overlay"></div>
+    <div class="hero-content animate">
+        <h1 class="nombres">Karla & Edgar</h1>
+        <p class="frase">Hemos decidido decir “sí” para toda la vida</p>
+        <p class="fecha-grande">14 · Marzo · 2026</p>
 
-<h1 class="nombres">Karla & Edgar</h1>
-<p class="frase">Hemos decidido decir “sí” para toda la vida</p>
-<p class="fecha-grande">14 · Marzo · 2026</p>
-
-<div class="contador">
-<div><span id="d">0</span><small>Días</small></div>
-<div><span id="h">0</span><small>Horas</small></div>
-<div><span id="m">0</span><small>Min</small></div>
-<div><span id="s">0</span><small>Seg</small></div>
-</div>
-
-</div>
+        <div class="contador">
+            <div><span id="d">0</span><small>Días</small></div>
+            <div><span id="h">0</span><small>Horas</small></div>
+            <div><span id="m">0</span><small>Min</small></div>
+            <div><span id="s">0</span><small>Seg</small></div>
+        </div>
+    </div>
 </section>
 
-<!-- CONFIRMACIÓN -->
+<!-- SECCIONES -->
+<section class="section bg-photo photo1">
+    <div class="card animate">
+        <h2>Con la bendición de Dios y en compañía de nuestros padres</h2>
+        <hr>
+        <p>Ma. Dolores Medina Ochoa<br>Javier Ramírez Serna</p>
+        <p>María Elena Herrera Riviera<br>Martín Gregorio Fernández Criollo</p>
+    </div>
+</section>
+
+<section class="section bg-photo photo2">
+    <div class="card animate">
+        <h2>Nuestros padrinos</h2>
+        <hr>
+        <p>Elizabeth Velazco Rivera<br>Francisco Javier Medina Ochoa</p>
+    </div>
+</section>
+
+<section class="section bg-photo photo3">
+    <div class="card animate">
+        <h2>Ceremonia</h2>
+        <p>Templo Sagrado Corazón de Jesús, Los Fresnos</p>
+        <a class="btn-secundario" href="https://maps.app.goo.gl/MUpYukDipc6vGJq97" target="_blank">Ver ubicación</a>
+
+        <hr>
+
+        <h2>Recepción</h2>
+        <p>Casa de Piedra</p>
+        <a class="btn-secundario" href="https://maps.app.goo.gl/w8RjkygRmRbTANPe9" target="_blank">Ver ubicación</a>
+    </div>
+</section>
+
+<section class="section bg-photo photo4">
+    <div class="card animate">
+        <h2>Itinerario</h2>
+        <hr>
+        <p>Ceremonia religiosa · 05:00 P.M.</p>
+        <p>Recepción · 07:00 P.M.</p>
+        <p>Boda civil · 07:15 P.M.</p>
+    </div>
+</section>
+
+<section class="section bg-photo photo5">
+    <div class="card animate">
+        <h2>Código de vestimenta</h2>
+        <hr>
+        <p><strong>Formal</strong></p>
+        <p>Caballeros: Traje, moño o corbata</p>
+        <p>Damas: Vestido largo (evitar blanco y crema)</p>
+    </div>
+</section>
+
+<section class="section bg-photo photo6">
+    <div class="card animate">
+        <h2>Mesa de regalos</h2>
+        <hr>
+        <a class="btn-secundario" href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51904302" target="_blank">Liverpool</a>
+        <a class="btn-secundario" href="https://www.sears.com.mx/Mesa-de-Regalos/209704/te-invito-a-mi-boda-edgar-veronica" target="_blank">Sears</a>
+    </div>
+</section>
+
 <section class="section bg-photo photo7">
-<div class="card animate center">
-<h2>Confirmación de asistencia</h2>
-<hr>
-<p>Esperamos contar con tu presencia</p>
-<a class="btn-principal" href="#">Confirmar asistencia</a>
-</div>
+    <div class="card animate center">
+        <h2>Confirmación de asistencia</h2>
+        <hr>
+        <p>Esperamos contar con tu presencia</p>
+        <a class="btn-principal" href="#">Confirmar asistencia</a>
+    </div>
 </section>
 
 <!-- SCRIPTS -->
 <script>
-// 🎵 MUSICA
-const audio = document.getElementById("musica");
-document.getElementById("btn-asistir").addEventListener("click", () => {
-    audio.play().catch(() => {});
-});
-
-// ⏳ CONTADOR
+/* CONTADOR */
 const target = new Date("2026-03-14T17:00:00").getTime();
 setInterval(() => {
     const now = new Date().getTime();
     const diff = target - now;
-    document.getElementById("d").innerText = Math.max(0, Math.floor(diff / (1000*60*60*24)));
-    document.getElementById("h").innerText = Math.max(0, Math.floor(diff / (1000*60*60)) % 24);
-    document.getElementById("m").innerText = Math.max(0, Math.floor(diff / (1000*60)) % 60);
-    document.getElementById("s").innerText = Math.max(0, Math.floor(diff / 1000) % 60);
+    document.getElementById("d").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+    document.getElementById("h").innerText = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    document.getElementById("m").innerText = Math.floor((diff / (1000 * 60)) % 60);
+    document.getElementById("s").innerText = Math.floor((diff / 1000) % 60);
 }, 1000);
 
-// ✨ ANIMACIONES
+/* ANIMACIONES */
 const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => e.isIntersecting && e.target.classList.add("show"));
-},{threshold:0.2});
+    entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("show");
+    });
+}, { threshold: 0.2 });
+
 document.querySelectorAll(".animate").forEach(el => observer.observe(el));
 
-// 🔗 PARAMETROS URL
-function getParam(p){ return new URLSearchParams(window.location.search).get(p); }
+/* URL PARAMS */
+function getParam(p) {
+    return new URLSearchParams(window.location.search).get(p);
+}
 
 const nombre = getParam("n");
 const pases = getParam("p");
 const ninos = getParam("k");
 
-if(nombre) document.querySelector(".nombre-invitado").textContent = nombre;
-if(pases) document.querySelector(".pases").textContent = "Pases asignados: " + pases;
+if (nombre) document.querySelector(".nombre-invitado").textContent = nombre;
+if (pases) document.querySelector(".pases").textContent = "Pases asignados: " + pases;
 
-// 🧠 LÓGICA NIÑOS / NO NIÑOS
-const textoConNinos = document.getElementById("texto-con-ninos");
-const textoSinNinos = document.getElementById("texto-sin-ninos");
-const notaSinNinos = document.getElementById("nota-sin-ninos");
-const pasesNinosEl = document.getElementById("pases-ninos");
-
-if(ninos && parseInt(ninos) > 0){
-    pasesNinosEl.style.display = "block";
-    document.getElementById("num-ninos").textContent = ninos;
-
-    textoConNinos.style.display = "block";
-    textoSinNinos.style.display = "none";
-    notaSinNinos.style.display = "none";
-}else{
-    textoConNinos.style.display = "none";
-    textoSinNinos.style.display = "block";
-    notaSinNinos.style.display = "block";
+/* TEXTO CON / SIN NIÑOS */
+if (ninos && parseInt(ninos) > 0) {
+    document.getElementById("texto-con-ninos").style.display = "block";
+} else {
+    document.getElementById("texto-sin-ninos").style.display = "block";
 }
+
+/* 🎵 REPRODUCIR MÚSICA AL DAR CLIC */
+document.getElementById("btn-asistir").addEventListener("click", () => {
+    const audio = document.getElementById("musica");
+    audio.volume = 0.6;
+    audio.play().catch(() => {});
+});
 </script>
 
 </body>
