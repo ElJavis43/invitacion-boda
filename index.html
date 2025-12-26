@@ -18,7 +18,7 @@
     <div class="portada-contenido animate">
         <h1 class="nombre-invitado">Nombre del Invitado</h1>
 
-        <!-- ✅ MENSAJE SOLO SI NO HAY NIÑOS -->
+        <!-- MENSAJE SOLO CUANDO NO HAY NIÑOS -->
         <p class="saludo-ninos" id="saludo-ninos" style="display:none;">
             Adultos buena noche, niños buenas noches
         </p>
@@ -30,7 +30,8 @@
             Pases para niños: <strong><span id="num-ninos"></span></strong>
         </p>
 
-        <p class="nota">
+        <!-- TEXTO SOLO SI HAY NIÑOS -->
+        <p class="nota" id="nota-ninos" style="display:none;">
             Nos encantaría que los niños nos acompañen en esta celebración tan especial,
             les pedimos amablemente su ayuda para supervisarlos durante todo el evento.
         </p>
@@ -172,10 +173,11 @@ if (pasesInvitado) {
     document.querySelector(".pases").textContent = "Pases asignados: " + pasesInvitado;
 }
 
-/* LÓGICA NIÑOS */
+/* LÓGICA FINAL NIÑOS */
 if (pasesNinos && parseInt(pasesNinos) > 0) {
     document.getElementById("num-ninos").textContent = pasesNinos;
     document.getElementById("pases-ninos").style.display = "block";
+    document.getElementById("nota-ninos").style.display = "block";
 } else {
     document.getElementById("saludo-ninos").style.display = "block";
 }
