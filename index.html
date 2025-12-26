@@ -18,16 +18,16 @@
     <div class="portada-contenido animate">
         <h1 class="nombre-invitado">Nombre del Invitado</h1>
 
-        <!-- MENSAJE SOLO CUANDO NO HAY NIÑOS -->
-        <p class="saludo-ninos" id="saludo-ninos" style="display:none;">
-            Adultos buena noche, niños buenas noches
-        </p>
-
         <p class="pases">Pases asignados: X</p>
 
         <!-- PASES DE NIÑOS -->
         <p class="pases" id="pases-ninos" style="display:none;">
             Pases para niños: <strong><span id="num-ninos"></span></strong>
+        </p>
+
+        <!-- TEXTO SOLO SI NO HAY NIÑOS -->
+        <p class="nota" id="saludo-ninos" style="display:none;">
+            Adultos buena noche, niños buenas noches
         </p>
 
         <!-- TEXTO SOLO SI HAY NIÑOS -->
@@ -57,7 +57,7 @@
     </div>
 </section>
 
-<!-- PADRES -->
+<!-- SECCIONES -->
 <section class="section bg-photo photo1">
     <div class="card animate">
         <h2>Con la bendición de Dios y en compañía de nuestros padres</h2>
@@ -67,7 +67,6 @@
     </div>
 </section>
 
-<!-- PADRINOS -->
 <section class="section bg-photo photo2">
     <div class="card animate">
         <h2>Nuestros padrinos</h2>
@@ -76,7 +75,6 @@
     </div>
 </section>
 
-<!-- CEREMONIA Y RECEPCIÓN -->
 <section class="section bg-photo photo3">
     <div class="card animate">
         <h2>Ceremonia</h2>
@@ -91,7 +89,6 @@
     </div>
 </section>
 
-<!-- ITINERARIO -->
 <section class="section bg-photo photo4">
     <div class="card animate">
         <h2>Itinerario</h2>
@@ -102,7 +99,6 @@
     </div>
 </section>
 
-<!-- VESTIMENTA -->
 <section class="section bg-photo photo5">
     <div class="card animate">
         <h2>Código de vestimenta</h2>
@@ -113,7 +109,6 @@
     </div>
 </section>
 
-<!-- MESA DE REGALOS -->
 <section class="section bg-photo photo6">
     <div class="card animate">
         <h2>Mesa de regalos</h2>
@@ -123,7 +118,6 @@
     </div>
 </section>
 
-<!-- CONFIRMACIÓN -->
 <section class="section bg-photo photo7">
     <div class="card animate center">
         <h2>Confirmación de asistencia</h2>
@@ -173,12 +167,18 @@ if (pasesInvitado) {
     document.querySelector(".pases").textContent = "Pases asignados: " + pasesInvitado;
 }
 
-/* LÓGICA FINAL NIÑOS */
+/* LOGICA NIÑOS (CORREGIDA) */
 if (pasesNinos && parseInt(pasesNinos) > 0) {
+
     document.getElementById("num-ninos").textContent = pasesNinos;
     document.getElementById("pases-ninos").style.display = "block";
     document.getElementById("nota-ninos").style.display = "block";
+    document.getElementById("saludo-ninos").style.display = "none";
+
 } else {
+
+    document.getElementById("pases-ninos").style.display = "none";
+    document.getElementById("nota-ninos").style.display = "none";
     document.getElementById("saludo-ninos").style.display = "block";
 }
 </script>
