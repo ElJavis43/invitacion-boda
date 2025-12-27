@@ -13,11 +13,6 @@
 </head>
 <body>
 
-<!-- AUDIO -->
-<audio id="musica" preload="auto">
-    <source src="audio/cancion.mp3" type="audio/mpeg">
-</audio>
-
 <!-- PORTADA -->
 <section class="portada">
     <div class="portada-contenido animate">
@@ -25,24 +20,24 @@
 
         <p class="pases">Pases asignados: X</p>
 
-        <!-- TEXTO SIN NIÑOS -->
-        <p class="nota" id="nota-sin-ninos" style="display:none;">
-            Adultos buena noche, niños buenas noches<br>
-            <strong>(no se aceptan niños)</strong>
-        </p>
-
-        <!-- TEXTO CON NIÑOS -->
-        <p class="nota" id="nota-con-ninos" style="display:none;">
-            Nos encantaría que los niños nos acompañen en esta celebración tan especial,
-            les pedimos amablemente su ayuda para supervisarlos durante todo el evento.
-        </p>
-
-        <!-- PASES NIÑOS -->
+        <!-- PASES DE NIÑOS -->
         <p class="pases" id="pases-ninos" style="display:none;">
             Pases para niños: <strong><span id="num-ninos"></span></strong>
         </p>
 
-        <a href="#invitacion" class="btn-principal" id="btn-asistir">Asistir</a>
+        <!-- TEXTO CON NIÑOS -->
+        <p class="nota" id="texto-ninos">
+            Nos encantaría que los niños nos acompañen en esta celebración tan especial,
+            les pedimos amablemente su ayuda para supervisarlos durante todo el evento.
+        </p>
+
+        <!-- TEXTO SIN NIÑOS -->
+        <p class="nota" id="texto-sin-ninos" style="display:none;">
+            Adultos buena noche, niños buenas noches<br>
+            <strong>(no se aceptan niños)</strong>
+        </p>
+
+        <a href="#invitacion" class="btn-principal">Asistir</a>
     </div>
 </section>
 
@@ -129,7 +124,7 @@
         <h2>Confirmación de asistencia</h2>
         <hr>
         <p>Esperamos contar con tu presencia</p>
-        <a class="btn-principal" href="#" id="btn-confirmar">Confirmar asistencia</a>
+        <a class="btn-principal" id="btn-confirmar">Confirmar asistencia</a>
     </div>
 </section>
 
@@ -156,48 +151,34 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll(".animate").forEach(el => observer.observe(el));
 
 /* PARAMETROS URL */
-function getParam(param) {
-    return new URLSearchParams(window.location.search).get(param);
-}
-
-const nombre = getParam("n");
-const adultos = getParam("p");
-const ninos = getParam("k");
+const params = new URLSearchParams(window.location.search);
+const nombre = params.get("n");
+const adultos = params.get("p");
+const ninos = params.get("k");
 
 if (nombre) document.querySelector(".nombre-invitado").textContent = nombre;
 if (adultos) document.querySelector(".pases").textContent = "Pases asignados: " + adultos;
 
-/* NIÑOS */
+/* LOGICA NIÑOS */
 if (ninos && parseInt(ninos) > 0) {
     document.getElementById("num-ninos").textContent = ninos;
     document.getElementById("pases-ninos").style.display = "block";
-    document.getElementById("nota-con-ninos").style.display = "block";
+    document.getElementById("texto-ninos").style.display = "block";
+    document.getElementById("texto-sin-ninos").style.display = "none";
 } else {
-    document.getElementById("nota-sin-ninos").style.display = "block";
+    document.getElementById("texto-ninos").style.display = "none";
+    document.getElementById("texto-sin-ninos").style.display = "block";
 }
 
-/* MUSICA */
-document.getElementById("btn-asistir").addEventListener("click", () => {
-    document.getElementById("musica").play();
-});
-
 /* CONFIRMAR ASISTENCIA */
-const scriptURL = "https://script.google.com/macros/s/AKfycbx6FKMEXGdZD--GLm7FtXlLnap0k01IWfnVNWGLAx7Ch_-TOXN0c5TTTeRrGPoUnolGUg/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycbwSCrPM554YfXVFNolhKFUIitxkKtqWSUnU8Qj6LGZuXgXvsEdOB03WFlu2wVe8TAlEwg/exec";
 
-document.getElementById("btn-confirmar").addEventListener("click", function(e){
+document.getElementById("btn-confirmar").addEventListener("click", function (e) {
     e.preventDefault();
 
-    fetch(scriptURL, {
-        method: "POST",
-        mode: "no-cors",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({
-            adultos: adultos || 0,
-            ninos: ninos || 0
-        })
-    });
-
-    alert("¡Gracias por confirmar tu asistencia!");
+    fetch(`${scriptURL}?adultos=${adultos || 0}&ninos=${ninos || 0}`)
+        .then(() => alert("Asistencia confirmada 💍✨ ¡Gracias!"))
+        .catch(() => alert("Error al confirmar, intenta más tarde"));
 });
 </script>
 
