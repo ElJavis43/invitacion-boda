@@ -1,111 +1,43 @@
-/* RESET Y FIX LINEA BLANCA */
-html, body {
+* {
     margin: 0;
     padding: 0;
-    width: 100%;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cormorant Garamond', serif;
+    background: #000;
+    color: #fff;
     overflow-x: hidden;
 }
 
-* {
-    box-sizing: border-box;
-    max-width: 100%;
-}
-
-/* COLORES */
-:root {
-    --bg: #faf6f2;
-    --accent: #d9c2a3;
-    --text: #4a3b32;
-    --white: #ffffff;
-}
-
-/* TIPOGRAFÍA */
-body {
-    font-family: "Cormorant Garamond", serif;
-    background: var(--bg);
-    color: var(--text);
+.portada {
+    min-height: 100vh;
+    background: url("../img/portada.jpg") center / cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
 }
 
-/* PORTADA */
-.portada {
-    height: 100vh;
-    background: #f3e8dc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.btn-principal, .btn-secundario {
+    padding: 12px 30px;
+    border-radius: 40px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
 }
 
-.portada-contenido {
-    max-width: 600px;
-    padding: 20px;
+.btn-principal {
+    background: #c9a24d;
+    color: #000;
 }
 
-.nombre-invitado {
-    font-family: "Playfair Display", serif;
-    font-size: 2.5rem;
-}
-
-.pases {
-    font-size: 1.1rem;
-}
-
-.nota {
-    font-size: 1rem;
-}
-
-/* HERO */
-.hero {
-    position: relative;
-    height: 100vh;
-    background: url("../images/photo1.webp") center/cover no-repeat;
-}
-
-.overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.35);
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    color: white;
-    padding-top: 120px;
-}
-
-.nombres {
-    font-family: "Playfair Display", serif;
-    font-size: 3rem;
-}
-
-.fecha-grande {
-    font-size: 2rem;
-    margin: 15px 0;
-}
-
-/* CONTADOR */
-.contador {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-.contador div {
-    background: rgba(255,255,255,0.2);
-    padding: 12px;
-    border-radius: 10px;
-}
-
-.contador span {
-    font-size: 1.5rem;
-    display: block;
-}
-
-/* SECCIONES */
 .section {
-    position: relative;
-    padding: 80px 20px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .bg-photo {
@@ -113,74 +45,22 @@ body {
     background-position: center;
 }
 
-.photo1 { background-image: url("../images/photo1.webp"); }
-.photo2 { background-image: url("../images/photo2.webp"); }
-.photo3 { background-image: url("../images/photo3.webp"); }
-.photo4 { background-image: url("../images/photo4.webp"); }
-.photo5 { background-image: url("../images/photo5.webp"); }
-.photo6 { background-image: url("../images/photo6.webp"); }
-.photo7 { background-image: url("../images/photo7.webp"); }
+.photo7 { background-image: url("../img/7.jpg"); }
 
-/* CARD */
 .card {
-    background: rgba(255,255,255,0.88);
-    max-width: 600px;
-    margin: auto;
-    padding: 30px;
-    border-radius: 16px;
+    background: rgba(0,0,0,.65);
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
 }
 
-hr {
-    width: 60px;
-    height: 1px;
-    background: var(--accent);
-    border: none;
-    margin: 20px auto;
-}
-
-/* BOTONES */
-.btn-principal,
-.btn-secundario {
-    display: inline-block;
-    margin: 10px;
-    padding: 12px 22px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.btn-principal {
-    background: var(--accent);
-    color: white;
-}
-
-.btn-secundario {
-    border: 1px solid var(--accent);
-    color: var(--text);
-}
-
-/* ANIMACIONES */
 .animate {
     opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.9s ease;
+    transform: translateY(30px);
+    transition: all 1s ease;
 }
 
 .animate.show {
     opacity: 1;
     transform: translateY(0);
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-    .nombres { font-size: 2.2rem; }
-    .fecha-grande { font-size: 1.6rem; }
-    .card { padding: 20px; }
-}
-
-.nota-sin-ninos {
-    font-size: 0.85rem;
-    font-style: italic;
-    color: #777;
-    margin-top: 4px;
 }
