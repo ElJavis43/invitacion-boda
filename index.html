@@ -9,28 +9,28 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
 
 <!-- CSS -->
-<link rel="stylesheet" href="./styles/style.css">
+<link rel="stylesheet" href="styles/style.css">
 </head>
 
 <body>
 
 <!-- AUDIO -->
 <audio id="musica-fondo" loop preload="auto">
-    <source src="./music/cancion.mp3" type="audio/mpeg">
+<source src="music/cancion.mp3" type="audio/mpeg">
 </audio>
 
 <!-- PORTADA -->
 <section class="portada">
 <div class="portada-contenido animate">
 
-<h1 class="nombre-invitado">Nombre del Invitado</h1>
-<p class="pases">Pases asignados: X</p>
+<h1 class="nombre-invitado">Invitado Especial</h1>
+<p class="pases" id="pases-adultos">Pases asignados: 0</p>
 
 <p class="pases" id="pases-ninos" style="display:none;">
 Pases para niños: <strong><span id="num-ninos"></span></strong>
 </p>
 
-<p class="nota" id="nota-ninos">
+<p class="nota" id="nota-ninos" style="display:none;">
 Nos encantaría que los niños nos acompañen en esta celebración tan especial,
 les pedimos amablemente su ayuda para supervisarlos durante todo el evento.
 </p>
@@ -61,48 +61,112 @@ Adultos buena noche, niños buenas noches<br>
 </div>
 </section>
 
+<!-- PADRES -->
+<section class="section bg-photo photo1">
+<div class="card animate">
+<h2>Con la bendición de Dios y nuestros padres</h2>
+<hr>
+<p>Ma. Dolores Medina Ochoa<br>Javier Ramírez Serna</p>
+<p>María Elena Herrera Riviera<br>Martín Gregorio Fernández Criollo</p>
+</div>
+</section>
+
+<!-- PADRINOS -->
+<section class="section bg-photo photo2">
+<div class="card animate">
+<h2>Nuestros padrinos</h2>
+<hr>
+<p>Elizabeth Velazco Rivera<br>Francisco Javier Medina Ochoa</p>
+</div>
+</section>
+
+<!-- CEREMONIA -->
+<section class="section bg-photo photo3">
+<div class="card animate">
+<h2>Ceremonia</h2>
+<p>Templo Sagrado Corazón de Jesús, <strong>Los Fresnos</strong></p>
+<a class="btn-secundario" href="https://maps.app.goo.gl/MUpYukDipc6vGJq97" target="_blank">Ver ubicación</a>
+
+<hr>
+
+<h2>Recepción</h2>
+<p>Casa de Piedra</p>
+<a class="btn-secundario" href="https://maps.app.goo.gl/w8RjkygRmRbTANPe9" target="_blank">Ver ubicación</a>
+</div>
+</section>
+
+<!-- ITINERARIO -->
+<section class="section bg-photo photo4">
+<div class="card animate">
+<h2>Itinerario</h2>
+<hr>
+<p>Ceremonia religiosa · 05:00 P.M.</p>
+<p>Recepción · 07:00 P.M.</p>
+<p>Boda civil · 07:15 P.M.</p>
+</div>
+</section>
+
+<!-- VESTIMENTA -->
+<section class="section bg-photo photo5">
+<div class="card animate">
+<h2>Código de vestimenta</h2>
+<hr>
+<p><strong>Formal</strong></p>
+<p>Caballeros: Traje</p>
+<p>Damas: Vestido largo (evitar blanco y crema)</p>
+</div>
+</section>
+
+<!-- REGALOS -->
+<section class="section bg-photo photo6">
+<div class="card animate">
+<h2>Mesa de regalos</h2>
+<hr>
+<a class="btn-secundario" href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51904302" target="_blank">Liverpool</a>
+<a class="btn-secundario" href="https://www.sears.com.mx/Mesa-de-Regalos/209704/te-invito-a-mi-boda-edgar-veronica" target="_blank">Sears</a>
+</div>
+</section>
+
 <!-- CONFIRMACION -->
 <section class="section bg-photo photo7">
 <div class="card animate center">
 <h2>Confirmación de asistencia</h2>
 <hr>
 <p>Esperamos contar con tu presencia</p>
-<a href="#" class="btn-principal" id="confirmar">Confirmar asistencia</a>
-<p id="mensaje" style="margin-top:10px;"></p>
+<a class="btn-principal" href="#" id="confirmar">Confirmar asistencia</a>
+<p id="msg-confirmacion" style="display:none;margin-top:10px;">¡Gracias por confirmar!</p>
 </div>
 </section>
 
-<!-- SCRIPT -->
 <script>
 /* CONTADOR */
 const target = new Date("2026-03-14T17:00:00").getTime();
-setInterval(() => {
-const now = new Date().getTime();
-const diff = target - now;
-d.textContent = Math.floor(diff / (1000*60*60*24));
-h.textContent = Math.floor((diff/(1000*60*60))%24);
-m.textContent = Math.floor((diff/(1000*60))%60);
-s.textContent = Math.floor((diff/1000)%60);
+setInterval(()=>{
+const now=new Date().getTime();
+const diff=target-now;
+d.textContent=Math.floor(diff/(1000*60*60*24));
+h.textContent=Math.floor((diff/(1000*60*60))%24);
+m.textContent=Math.floor((diff/(1000*60))%60);
+s.textContent=Math.floor((diff/1000)%60);
 },1000);
 
 /* ANIMACIONES */
-const observer = new IntersectionObserver(entries=>{
-entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add("show"); });
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("show");});
 },{threshold:0.2});
 document.querySelectorAll(".animate").forEach(el=>observer.observe(el));
 
 /* PARAMETROS */
-const params = new URLSearchParams(window.location.search);
-const nombre = params.get("n");
-const pases = params.get("p");
-const ninos = params.get("k");
+const params=new URLSearchParams(window.location.search);
+const nombre=params.get("n");
+const pases=params.get("p");
+const ninos=params.get("k");
 
-if(nombre) document.querySelector(".nombre-invitado").textContent = nombre;
-if(pases) document.querySelector(".pases").textContent = "Pases asignados: "+pases;
+if(nombre)document.querySelector(".nombre-invitado").textContent=nombre;
+if(pases)document.getElementById("pases-adultos").textContent="Pases asignados: "+pases;
 
-/* NIÑOS */
 if(ninos && parseInt(ninos)>0){
-document.getElementById("num-ninos").textContent = ninos;
+document.getElementById("num-ninos").textContent=ninos;
 document.getElementById("pases-ninos").style.display="block";
 document.getElementById("nota-ninos").style.display="block";
 document.getElementById("saludo-ninos").style.display="none";
@@ -112,26 +176,26 @@ document.getElementById("saludo-ninos").style.display="block";
 }
 
 /* MUSICA */
-const musica = document.getElementById("musica-fondo");
+const musica=document.getElementById("musica-fondo");
 document.getElementById("btn-asistir").addEventListener("click",()=>{
 musica.load();
 musica.volume=0.6;
-musica.play();
+musica.play().catch(()=>{});
 });
 
 /* CONFIRMAR */
-document.getElementById("confirmar").addEventListener("click", e=>{
+document.getElementById("confirmar").addEventListener("click",(e)=>{
 e.preventDefault();
-
-fetch("https://script.google.com/macros/s/AKfycbwMNS1cALxtTDfLkIYliw23gLPwUu87BeRjSH9BAMw2y_l_LUeJoAqc2XeMhhW8YE6UWg/exec",{
+fetch("https://script.google.com/macros/s/AKfycbxJxnRKY51wny0Ydz8-9rcge1bwVF24ZzvzC8acZHAiPy6zr5IsbWCluece4T2iorWNmw/exec",{
 method:"POST",
 body:new URLSearchParams({
+nombre:nombre||"",
 adultos:pases||0,
 ninos:ninos||0
 })
-})
-.then(()=>document.getElementById("mensaje").textContent="✅ Asistencia confirmada")
-.catch(()=>document.getElementById("mensaje").textContent="❌ Error al guardar");
+}).then(()=>{
+document.getElementById("msg-confirmacion").style.display="block";
+});
 });
 </script>
 
