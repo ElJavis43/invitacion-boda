@@ -14,7 +14,7 @@
 <body>
 
 <!-- AUDIO -->
-<audio id="musica-fondo" loop>
+<audio id="musica-fondo" preload="auto" loop>
     <source src="music/cancion.mp3" type="audio/mpeg">
 </audio>
 
@@ -31,16 +31,16 @@
             Pases para niños: <strong><span id="num-ninos"></span></strong>
         </p>
 
-        <!-- TEXTO CON NIÑOS -->
+        <!-- TEXTO CUANDO HAY NIÑOS -->
         <p class="nota" id="nota-ninos">
             Nos encantaría que los niños nos acompañen en esta celebración tan especial,
             les pedimos amablemente su ayuda para supervisarlos durante todo el evento.
         </p>
 
-        <!-- TEXTO SIN NIÑOS -->
+        <!-- TEXTO CUANDO NO HAY NIÑOS -->
         <p class="nota" id="saludo-ninos" style="display:none;">
             Adultos buena noche, niños buenas noches<br>
-            <strong>(no se aceptan niños)</strong>
+            <small>(no se aceptan niños)</small>
         </p>
 
         <a href="#invitacion" class="btn-principal" id="btn-asistir">Asistir</a>
@@ -153,7 +153,6 @@ const observer = new IntersectionObserver(entries => {
         if (entry.isIntersecting) entry.target.classList.add("show");
     });
 }, { threshold: 0.2 });
-
 document.querySelectorAll(".animate").forEach(el => observer.observe(el));
 
 /* PARAMETROS URL */
@@ -161,6 +160,7 @@ const params = new URLSearchParams(window.location.search);
 const nombre = params.get("n");
 const pases = params.get("p");
 const ninos = params.get("k");
+const fila  = params.get("r");
 
 if (nombre) document.querySelector(".nombre-invitado").textContent = nombre;
 if (pases) document.querySelector(".pases").textContent = "Pases asignados: " + pases;
@@ -178,19 +178,27 @@ if (ninos && parseInt(ninos) > 0) {
 }
 
 /* MUSICA */
-document.getElementById("btn-asistir").addEventListener("click", () => {
-    const musica = document.getElementById("musica-fondo");
+const btnAsistir = document.getElementById("btn-asistir");
+const musica = document.getElementById("musica-fondo");
+
+btnAsistir.addEventListener("click", () => {
     musica.volume = 0.5;
-    musica.play().catch(()=>{});
+    musica.play().catch(() => {});
 });
 
-/* CONFIRMAR ASISTENCIA (GUARDA EN SHEETS) */
+/* CONFIRMACION */
 document.getElementById("confirmar").addEventListener("click", function(e) {
     e.preventDefault();
 
+    if (!fila) {
+        alert("Error: invitado no identificado");
+        return;
+    }
+
     const url =
-      "https://script.google.com/macros/s/AKfycbxOtl0uZNiaik9H0n_fmMQabsJ8W2emAnX6pJxMWV2d6QA-O22UmpdvTETPbmvVpQifCw/exec"
-      + "?adultos=" + encodeURIComponent(pases || 0)
+      "https://script.google.com/macros/s/AKfycbykW1VLku4t_2lM1IlDuq9t4Pq7oB6N1IxgQ2IiTEHIyUF6r-rEK1Y5IpttHx3BzLS1BA/exec"
+      + "?fila=" + encodeURIComponent(fila)
+      + "&adultos=" + encodeURIComponent(pases || 0)
       + "&ninos=" + encodeURIComponent(ninos || 0)
       + "&_=" + new Date().getTime();
 
