@@ -1,43 +1,49 @@
-* {
+html, body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Cormorant Garamond', serif;
-    background: #000;
-    color: #fff;
+    width: 100%;
     overflow-x: hidden;
 }
 
-.portada {
-    min-height: 100vh;
-    background: url("../img/portada.jpg") center / cover no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+body {
+    font-family: "Cormorant Garamond", serif;
+    background: #faf6f2;
+    color: #4a3b32;
     text-align: center;
 }
 
-.btn-principal, .btn-secundario {
-    padding: 12px 30px;
-    border-radius: 40px;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 20px;
-}
-
-.btn-principal {
-    background: #c9a24d;
-    color: #000;
-}
-
-.section {
-    min-height: 100vh;
+/* PORTADA */
+.portada {
+    height: 100vh;
+    background: url("../images/photo1.webp") center/cover no-repeat;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+}
+
+/* HERO */
+.hero {
+    position: relative;
+    height: 100vh;
+    background: url("../images/photo2.webp") center/cover no-repeat;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: white;
+    padding-top: 120px;
+}
+
+/* SECCIONES */
+.section {
+    padding: 80px 20px;
 }
 
 .bg-photo {
@@ -45,19 +51,34 @@ body {
     background-position: center;
 }
 
-.photo7 { background-image: url("../img/7.jpg"); }
-
-.card {
-    background: rgba(0,0,0,.65);
-    padding: 40px;
-    border-radius: 12px;
-    text-align: center;
+.photo7 {
+    background-image: url("../images/photo7.webp");
 }
 
+/* CARD */
+.card {
+    background: rgba(255,255,255,0.88);
+    max-width: 600px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 16px;
+}
+
+/* BOTONES */
+.btn-principal {
+    display: inline-block;
+    padding: 12px 22px;
+    background: #d9c2a3;
+    color: white;
+    border-radius: 25px;
+    text-decoration: none;
+}
+
+/* ANIMACIONES */
 .animate {
     opacity: 0;
-    transform: translateY(30px);
-    transition: all 1s ease;
+    transform: translateY(40px);
+    transition: all 0.9s ease;
 }
 
 .animate.show {
