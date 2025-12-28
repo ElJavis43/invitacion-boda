@@ -1,3 +1,4 @@
+/* RESET Y FIX LINEA BLANCA */
 html, body {
     margin: 0;
     padding: 0;
@@ -5,27 +6,59 @@ html, body {
     overflow-x: hidden;
 }
 
+* {
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+/* COLORES */
+:root {
+    --bg: #faf6f2;
+    --accent: #d9c2a3;
+    --text: #4a3b32;
+    --white: #ffffff;
+}
+
+/* TIPOGRAFÍA */
 body {
     font-family: "Cormorant Garamond", serif;
-    background: #faf6f2;
-    color: #4a3b32;
+    background: var(--bg);
+    color: var(--text);
     text-align: center;
 }
 
 /* PORTADA */
 .portada {
     height: 100vh;
-    background: url("../images/photo1.webp") center/cover no-repeat;
+    background: #f3e8dc;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.portada-contenido {
+    max-width: 600px;
+    padding: 20px;
+}
+
+.nombre-invitado {
+    font-family: "Playfair Display", serif;
+    font-size: 2.5rem;
+}
+
+.pases {
+    font-size: 1.1rem;
+}
+
+.nota {
+    font-size: 1rem;
 }
 
 /* HERO */
 .hero {
     position: relative;
     height: 100vh;
-    background: url("../images/photo2.webp") center/cover no-repeat;
+    background: url("../images/photo1.webp") center/cover no-repeat;
 }
 
 .overlay {
@@ -41,8 +74,37 @@ body {
     padding-top: 120px;
 }
 
+.nombres {
+    font-family: "Playfair Display", serif;
+    font-size: 3rem;
+}
+
+.fecha-grande {
+    font-size: 2rem;
+    margin: 15px 0;
+}
+
+/* CONTADOR */
+.contador {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.contador div {
+    background: rgba(255,255,255,0.2);
+    padding: 12px;
+    border-radius: 10px;
+}
+
+.contador span {
+    font-size: 1.5rem;
+    display: block;
+}
+
 /* SECCIONES */
 .section {
+    position: relative;
     padding: 80px 20px;
 }
 
@@ -51,9 +113,13 @@ body {
     background-position: center;
 }
 
-.photo7 {
-    background-image: url("../images/photo7.webp");
-}
+.photo1 { background-image: url("../images/photo1.webp"); }
+.photo2 { background-image: url("../images/photo2.webp"); }
+.photo3 { background-image: url("../images/photo3.webp"); }
+.photo4 { background-image: url("../images/photo4.webp"); }
+.photo5 { background-image: url("../images/photo5.webp"); }
+.photo6 { background-image: url("../images/photo6.webp"); }
+.photo7 { background-image: url("../images/photo7.webp"); }
 
 /* CARD */
 .card {
@@ -64,14 +130,33 @@ body {
     border-radius: 16px;
 }
 
+hr {
+    width: 60px;
+    height: 1px;
+    background: var(--accent);
+    border: none;
+    margin: 20px auto;
+}
+
 /* BOTONES */
-.btn-principal {
+.btn-principal,
+.btn-secundario {
     display: inline-block;
+    margin: 10px;
     padding: 12px 22px;
-    background: #d9c2a3;
-    color: white;
     border-radius: 25px;
     text-decoration: none;
+    font-weight: 600;
+}
+
+.btn-principal {
+    background: var(--accent);
+    color: white;
+}
+
+.btn-secundario {
+    border: 1px solid var(--accent);
+    color: var(--text);
 }
 
 /* ANIMACIONES */
@@ -84,4 +169,11 @@ body {
 .animate.show {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .nombres { font-size: 2.2rem; }
+    .fecha-grande { font-size: 1.6rem; }
+    .card { padding: 20px; }
 }
