@@ -186,14 +186,23 @@ musica.play().catch(()=>{});
 /* CONFIRMAR */
 document.getElementById("confirmar").addEventListener("click",(e)=>{
 e.preventDefault();
-fetch("https://script.google.com/macros/s/AKfycbxJxnRKY51wny0Ydz8-9rcge1bwVF24ZzvzC8acZHAiPy6zr5IsbWCluece4T2iorWNmw/exec",{
-method:"POST",
-body:new URLSearchParams({
-nombre:nombre||"",
-adultos:pases||0,
-ninos:ninos||0
-})
-}).then(()=>{
+<script>
+document.getElementById("confirmar").addEventListener("click", function(e) {
+    e.preventDefault();
+
+    const url = "https://script.google.com/macros/s/AKfycbynk6BondIkr88x-HCJm0_zvyixs3nylGTOduCHGbn3JJSg-sB3PzQ6Mi6HBUkGfWSHPQ/exec"
+        + "?adultos=" + encodeURIComponent(pases || 0)
+        + "&ninos=" + encodeURIComponent(ninos || 0);
+
+    // Llamada silenciosa (NO redirige)
+    fetch(url, { mode: "no-cors" });
+
+    document.getElementById("msg-confirmacion").style.display = "block";
+});
+</script>
+
+                                                      
+.then(()=>{
 document.getElementById("msg-confirmacion").style.display="block";
 });
 });
