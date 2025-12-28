@@ -1,152 +1,139 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invitación Karla & Edgar</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invitación Karla & Edgar</title>
 
-    <!-- FUENTES -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+<!-- FUENTES -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="styles/style.css">
+<!-- CSS -->
+<link rel="stylesheet" href="./styles/style.css">
 </head>
+
 <body>
 
 <!-- AUDIO -->
 <audio id="musica-fondo" loop preload="auto">
-    <source src="music/cancion.mp3" type="audio/mpeg">
+    <source src="./music/cancion.mp3" type="audio/mpeg">
 </audio>
 
 <!-- PORTADA -->
 <section class="portada">
-    <div class="portada-contenido animate">
+<div class="portada-contenido animate">
 
-        <h1 class="nombre-invitado">Nombre del Invitado</h1>
+<h1 class="nombre-invitado">Nombre del Invitado</h1>
+<p class="pases">Pases asignados: X</p>
 
-        <p class="pases">Pases asignados: X</p>
+<p class="pases" id="pases-ninos" style="display:none;">
+Pases para niños: <strong><span id="num-ninos"></span></strong>
+</p>
 
-        <!-- PASES NIÑOS -->
-        <p class="pases" id="pases-ninos" style="display:none;">
-            Pases para niños: <strong><span id="num-ninos"></span></strong>
-        </p>
+<p class="nota" id="nota-ninos">
+Nos encantaría que los niños nos acompañen en esta celebración tan especial,
+les pedimos amablemente su ayuda para supervisarlos durante todo el evento.
+</p>
 
-        <!-- TEXTO CUANDO HAY NIÑOS -->
-        <p class="nota" id="nota-ninos">
-            Nos encantaría que los niños nos acompañen en esta celebración tan especial,
-            les pedimos amablemente su ayuda para supervisarlos durante todo el evento.
-        </p>
+<p class="nota" id="saludo-ninos" style="display:none;">
+Adultos buena noche, niños buenas noches<br>
+<strong>(no se aceptan niños)</strong>
+</p>
 
-        <!-- TEXTO CUANDO NO HAY NIÑOS -->
-        <p class="nota" id="saludo-ninos" style="display:none;">
-            Adultos buena noche, niños buenas noches<br>
-            <strong>(no se aceptan niños)</strong>
-        </p>
-
-        <a href="#invitacion" class="btn-principal" id="btn-asistir">Asistir</a>
-    </div>
+<a href="#invitacion" class="btn-principal" id="btn-asistir">Asistir</a>
+</div>
 </section>
 
 <!-- HERO -->
 <section class="hero" id="invitacion">
-    <div class="overlay"></div>
-    <div class="hero-content animate">
-        <h1 class="nombres">Karla & Edgar</h1>
-        <p class="frase">Hemos decidido decir “sí” para toda la vida</p>
-        <p class="fecha-grande">14 · Marzo · 2026</p>
+<div class="overlay"></div>
+<div class="hero-content animate">
+<h1 class="nombres">Karla & Edgar</h1>
+<p class="frase">Hemos decidido decir “sí” para toda la vida</p>
+<p class="fecha-grande">14 · Marzo · 2026</p>
 
-        <div class="contador">
-            <div><span id="d">0</span><small>Días</small></div>
-            <div><span id="h">0</span><small>Horas</small></div>
-            <div><span id="m">0</span><small>Min</small></div>
-            <div><span id="s">0</span><small>Seg</small></div>
-        </div>
-    </div>
+<div class="contador">
+<div><span id="d">0</span><small>Días</small></div>
+<div><span id="h">0</span><small>Horas</small></div>
+<div><span id="m">0</span><small>Min</small></div>
+<div><span id="s">0</span><small>Seg</small></div>
+</div>
+</div>
 </section>
 
 <!-- CONFIRMACION -->
 <section class="section bg-photo photo7">
-    <div class="card animate center">
-        <h2>Confirmación de asistencia</h2>
-        <hr>
-        <p>Esperamos contar con tu presencia</p>
-        <a class="btn-principal" href="#" id="confirmar">Confirmar asistencia</a>
-        <p id="mensaje-confirmacion"></p>
-    </div>
+<div class="card animate center">
+<h2>Confirmación de asistencia</h2>
+<hr>
+<p>Esperamos contar con tu presencia</p>
+<a href="#" class="btn-principal" id="confirmar">Confirmar asistencia</a>
+<p id="mensaje" style="margin-top:10px;"></p>
+</div>
 </section>
 
-<!-- SCRIPTS -->
+<!-- SCRIPT -->
 <script>
 /* CONTADOR */
 const target = new Date("2026-03-14T17:00:00").getTime();
 setInterval(() => {
-    const now = new Date().getTime();
-    const diff = target - now;
-    d.innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
-    h.innerText = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    m.innerText = Math.floor((diff / (1000 * 60)) % 60);
-    s.innerText = Math.floor((diff / 1000) % 60);
-}, 1000);
+const now = new Date().getTime();
+const diff = target - now;
+d.textContent = Math.floor(diff / (1000*60*60*24));
+h.textContent = Math.floor((diff/(1000*60*60))%24);
+m.textContent = Math.floor((diff/(1000*60))%60);
+s.textContent = Math.floor((diff/1000)%60);
+},1000);
 
 /* ANIMACIONES */
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add("show");
-    });
-}, { threshold: 0.2 });
+const observer = new IntersectionObserver(entries=>{
+entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add("show"); });
+},{threshold:0.2});
+document.querySelectorAll(".animate").forEach(el=>observer.observe(el));
 
-document.querySelectorAll(".animate").forEach(el => observer.observe(el));
-
-/* PARAMETROS URL */
+/* PARAMETROS */
 const params = new URLSearchParams(window.location.search);
 const nombre = params.get("n");
 const pases = params.get("p");
-const ninos = params.get("k") || 0;
+const ninos = params.get("k");
 
-if (nombre) document.querySelector(".nombre-invitado").textContent = nombre;
-if (pases) document.querySelector(".pases").textContent = "Pases asignados: " + pases;
+if(nombre) document.querySelector(".nombre-invitado").textContent = nombre;
+if(pases) document.querySelector(".pases").textContent = "Pases asignados: "+pases;
 
-/* LOGICA NIÑOS */
-if (parseInt(ninos) > 0) {
-    document.getElementById("num-ninos").textContent = ninos;
-    document.getElementById("pases-ninos").style.display = "block";
-    document.getElementById("nota-ninos").style.display = "block";
-    document.getElementById("saludo-ninos").style.display = "none";
-} else {
-    document.getElementById("pases-ninos").style.display = "none";
-    document.getElementById("nota-ninos").style.display = "none";
-    document.getElementById("saludo-ninos").style.display = "block";
+/* NIÑOS */
+if(ninos && parseInt(ninos)>0){
+document.getElementById("num-ninos").textContent = ninos;
+document.getElementById("pases-ninos").style.display="block";
+document.getElementById("nota-ninos").style.display="block";
+document.getElementById("saludo-ninos").style.display="none";
+}else{
+document.getElementById("nota-ninos").style.display="none";
+document.getElementById("saludo-ninos").style.display="block";
 }
 
 /* MUSICA */
 const musica = document.getElementById("musica-fondo");
-document.getElementById("btn-asistir").addEventListener("click", (e) => {
-    e.preventDefault();
-    musica.volume = 0.5;
-    musica.play().catch(() => {});
-    document.getElementById("invitacion").scrollIntoView({ behavior: "smooth" });
+document.getElementById("btn-asistir").addEventListener("click",()=>{
+musica.load();
+musica.volume=0.6;
+musica.play();
 });
 
-/* CONFIRMAR ASISTENCIA → GOOGLE SHEETS */
-document.getElementById("confirmar").addEventListener("click", (e) => {
-    e.preventDefault();
+/* CONFIRMAR */
+document.getElementById("confirmar").addEventListener("click", e=>{
+e.preventDefault();
 
-    fetch("https://script.google.com/macros/s/AKfycbyytHxWG3R-ya8L1tfUbKw69cjEWm0ZaCrhOYzaVk4da0-Wts-AenepcSlpWGLHXl7T_Q/exec", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: `adultos=${pases}&ninos=${ninos}`
-    })
-    .then(() => {
-        document.getElementById("mensaje-confirmacion").textContent =
-            "Asistencia confirmada correctamente 💍";
-    })
-    .catch(() => {
-        document.getElementById("mensaje-confirmacion").textContent =
-            "Error al confirmar, intenta más tarde.";
-    });
+fetch("https://script.google.com/macros/s/AKfycbwMNS1cALxtTDfLkIYliw23gLPwUu87BeRjSH9BAMw2y_l_LUeJoAqc2XeMhhW8YE6UWg/exec",{
+method:"POST",
+body:new URLSearchParams({
+adultos:pases||0,
+ninos:ninos||0
+})
+})
+.then(()=>document.getElementById("mensaje").textContent="✅ Asistencia confirmada")
+.catch(()=>document.getElementById("mensaje").textContent="❌ Error al guardar");
 });
 </script>
 
 </body>
 </html>
-
