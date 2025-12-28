@@ -5,34 +5,32 @@
     <title>Invitación Karla & Edgar</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- FUENTES -->
+    <!-- FUENTES ORIGINALES -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
 
-    <!-- CSS (ruta segura) -->
-    <link rel="stylesheet" href="./styles/style.css">
+    <!-- CSS CORRECTO -->
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 
-<body style="background:#000;color:#fff;">
+<body>
 
 <!-- AUDIO -->
 <audio id="musica" preload="auto" loop>
-    <source src="./audio/cancion.mp3" type="audio/mpeg">
+    <source src="audio/cancion.mp3" type="audio/mpeg">
 </audio>
 
 <!-- PORTADA -->
 <section class="portada">
     <div class="portada-contenido animate">
-        <h1 class="nombre-invitado">Invitado</h1>
+        <h1 class="nombre-invitado">Nombre del Invitado</h1>
 
-        <p class="pases">Pases asignados: 0</p>
+        <p class="pases">Pases asignados: X</p>
 
-        <!-- SIN NIÑOS -->
         <p id="texto-sin-ninos" class="nota" style="display:none;">
             Adultos buena noche, niños buenas noches<br>
             <strong>(no se aceptan niños)</strong>
         </p>
 
-        <!-- CON NIÑOS -->
         <p id="texto-con-ninos" class="nota" style="display:none;">
             Nos encantaría que los niños nos acompañen en esta celebración tan especial,
             les pedimos amablemente su ayuda para supervisarlos durante todo el evento.
@@ -59,7 +57,7 @@
     </div>
 </section>
 
-<!-- CONFIRMACIÓN -->
+<!-- CONFIRMACION -->
 <section class="section bg-photo photo7">
     <div class="card animate center">
         <h2>Confirmación de asistencia</h2>
@@ -70,30 +68,12 @@
     </div>
 </section>
 
-<!-- SCRIPTS -->
 <script>
-/* CONTADOR */
-const target = new Date("2026-03-14T17:00:00").getTime();
-setInterval(() => {
-    const now = Date.now();
-    const diff = target - now;
-    document.getElementById("d").textContent = Math.max(0, Math.floor(diff / 86400000));
-    document.getElementById("h").textContent = Math.max(0, Math.floor(diff / 3600000) % 24);
-    document.getElementById("m").textContent = Math.max(0, Math.floor(diff / 60000) % 60);
-    document.getElementById("s").textContent = Math.max(0, Math.floor(diff / 1000) % 60);
-}, 1000);
-
-/* ANIMACIONES */
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => e.isIntersecting && e.target.classList.add("show"));
-});
-document.querySelectorAll(".animate").forEach(el => observer.observe(el));
-
-/* PARAMETROS */
-const p = new URLSearchParams(window.location.search);
-const nombre = p.get("n");
-const adultos = p.get("p");
-const ninos = p.get("k");
+/* PARAMETROS URL */
+const params = new URLSearchParams(window.location.search);
+const nombre = params.get("n");
+const adultos = params.get("p");
+const ninos = params.get("k");
 
 if (nombre) document.querySelector(".nombre-invitado").textContent = nombre;
 if (adultos) document.querySelector(".pases").textContent = "Pases asignados: " + adultos;
@@ -106,19 +86,17 @@ if (ninos && Number(ninos) > 0) {
 
 /* MUSICA */
 document.getElementById("btn-asistir").addEventListener("click", () => {
-    const audio = document.getElementById("musica");
-    audio.muted = false;
-    audio.play().catch(()=>{});
+    document.getElementById("musica").play().catch(()=>{});
 });
 
-/* CONFIRMAR */
+/* CONFIRMACION */
 document.getElementById("btn-confirmar").addEventListener("click", () => {
     fetch("https://script.google.com/macros/s/AKfycbwMNS1cALxtTDfLkIYliw23gLPwUu87BeRjSH9BAMw2y_l_LUeJoAqc2XeMhhW8YE6UWg/exec", {
         method: "POST",
         body: JSON.stringify({ nombre, adultos, ninos })
-    })
-    .then(() => {
-        document.getElementById("mensaje-confirmacion").textContent = "Asistencia confirmada 💍";
+    }).then(() => {
+        document.getElementById("mensaje-confirmacion").textContent =
+            "Asistencia confirmada 💍";
     });
 });
 </script>
