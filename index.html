@@ -179,32 +179,21 @@ if (ninos && parseInt(ninos) > 0) {
 }
 
 /* MUSICA */
-const btnAsistir = document.getElementById("btn-asistir");
 const musica = document.getElementById("musica-fondo");
+const btnAsistir = document.getElementById("btn-asistir");
 
-let musicaIniciada = false;
+let musicaYaInicio = false;
 
-btnAsistir.addEventListener("click", function (e) {
-    e.preventDefault(); // ⛔ evita que navegue primero
+btnAsistir.addEventListener("click", function () {
+    if (!musicaYaInicio) {
+        musica.volume = 0.5;
 
-    if (!musicaIniciada) {
-        musica.volume = 0.6;
-        musica.load();
-
-        musica.play()
-            .then(() => {
-                musicaIniciada = true;
-                console.log("🎵 Música iniciada");
-            })
-            .catch(err => {
-                console.log("❌ Audio bloqueado:", err);
-            });
+        musica.play().then(() => {
+            musicaYaInicio = true;
+        }).catch(() => {
+            // silencio si el navegador bloquea, pero no rompe nada
+        });
     }
-
-    // scroll manual DESPUÉS del click
-    document.querySelector("#invitacion").scrollIntoView({
-        behavior: "smooth"
-    });
 });
 
 /* CONFIRMACION */
