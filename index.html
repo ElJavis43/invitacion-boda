@@ -14,7 +14,7 @@
 <body>
 
 <!-- AUDIO -->
-<audio id="musica-fondo" loop playsinline>
+<audio id="musica-fondo" loop preload="auto">
     <source src="music/cancion.mp3" type="audio/mpeg">
 </audio>
 
@@ -43,7 +43,8 @@
             <small>(no se aceptan niños)</small>
         </p>
 
-        <a href="javascript:void(0)" class="btn-principal" id="btn-asistir">Asistir</a>
+        <a href="#invitacion" class="btn-principal" id="btn-asistir" onclick="iniciarMusica()">Asistir</a>
+
         
     </div>
 </section>
@@ -179,20 +180,13 @@ if (ninos && parseInt(ninos) > 0) {
 }
 
 /* MUSICA */
-const musica = document.getElementById("musica-fondo");
-const btnAsistir = document.getElementById("btn-asistir");
-
-btnAsistir.addEventListener("click", () => {
-
-    // 🔊 Iniciar música (gesto válido)
-    musica.volume = 0.5;
-    musica.play().catch(() => {});
-
-    // ⬇️ Scroll manual (en lugar de href)
-    document.getElementById("invitacion").scrollIntoView({
-        behavior: "smooth"
+function iniciarMusica() {
+    const audio = document.getElementById("musica-fondo");
+    audio.volume = 0.5;
+    audio.play().catch(err => {
+        console.log("Audio bloqueado:", err);
     });
-});
+}
 
 /* CONFIRMACION */
 document.getElementById("confirmar").addEventListener("click", function(e) {
