@@ -14,7 +14,7 @@
 <body>
 
 <!-- AUDIO -->
-<audio id="musica-fondo" preload="auto" loop>
+<audio id="musica-fondo" loop playsinline>
     <source src="music/cancion.mp3" type="audio/mpeg">
 </audio>
 
@@ -44,6 +44,7 @@
         </p>
 
         <a href="#invitacion" class="btn-principal" id="btn-asistir">Asistir</a>
+        
     </div>
 </section>
 
@@ -181,9 +182,29 @@ if (ninos && parseInt(ninos) > 0) {
 const btnAsistir = document.getElementById("btn-asistir");
 const musica = document.getElementById("musica-fondo");
 
-btnAsistir.addEventListener("click", () => {
-    musica.volume = 0.5;
-    musica.play().catch(() => {});
+let musicaIniciada = false;
+
+btnAsistir.addEventListener("click", function (e) {
+    e.preventDefault(); // ⛔ evita que navegue primero
+
+    if (!musicaIniciada) {
+        musica.volume = 0.6;
+        musica.load();
+
+        musica.play()
+            .then(() => {
+                musicaIniciada = true;
+                console.log("🎵 Música iniciada");
+            })
+            .catch(err => {
+                console.log("❌ Audio bloqueado:", err);
+            });
+    }
+
+    // scroll manual DESPUÉS del click
+    document.querySelector("#invitacion").scrollIntoView({
+        behavior: "smooth"
+    });
 });
 
 /* CONFIRMACION */
