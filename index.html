@@ -181,23 +181,10 @@ if (ninos && parseInt(ninos) > 0) {
 const btnAsistir = document.getElementById("btn-asistir");
 const musica = document.getElementById("musica-fondo");
 
-btnAsistir.addEventListener("click", function () {
-
+btnAsistir.addEventListener("click", () => {
     musica.volume = 0.5;
-
-    const playPromise = musica.play();
-
-    if (playPromise !== undefined) {
-        playPromise
-            .then(() => {
-                console.log("🎵 Música reproduciéndose");
-            })
-            .catch(error => {
-                console.log("⛔ Navegador bloqueó la música", error);
-            });
-    }
-
-})
+    musica.play().catch(() => {});
+});
 
 /* CONFIRMACION */
 document.getElementById("confirmar").addEventListener("click", function(e) {
