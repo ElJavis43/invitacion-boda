@@ -43,7 +43,7 @@
             <small>(no se aceptan niños)</small>
         </p>
 
-        <a href="#invitacion" class="btn-principal" id="btn-asistir">Asistir</a>
+        <a href="javascript:void(0)" class="btn-principal" id="btn-asistir">Asistir</a>
         
     </div>
 </section>
@@ -182,18 +182,16 @@ if (ninos && parseInt(ninos) > 0) {
 const musica = document.getElementById("musica-fondo");
 const btnAsistir = document.getElementById("btn-asistir");
 
-let musicaYaInicio = false;
+btnAsistir.addEventListener("click", () => {
 
-btnAsistir.addEventListener("click", function () {
-    if (!musicaYaInicio) {
-        musica.volume = 0.5;
+    // 🔊 Iniciar música (gesto válido)
+    musica.volume = 0.5;
+    musica.play().catch(() => {});
 
-        musica.play().then(() => {
-            musicaYaInicio = true;
-        }).catch(() => {
-            // silencio si el navegador bloquea, pero no rompe nada
-        });
-    }
+    // ⬇️ Scroll manual (en lugar de href)
+    document.getElementById("invitacion").scrollIntoView({
+        behavior: "smooth"
+    });
 });
 
 /* CONFIRMACION */
