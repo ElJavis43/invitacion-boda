@@ -14,7 +14,7 @@
 <body>
 
 <!-- AUDIO -->
-<audio id="musica-fondo" loop preload="auto">
+<audio id="musica-fondo" preload="auto" loop>
     <source src="music/cancion.mp3" type="audio/mpeg">
 </audio>
 
@@ -40,7 +40,7 @@
         <!-- TEXTO CUANDO NO HAY NIÑOS -->
         <p class="nota" id="saludo-ninos" style="display:none;">
             Adultos buena noche, niños buenas noches<br>
-            <strong>(no se aceptan niños)</strong>
+            <small>(no se aceptan niños)</small>
         </p>
 
         <a href="#invitacion" class="btn-principal" id="btn-asistir">Asistir</a>
@@ -153,7 +153,6 @@ const observer = new IntersectionObserver(entries => {
         if (entry.isIntersecting) entry.target.classList.add("show");
     });
 }, { threshold: 0.2 });
-
 document.querySelectorAll(".animate").forEach(el => observer.observe(el));
 
 /* PARAMETROS URL */
@@ -161,6 +160,7 @@ const params = new URLSearchParams(window.location.search);
 const nombre = params.get("n");
 const pases = params.get("p");
 const ninos = params.get("k");
+const fila  = params.get("r");
 
 if (nombre) document.querySelector(".nombre-invitado").textContent = nombre;
 if (pases) document.querySelector(".pases").textContent = "Pases asignados: " + pases;
@@ -177,19 +177,50 @@ if (ninos && parseInt(ninos) > 0) {
     document.getElementById("saludo-ninos").style.display = "block";
 }
 
-/* 🎵 MUSICA – SOLUCIÓN DEFINITIVA */
+/* MUSICA */
 const btnAsistir = document.getElementById("btn-asistir");
 const musica = document.getElementById("musica-fondo");
 
 btnAsistir.addEventListener("click", function () {
+
     musica.volume = 0.5;
 
     const playPromise = musica.play();
+
     if (playPromise !== undefined) {
-        playPromise.catch(error => {
-            console.log("Música bloqueada por el navegador", error);
-        });
+        playPromise
+            .then(() => {
+                console.log("🎵 Música reproduciéndose");
+            })
+            .catch(error => {
+                console.log("⛔ Navegador bloqueó la música", error);
+            });
     }
+
+})
+
+/* CONFIRMACION */
+document.getElementById("confirmar").addEventListener("click", function(e) {
+    e.preventDefault();
+
+    if (!fila) {
+        alert("Error: invitado no identificado");
+        return;
+    }
+
+    const url =
+      "https://script.google.com/macros/s/AKfycbykW1VLku4t_2lM1IlDuq9t4Pq7oB6N1IxgQ2IiTEHIyUF6r-rEK1Y5IpttHx3BzLS1BA/exec"
+      + "?fila=" + encodeURIComponent(fila)
+      + "&adultos=" + encodeURIComponent(pases || 0)
+      + "&ninos=" + encodeURIComponent(ninos || 0)
+      + "&_=" + new Date().getTime();
+
+    const img = document.createElement("img");
+    img.src = url;
+    img.style.display = "none";
+    document.body.appendChild(img);
+
+    alert("Asistencia confirmada 💖");
 });
 </script>
 
